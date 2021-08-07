@@ -12,7 +12,7 @@ spec:
       version: '0.4.19'
       sourceRef:
         kind: HelmRepository
-        name: authelia
+        name: authelia-charts
         namespace: flux-system
   interval: 1m
   install:
