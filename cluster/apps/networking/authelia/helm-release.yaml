@@ -61,7 +61,8 @@ spec:
 
         rules:
         - domain: "2048.${SECRET_DOMAIN}"
-          policy: two_factor
+          policy: one_factor
+          #policy: two_factor // Requires persistence
           networks:
           - home
           subject:
