@@ -54,10 +54,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - "homer.${SECRET_DOMAIN}"
+    - "2048.${SECRET_DOMAIN}"
     secretName: game-tls
   rules:
-  - host: "homer.${SECRET_DOMAIN}"
+  - host: "2048.${SECRET_DOMAIN}"
     http:
       paths:
       - path: /
