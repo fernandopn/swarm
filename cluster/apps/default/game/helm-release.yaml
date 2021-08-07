@@ -1,0 +1,69 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: game-deployment
+  labels:
+    app: game-pod
+    skipUpdate: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: game-pod
+  template:
+    metadata:
+      labels:
+        app: game-pod
+    spec:
+      containers:
+      - image: alexwhen/docker-2048:latest # 2048 image
+        name: game
+        ports:
+        - name: web
+          containerPort: 80
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "250m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: game-svc
+spec:
+  selector:
+    app: game-pod
+  ports:
+    - port: 80
+      targetPort: web
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: game-ing
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/16"
+    # nginx.ingress.kubernetes.io/auth-signin: https://login.home.cronuxs.net
+    # nginx.ingress.kubernetes.io/auth-url: https://login.home.cronuxs.net/api/verify
+spec:
+  tls:
+  - hosts:
+    - "homer.${SECRET_DOMAIN}"
+    secretName: game-tls
+  rules:
+  - host: "homer.${SECRET_DOMAIN}"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: game-svc
+            port:
+              number: 80
