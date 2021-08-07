@@ -20,7 +20,11 @@ spec:
       retries: 3
   values:
     domain: "${SECRET_DOMAIN}"
+
     configMap:
+      theme: dark
+      default_redirection_url: "https://2048.${SECRET_DOMAIN}"
+
       # authentication methods
       authentication_backend:
         disable_reset_password: true
