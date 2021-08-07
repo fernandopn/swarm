@@ -57,7 +57,7 @@ spec:
 
         rules:
         - domain: "2048.${SECRET_DOMAIN}"
-          policy: one_factor
+          policy: two_factor
           networks:
           - home
           subject:
