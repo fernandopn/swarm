@@ -1,8 +1,6 @@
 # Template for deploying k3s backed by Flux
 
-Template for deploying a single [k3s](https://k3s.io/) cluster with [k3sup](https://github.com/alexellis/k3sup) backed by [Flux](https://toolkit.fluxcd.io/) and [SOPS](https://toolkit.fluxcd.io/guides/mozilla-sops/).
-
-The purpose here is to showcase how you can deploy an entire Kubernetes cluster and show it off to the world using the [GitOps](https://www.weave.works/blog/what-is-gitops-really) tool [Flux](https://toolkit.fluxcd.io/). When completed, your Git repository will be driving the state of your Kubernetes cluster. In addition with the help of the [Flux SOPS integration](https://toolkit.fluxcd.io/guides/mozilla-sops/) you'll be able to commit GPG encrypted secrets to your public repo.
+Template for deploying a single [k3s](https://k3s.io/) cluster with [k3os](https://k3os.io) backed by [Flux](https://toolkit.fluxcd.io/) and [SOPS](https://toolkit.fluxcd.io/guides/mozilla-sops/).
 
 ## Overview
 
@@ -40,7 +38,7 @@ Already provisioned Bare metal or VMs with any modern operating system like Ubun
 
 | Tool                                                               | Purpose                                                             | Minimum version | Required |
 |--------------------------------------------------------------------|---------------------------------------------------------------------|:---------------:|:--------:|
-| [k3sup](https://github.com/alexellis/k3sup)                        | Tool to install k3s on your nodes                                   |    `0.10.2`     |    ✅     |
+| [k3os](https://k3os.io)                                            | Tool to install k3s on your nodes                                   |    `0.19.5`     |    ✅     |
 | [kubectl](https://kubernetes.io/docs/tasks/tools/)                 | Allows you to run commands against Kubernetes clusters              |    `1.21.0`     |    ✅     |
 | [flux](https://toolkit.fluxcd.io/)                                 | Operator that manages your k8s cluster based on your Git repository |    `0.12.3`     |    ✅     |
 | [SOPS](https://github.com/mozilla/sops)                            | Encrypts k8s secrets with GnuPG                                     |     `3.7.1`     |    ✅     |
@@ -78,14 +76,12 @@ cluster
 ├── apps
 │   ├── default
 │   ├── networking
-│   └── system-upgrade
 ├── base
 │   └── flux-system
 ├── core
 │   ├── cert-manager
 │   ├── metallb-system
 │   ├── namespaces
-│   └── system-upgrade
 └── crds
     └── cert-manager
 ```
@@ -151,62 +147,9 @@ gpg --list-secret-keys "${FLUX_KEY_NAME}"
 export FLUX_KEY_FP=AB675CE4CC64251G3S9AE1DAA88ARRTY2C009E2D
 ```
 
-### :sailboat:&nbsp; Installing k3s with k3sup
+### :sailboat:&nbsp; Installing k3os
 
-:round_pushpin: Here we will be install [k3s](https://k3s.io/) with [k3sup](https://github.com/alexellis/k3sup). After completion, k3sup will drop a `kubeconfig` in your present working directory for use with interacting with your cluster with `kubectl`.
-
-1. Ensure you are able to SSH into you nodes with using your private ssh key. This is how k3sup is able to connect to your remote node.
-
-2. Install the master node
-
-```sh
-k3sup install \
-    --host=169.254.1.1 \
-    --user=k8s-at-home \
-    --k3s-version=v1.20.5+k3s1 \
-    --k3s-extra-args="--disable servicelb --disable traefik"
-```
-
-3. Join worker nodes (optional)
-
-```sh
-k3sup join \
-    --host=169.254.1.2 \
-    --server-host=169.254.1.1 \
-    --k3s-version=v1.20.5+k3s1 \
-    --user=k8s-at-home
-```
-
-4. Verify the nodes are online
-   
-```sh
-kubectl --kubeconfig=./kubeconfig get nodes
-# NAME           STATUS   ROLES                       AGE     VERSION
-# k8s-master-a   Ready    control-plane,master      4d20h   v1.20.5+k3s1
-# k8s-worker-a   Ready    worker                    4d20h   v1.20.5+k3s1
-```
-
-### :cloud:&nbsp; Cloudflare API Token
-
-:round_pushpin: You may skip this step, **however** make sure to `export` dummy data **on item 8** in the below list.
-
-...Be aware you **will not** have a valid SSL cert until cert-manager is configured correctly
-
-In order to use cert-manager with the Cloudflare DNS challenge you will need to create a API token.
-
-1. Head over to Cloudflare and create a API token by going [here](https://dash.cloudflare.com/profile/api-tokens).
-2. Click the blue `Create Token` button
-3. Scroll down and create a Custom Token by choosing `Get started`
-4. Give your token a name like `cert-manager`
-5. Under `Permissions` give **read** access to `Zone` : `Zone` and **write** access to `Zone` : `DNS`
-6. Under `Zone Resources` set it to `Include` : `All Zones`
-7. Click `Continue to summary` and then `Create Token`
-8. Export this token and your Cloudflare email address to an environment variable on your system to be used in the following steps
-
-```sh
-export BOOTSTRAP_CLOUDFLARE_EMAIL="k8s-at-home@gmail.com"
-export BOOTSTRAP_CLOUDFLARE_TOKEN="kpG6iyg3FS_du_8KRShdFuwfbwu3zMltbvmJV6cD"
-```
+TODO!!
 
 ### :small_blue_diamond:&nbsp; GitOps with Flux
 
