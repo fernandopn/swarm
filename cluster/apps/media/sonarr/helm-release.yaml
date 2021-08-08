@@ -53,6 +53,7 @@ spec:
         tls:
         - hosts:
           - "sonarr.${SECRET_DOMAIN}"
+          secretName: sonarr-tls
         annotations:
           cert-manager.io/cluster-issuer: letsencrypt-production
           nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/16"
