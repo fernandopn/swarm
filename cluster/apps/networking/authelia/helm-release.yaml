@@ -70,6 +70,13 @@ spec:
           # AND
           - "group:dev" 
 
+        - domain: "sonarr.${SECRET_DOMAIN}"
+          policy: one_factor
+          networks:
+          - home
+          subject:
+          - "group:admins"
+
     # Persistence of /config
     persistence:
       enabled: true
