@@ -36,5 +36,5 @@ spec:
               - vault.${SECRET_DOMAIN}
     persistence:
       config:
-        enabled: false
-        # existingClaim: vaultwarden-config
+        enabled: true
+        existingClaim: vaultwarden-config
