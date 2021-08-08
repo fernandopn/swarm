@@ -1,0 +1,9 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmRepository
+metadata:
+  name: gissilabs-charts
+  namespace: flux-system
+spec:
+  interval: 30m
+  url: https://gissilabs.github.io/charts/
+  timeout: 2m
