@@ -60,20 +60,14 @@ spec:
           - 10.0.0.0/8
 
         rules:
-        - domain: "2048.${SECRET_DOMAIN}"
-          policy: one_factor
-          #policy: two_factor // Requires persistence
-          networks:
-          - home
-          subject:
-          - ["group:admins", "group:moderators"] # OR
-          # AND
-          - "group:dev" 
-
         - domain: "sonarr.${SECRET_DOMAIN}"
           policy: one_factor
           networks:
           - home
+          subject:
+          - "group:admins"
+        - domain: "sonarr.${SECRET_DOMAIN}"
+          policy: two_factor
           subject:
           - "group:admins"
 
