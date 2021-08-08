@@ -20,3 +20,36 @@ spec:
     image:
       repository: ghcr.io/k8s-at-home/sonarr
       tag: v3.0.6.1196
+    env:
+      TZ: "${SECRET_TIMEZONE}"
+
+    podSecurityContext:
+      runAsUser: 1000
+      runAsGroup: 1000
+#      fsGroup: 1000
+#      fsGroupChangePolicy: OnRootMismatch
+      supplementalGroups:
+      - 100
+      - 568
+
+    # Pod
+    resources:
+      requests:
+        memory: "256Mi"
+        cpu: "100m"
+      limits:
+        memory: "512Mi"
+        cpu: "250m"
+
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx"
+        hosts:
+        - host: "sonarr.${SECRET_DOMAIN}"
+          paths:
+          - path: /
+            pathType: Prefix
+        tls:
+        - hosts:
+          - "sonarr.${SECRET_DOMAIN}"
