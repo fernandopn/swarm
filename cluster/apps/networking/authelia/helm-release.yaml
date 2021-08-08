@@ -73,11 +73,11 @@ spec:
         rules:
         - domain: "sonarr.${SECRET_DOMAIN}"
           policy: one_factor
-          networks:
-          - home
           subject:
           - "group:admins"
         - domain: "sonarr.${SECRET_DOMAIN}"
           policy: two_factor
           subject:
           - "group:admins"
+          networks:
+          - home
