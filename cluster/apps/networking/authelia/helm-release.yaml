@@ -19,7 +19,12 @@ spec:
     remediation:
       retries: 3
   values:
+    # https://github.com/authelia/chartrepo/blob/master/charts/authelia/values.yaml
     domain: "${SECRET_DOMAIN}"
+
+    pod:
+      annotations:
+        backup.velero.io/backup-volumes: authelia
 
     configMap:
       theme: dark
