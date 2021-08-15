@@ -11,7 +11,7 @@ spec:
       version: '0.14.1'
       sourceRef:
         kind: HelmRepository
-        name: appscode
+        name: appscode-charts
         namespace: flux-system
   interval: 10m
   install:
