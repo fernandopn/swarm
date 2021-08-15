@@ -7,7 +7,6 @@ spec:
   releaseName: authelia
   chart:
     spec:
-      # renovate: registryUrl=https://charts.authelia.com
       chart: authelia
       version: '0.4.19'
       sourceRef:
