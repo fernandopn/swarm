@@ -6,7 +6,7 @@ spec:
   releaseName: stash
   chart:
     spec:
-      # renovate: registryUrl=https://charts.appscode.com/stable chart=stash-community
+      # renovate: registryUrl=https://charts.appscode.com/stable/
       chart: stash-community
       version: '0.14.1'
       sourceRef:
