@@ -21,3 +21,6 @@ spec:
       repository: velero/velero
       tag: v1.6.2
     deployRestic: true
+
+    configuration:
+      provider: gcp
