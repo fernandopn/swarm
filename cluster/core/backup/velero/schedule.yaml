@@ -1,0 +1,9 @@
+apiVersion: velero.io/v1
+kind: Schedule
+metadata:
+  name: every-30m
+spec:
+  schedule: '@every 30m'
+  template:
+    includedResources: ['pods']
+    ttl: 24h
