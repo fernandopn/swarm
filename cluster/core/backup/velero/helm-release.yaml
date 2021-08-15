@@ -29,8 +29,8 @@ spec:
       - mountPath: /target
         name: plugins
 
-    # credentials:
-    #   existingSecret: gcp-credentials
+    credentials:
+      existingSecret: gcp-credentials
 
     configuration:
       provider: gcp
