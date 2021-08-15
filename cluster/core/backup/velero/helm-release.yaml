@@ -22,5 +22,32 @@ spec:
       tag: v1.6.2
     deployRestic: true
 
+    initContainers:
+    - name: velero-plugin-for-gcp
+      image: velero/velero-plugin-for-gcp:v1.2.0
+      volumeMounts:
+      - mountPath: /target
+        name: plugins
+
+    # credentials:
+    #   existingSecret: gcp-credentials
+
     configuration:
       provider: gcp
+      backupStorageLocation:
+        name: default
+        bucket: ${SECRET_VELERO_BUCKET}
+        prefix: cluster
+      volumeSnapshotLocation:
+        name: default
+        bucket: ${SECRET_VELERO_BUCKET}
+    metrics:
+      serviceMonitor:
+        enabled: true
+    resources:
+      requests:
+        memory: 128m
+    restic:
+      resources:
+        requests:
+          memory: 128m
