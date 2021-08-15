@@ -22,6 +22,10 @@ spec:
       tag: v1.6.3
     deployRestic: true
 
+    # This job upgrades the CRDs.
+    installCRDs: true
+    upgradeCRDs: false
+
     initContainers:
     - name: velero-plugin-for-gcp
       image: velero/velero-plugin-for-gcp:v1.2.1
@@ -47,7 +51,13 @@ spec:
     resources:
       requests:
         memory: 128m
+        cpu: 25m
+      limits:
+        memory: 1500Mi
     restic:
       resources:
         requests:
-          memory: 128m
+          memory: 200Mi
+          cpu: 15m
+        limits:
+          memory: 3000Mi
