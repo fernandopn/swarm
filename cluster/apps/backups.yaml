@@ -1,7 +1,9 @@
+---
 apiVersion: velero.io/v1
 kind: Schedule
 metadata:
   name: every-30m
+  namespace: backup
 spec:
   schedule: '@every 30m'
   template:
