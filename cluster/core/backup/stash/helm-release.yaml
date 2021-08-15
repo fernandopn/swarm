@@ -18,5 +18,4 @@ spec:
     remediation:
       retries: 3
   values:
-    license: |
-      ${SECRET_STASH_LICENSE}
+    license: ${SECRET_STASH_LICENSE}
