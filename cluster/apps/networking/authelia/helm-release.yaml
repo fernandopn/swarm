@@ -54,6 +54,7 @@ spec:
     # Persistence of /config
     persistence:
       enabled: true
+      existingClaim: authelia
 
     # Login ingress
     ingress:
