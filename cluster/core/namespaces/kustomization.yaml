@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
   - backup.yaml
   - cert-manager.yaml
-  # - iot.yaml
-  # - media.yaml
+  - iot.yaml
+  - media.yaml
   - metallb-system.yaml
   - networking.yaml
