@@ -19,6 +19,13 @@ spec:
     remediation:
      retries: 3
   values:
+    # https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-prometheus-stack/values.yaml
+
+    kubeApiServer:
+      enabled: true
+    kubeEtcd:
+      enabled: false
+
     grafana:
       ingress:
         enabled: true
@@ -33,3 +40,6 @@ spec:
         - secretName: grafana-tls
           hosts:
           - grafana.${SECRET_DOMAIN}
+
+# Alert manager missing
+# Persistence missing
