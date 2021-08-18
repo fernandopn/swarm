@@ -87,3 +87,10 @@ spec:
           - "group:admins"
           networks:
           - home
+
+        - domain: "grafana.${SECRET_DOMAIN}"
+          policy: two_factor
+          subject:
+          - "group:admins"
+          networks:
+          - home

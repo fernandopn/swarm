@@ -2,9 +2,9 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: prometheus
+  name: kube-prometheus-stack
 spec:
-  releaseName: prometheus
+  releaseName: kube-prometheus-stack
   chart:
     spec:
       # renovate: registryUrl=https://prometheus-community.github.io/helm-charts
@@ -23,9 +23,10 @@ spec:
       ingress:
         enabled: true
         annotations: 
-          nginx.ingress.kubernetes.io/whitelist-source-range: "10.0.0.0/16"
           kubernetes.io/ingress.class: "nginx"  
           cert-manager.io/cluster-issuer: letsencrypt-production
+          nginx.ingress.kubernetes.io/auth-signin: "https://login.${SECRET_DOMAIN}"
+          nginx.ingress.kubernetes.io/auth-url: "https://login.${SECRET_DOMAIN}/api/verify"
         hosts:
         - grafana.${SECRET_DOMAIN}
         tls:
