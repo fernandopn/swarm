@@ -5,5 +5,5 @@ resources:
   - namespaces
 # Other systems
   - backup
+  - cert-manager
   - metallb-system
-  - networking
