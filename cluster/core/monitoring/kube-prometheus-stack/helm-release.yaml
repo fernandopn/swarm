@@ -42,10 +42,14 @@ spec:
 
       # Authelia SSO
       grafana.ini:
+        log:
+          filters: auth:debug
+        users:
+          allow_sign_up: false
         auth.proxy:
           enabled: true
-          header_name: Remote-User
-          header_property: username
+          header_name: Remote-Email
+          header_property: email
           auto_sign_up: true
 
 # Alert manager missing
