@@ -40,17 +40,16 @@ spec:
           hosts:
           - grafana.${SECRET_DOMAIN}
 
-      # Authelia SSO
-      grafana.ini:
-        log:
-          filters: auth:debug
-        users:
-          allow_sign_up: false
-        auth.proxy:
-          enabled: true
-          header_name: Remote-Email
-          header_property: email
-          auto_sign_up: true
+      # Authelia SSO (Didn't worked)
+      # grafana.ini:
+      #   users:
+      #     allow_sign_up: false
+      #   auth.proxy:
+      #     enabled: true
+      #     auto_sign_up: true
+      #     header_name: Remote-User
+      #     header_property: username
+      #     headers: Name:Remote-Name Email:Remote-Email Groups:Remote-Groups
 
 # Alert manager missing
 # Persistence missing
