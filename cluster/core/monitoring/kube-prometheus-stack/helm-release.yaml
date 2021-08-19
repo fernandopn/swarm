@@ -21,8 +21,7 @@ spec:
   values:
     # https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-prometheus-stack/values.yaml
 
-    kubeApiServer:
-      enabled: true
+    # we are not running etcd
     kubeEtcd:
       enabled: false
 
@@ -40,6 +39,14 @@ spec:
         - secretName: grafana-tls
           hosts:
           - grafana.${SECRET_DOMAIN}
+
+      # Authelia SSO
+      grafana.ini:
+        auth.proxy:
+          enabled: true
+          header_name: Remote-User
+          header_property: username
+          auto_sign_up: true
 
 # Alert manager missing
 # Persistence missing
