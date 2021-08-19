@@ -94,3 +94,15 @@ spec:
           - "group:admins"
           networks:
           - home
+        - domain: "prometheus.${SECRET_DOMAIN}"
+          policy: two_factor
+          subject:
+          - "group:admins"
+          networks:
+          - home
+        - domain: "alertmanager.${SECRET_DOMAIN}"
+          policy: two_factor
+          subject:
+          - "group:admins"
+          networks:
+          - home
