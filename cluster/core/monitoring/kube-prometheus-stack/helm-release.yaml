@@ -59,6 +59,10 @@ spec:
           hosts:
           - prometheus.${SECRET_DOMAIN}
 
+      persistence:
+        enabled: true
+        existingClaim: prometheus
+
     alertmanager:
       ingress:
         enabled: true
@@ -73,6 +77,10 @@ spec:
         - secretName: alertmanager-tls
           hosts:
           - alertmanager.${SECRET_DOMAIN}
+
+      persistence:
+        enabled: true
+        existingClaim: alertmanager
 
       # Authelia SSO (Didn't worked)
       # grafana.ini:
