@@ -40,6 +40,10 @@ spec:
           hosts:
           - grafana.${SECRET_DOMAIN}
 
+      persistence:
+        enabled: true
+        existingClaim: grafana
+
     prometheus:
       ingress:
         enabled: true
