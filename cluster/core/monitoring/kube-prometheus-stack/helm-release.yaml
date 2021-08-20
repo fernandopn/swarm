@@ -72,8 +72,6 @@ spec:
                 requests:
                   storage: 10Gi
 
-
-
     alertmanager:
       ingress:
         enabled: true
