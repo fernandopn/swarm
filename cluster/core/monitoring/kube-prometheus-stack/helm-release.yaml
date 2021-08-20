@@ -26,6 +26,10 @@ spec:
       enabled: false
 
     grafana:
+      #https://github.com/grafana/helm-charts/blob/main/charts/grafana/values.yaml
+      podAnnotations:
+        backup.velero.io/backup-volumes: grafana
+
       ingress:
         enabled: true
         annotations: 
@@ -58,6 +62,8 @@ spec:
         - secretName: prometheus-tls
           hosts:
           - prometheus.${SECRET_DOMAIN}
+      annotations:
+        backup.velero.io/backup-volumes: prometheus-kube-prometheus-stack-prometheus-db
       prometheusSpec:
         retention: 14d
         enableAdminAPI: true
@@ -87,6 +93,8 @@ spec:
         - secretName: alertmanager-tls
           hosts:
           - alertmanager.${SECRET_DOMAIN}
+      annotations:
+        backup.velero.io/backup-volumes: alertmanager-kube-prometheus-stack-alertmanager-db
       alertmanagerSpec:
         storage:
           volumeClaimTemplate:
