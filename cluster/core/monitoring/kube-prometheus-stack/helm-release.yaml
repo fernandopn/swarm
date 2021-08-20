@@ -59,10 +59,6 @@ spec:
           hosts:
           - prometheus.${SECRET_DOMAIN}
 
-      # persistence:
-      #   enabled: true
-      #   existingClaim: prometheus
-
     alertmanager:
       ingress:
         enabled: true
@@ -77,21 +73,3 @@ spec:
         - secretName: alertmanager-tls
           hosts:
           - alertmanager.${SECRET_DOMAIN}
-
-      # persistence:
-      #   enabled: true
-      #   existingClaim: alertmanager
-
-      # Authelia SSO (Didn't worked)
-      # grafana.ini:
-      #   users:
-      #     allow_sign_up: false
-      #   auth.proxy:
-      #     enabled: true
-      #     auto_sign_up: true
-      #     header_name: Remote-User
-      #     header_property: username
-      #     headers: Name:Remote-Name Email:Remote-Email Groups:Remote-Groups
-
-# Alert manager missing
-# Persistence missing
