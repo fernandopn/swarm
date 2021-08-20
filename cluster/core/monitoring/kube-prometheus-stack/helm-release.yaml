@@ -62,6 +62,7 @@ spec:
         retention: 14d
         enableAdminAPI: true
         walCompression: true
+        ## Persistence
         storageSpec:
           volumeClaimTemplate:
             spec:
@@ -86,3 +87,13 @@ spec:
         - secretName: alertmanager-tls
           hosts:
           - alertmanager.${SECRET_DOMAIN}
+      alertmanagerSpec:
+        storage:
+          volumeClaimTemplate:
+            spec:
+              selector:
+                matchLabels:
+                  app: alertmanager
+              resources:
+                requests:
+                  storage: 1Gi
