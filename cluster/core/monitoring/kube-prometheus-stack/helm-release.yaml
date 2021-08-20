@@ -62,12 +62,13 @@ spec:
         - secretName: prometheus-tls
           hosts:
           - prometheus.${SECRET_DOMAIN}
-      podAnnotations:
-        backup.velero.io/backup-volumes: prometheus-kube-prometheus-stack-prometheus-db
       prometheusSpec:
         retention: 14d
         enableAdminAPI: true
         walCompression: true
+        podMetadata:
+          annotations:
+            backup.velero.io/backup-volumes: prometheus-kube-prometheus-stack-prometheus-db
         ## Persistence
         storageSpec:
           volumeClaimTemplate:
@@ -93,9 +94,10 @@ spec:
         - secretName: alertmanager-tls
           hosts:
           - alertmanager.${SECRET_DOMAIN}
-      podAnnotations:
-        backup.velero.io/backup-volumes: alertmanager-kube-prometheus-stack-alertmanager-db
       alertmanagerSpec:
+        podMetadata:
+          annotations:
+            backup.velero.io/backup-volumes: alertmanager-kube-prometheus-stack-alertmanager-db
         storage:
           volumeClaimTemplate:
             spec:
