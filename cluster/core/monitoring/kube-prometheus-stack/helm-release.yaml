@@ -58,6 +58,21 @@ spec:
         - secretName: prometheus-tls
           hosts:
           - prometheus.${SECRET_DOMAIN}
+      prometheusSpec:
+        retention: 14d
+        enableAdminAPI: true
+        walCompression: true
+        storageSpec:
+          volumeClaimTemplate:
+            spec:
+              selector:
+                matchLabels:
+                  app: prometheus
+              resources:
+                requests:
+                  storage: 10Gi
+
+
 
     alertmanager:
       ingress:
