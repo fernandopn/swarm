@@ -1,0 +1,35 @@
+{
+	"type": "service_account",
+	"project_id": "ENC[AES256_GCM,data:gT7s9mPSVAOt7rri3rQ=,iv:615P/vWuQY7H8sBBntgMDNeyQO163+LkX8AxTb6WN8g=,tag:x+t9dcxvD3NNry/oTHOIsg==,type:str]",
+	"private_key_id": "ENC[AES256_GCM,data:cTVyyx3xAHaC1HlQLvA4weVhaiMdWoaRixa6mmX9ChtXuAEOlCpWDQ==,iv:YWavq5WVgRxrGcnR7ColxXYkAaPqQ4hy21+7BXhe6pQ=,tag:rbZHuR34PIuKtNaIIM8Ecg==,type:str]",
+	"private_key": "ENC[AES256_GCM,data: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,iv:Fido0trWG2YuioZOqKnfOyhrIRDhCiAmeikSwxnqfow=,tag:9FNpCHHut31RJfSWT4SMtg==,type:str]",
+	"client_email": "ENC[AES256_GCM,data:l2tTjGlnOGNp5m/WE2ggEiP6RAIj9NW2xUPORl9N2RLQAnzl36hwp/KBcidFTy1zwJK8tQ==,iv:ChmCIHKTdtQnC2dB/Brl88kVxsj6ao1izySlVwKTDuM=,tag:qLSB9i0/4ve1ENe1kM7D8w==,type:str]",
+	"client_id": "ENC[AES256_GCM,data:Ppe1mGkYEj/LPjjdGvNMLHpfS0OU,iv:9bHli8kMbjwdWCrDTO8H2wv/1hTdU/VJ02zoGkYH6mk=,tag:BkgafFyiiPGuJGUt/oR74A==,type:str]",
+	"auth_uri": "https://accounts.google.com/o/oauth2/auth",
+	"token_uri": "https://oauth2.googleapis.com/token",
+	"auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+	"client_x509_cert_url": "ENC[AES256_GCM,data:PWO4gDDLRp3eaV54u3B8sVyrOkEWDdDaRbJQXjdxbCnLZNGRYn+UsGLPyOb+bwvt+rC95LD2X024I8A4y8nDrZr7S407URiV5AuUJ4lca1hP4GqTuwhLfW9wES2+hxX7DTDhgsMN6lo=,iv:TBtL+2Ku2JSoLfmGWfDq1V2wpHExBSadgohKyc/dMBc=,tag:jjtJPoGo9c0asv9QORvn4w==,type:str]",
+	"sops": {
+		"kms": null,
+		"gcp_kms": null,
+		"azure_kv": null,
+		"hc_vault": null,
+		"age": null,
+		"lastmodified": "2021-08-20T13:57:45Z",
+		"mac": "ENC[AES256_GCM,data:103XCKCNUYzcrGU2pFpETOQ9MxlkSp977xNW+Q77+haAz8zN+5NfM7xuS0itDqd43wvmO42KXbtjZy/D30NxD+Ov2zSrwR1Q2WxK1h0SsJ/DVA6n1Z3Q42nXx7dieTf49xAgmPTeTm/DZGf+3194YnUK1iOdvkb01Ff0taIq+tA=,iv:eMvL08BQvUq9cEHQZ3EXi84i6Fw/JUTiZzf7DgxzcDk=,tag:RTBwgDi7T0qggbh6PfN42A==,type:str]",
+		"pgp": [
+			{
+				"created_at": "2021-08-20T13:57:45Z",
+				"enc": "-----BEGIN PGP MESSAGE-----\n\nhQIMA+xZIdjAexkpARAA1dP0kbmr8MqcZy3T2FICs11P/4hcnMQgy/EKBB5wFIBL\nxQitMhIQ6LyuYF+NBLslJupeYpKR0ZVWfyjZUFF3oLFO1rfjH+ju7ajHNXaK4Ui7\ndsgcscFaEmsjSFj4PVvu9EsT5qKxIR6GF7EFFGlfXs6cgHnusFbJ6czynDL+laIs\nA43GKE2yhynHNwATJcrn1U0VhdwsOWDDf0PYEUs12FPKSyzvN/jdGEGbRtwEtzih\n9AOaLFroYSjRwiu9eXm+uHX04XaH2qFT9IDkM6rsDe3oMnX2lHD7prQA3/nB12GS\nuPYVVPHahKXPUhs34B4VqzmHoSnOIlQwVrQgDJy0ix7l+TBeWkzqD5HZLkVdSrO6\n+uXQYgfR+7RowF4z5y7wQ4fLNN14Z5cEdlutASNhrMrmYFDAVo6Yi8hgPhDF6+tn\nz2rj2H8peEn3z+LLy564IInIxEFJUGklaMZm2rKjfaxKfPyS4RfodjpufrujPU84\nBJJCFqPWIziD5MTaHOUSIGrOcpOOqGz71Nda3FS9DtY69nQJhTQPiELg9Sya4lCX\n+vMEmI5dRbjy84jFUXOkFSY/Hz5N7GKrb2xEBwSb8W+quEEg616c9EPiZ35OAv+4\nKoxqQSRwDszNcqkwbc3EYb3jseiDZKVWQ3NNQa6leAUw5CTx5CNVi7kmLHbAPEfU\naAEJAhXRuF+KsN7wMCTJIyIkq9+Z4oMd2tXAQueLRLwEUCtl8BQEmGqyHkRfZq39\nx6xZVK6JkkHALskNL8r5zvw9clT4v8PmDowb5r614qyyZXc9VLcf+5aFhjs5mon+\najf0Y05kQfA8\n=Bt7w\n-----END PGP MESSAGE-----\n",
+				"fp": "CC26950EB0DB08F2B4D016B83F8C0A0F531AA043"
+			},
+			{
+				"created_at": "2021-08-20T13:57:45Z",
+				"enc": "-----BEGIN PGP MESSAGE-----\n\nhQIMA2+v8WHLsAdpARAAnmilur1x8WHVALhx0552aEmhwe+NPFI6BTdbz3KuQkWZ\nhlnaDCO9/rnPLXbP3Xvda4pXoZsSrRE7/UX9Y6et5D+LKt0xo4RG5xdIY7+lkBX5\nuwkfLOr+7gDP9stZwc+kMD83lcdcmD2sD5PfIZgHQRztIPfDztUAIDZIRLd32hN0\nOP3+rCRSklhOJVTdy6tRvQC9a0y+lcx1Bmu/9GwLSB4r9HUdpahVmVnvGfQbu4mY\nztckeb56LZOsb87GE77SmOlIOmbUX5zQv4ZM6hiOX3dd44EwtvMdvqPeHZnw2k09\nOwNr2yiqog1k2aEiAnVqFIxqqmAZirg7WHJqwwTPR+aOyFQthrtq9sF0lI6iPIrg\nhWFXVhQLgwha5Hte4ABuGFXQW4C8/M8udTEeD2aeWDjmB2KoNTQoe3us9wNfd3i9\nzWuyDM96JQfyHokwRfXWNdfI7ionrS4LCyziwImwoRlJMQXTnUzixa3f/J2k3W6O\nG2tk4LGmj15XXNpEX9kOoDWynnFmKzKSbToic6QuP/JzJGmDmQiumdZXnv1zmY/n\n8MQL/ooYa5dQBScQMyPrLEmfSMzYttco6IWoj43AhUbDCFgkLK61RJuVq+1LGZB2\nMqxXj2YceNlY55QmgNo9PsTrulHySOfzuluSmq7ssoN6BiTiq4nSyxynp+qY2r7U\naAEJAhVKwJcupeXHVH3XusHVTkIudtBOivPRZR4gZ2CLcijIYOxZHQs6qUz869ru\nDPodoMY5wGOF7IodM90qDlK8P33OCorBt3DgBxkgGxnOzkwAlrUNksaIdqKT5+6M\nok5DkqF6riNI\n=/7k0\n-----END PGP MESSAGE-----\n",
+				"fp": "A62A6E10823351A34290734E93DBA1E6E6124250"
+			}
+		],
+		"encrypted_regex": "^(project_.*|private_.*|client_.*)$",
+		"version": "3.7.1"
+	}
+}

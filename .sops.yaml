@@ -1,6 +1,12 @@
 ---
 creation_rules:
-  - encrypted_regex: "^(data|stringData)$"
+  - path_regex: \.sops\.yaml$
+    encrypted_regex: "^(data|stringData)$"
+    pgp: >-
+      CC26950EB0DB08F2B4D016B83F8C0A0F531AA043,
+      A62A6E10823351A34290734E93DBA1E6E6124250
+  - path_regex: \.sops\.json$
+    encrypted_regex: "^(project_.*|private_.*|client_.*)$"
     pgp: >-
       CC26950EB0DB08F2B4D016B83F8C0A0F531AA043,
       A62A6E10823351A34290734E93DBA1E6E6124250
