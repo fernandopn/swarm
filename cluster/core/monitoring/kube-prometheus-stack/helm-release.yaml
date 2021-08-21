@@ -21,8 +21,12 @@ spec:
   values:
     # https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-prometheus-stack/values.yaml
 
-    # we are not running etcd
+    # we are not running
     kubeEtcd:
+      enabled: false
+    kubeScheduler:
+      enabled: false
+    kubeControllerManager:
       enabled: false
 
     defaultRules:
