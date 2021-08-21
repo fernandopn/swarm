@@ -25,6 +25,10 @@ spec:
     kubeEtcd:
       enabled: false
 
+    defaultRules:
+      labels:
+        role: alert-rules
+
     grafana:
       #https://github.com/grafana/helm-charts/blob/main/charts/grafana/values.yaml
       podAnnotations:
@@ -69,6 +73,10 @@ spec:
         podMetadata:
           annotations:
             backup.velero.io/backup-volumes: prometheus-kube-prometheus-stack-prometheus-db
+        # rules matcher
+        ruleSelector:
+          matchLabels:
+            role: alert-rules
         ## Persistence
         storageSpec:
           volumeClaimTemplate:
