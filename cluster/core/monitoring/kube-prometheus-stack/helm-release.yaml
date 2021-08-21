@@ -62,23 +62,23 @@ spec:
         - secretName: prometheus-tls
           hosts:
           - prometheus.${SECRET_DOMAIN}
-      # prometheusSpec:
-      #   retention: 14d
-      #   enableAdminAPI: true
-      #   walCompression: true
-      #   podMetadata:
-      #     annotations:
-      #       backup.velero.io/backup-volumes: prometheus-kube-prometheus-stack-prometheus-db
-      #   ## Persistence
-      #   storageSpec:
-      #     volumeClaimTemplate:
-      #       spec:
-      #         selector:
-      #           matchLabels:
-      #             app: prometheus
-      #         resources:
-      #           requests:
-      #             storage: 10Gi
+      prometheusSpec:
+        retention: 14d
+        enableAdminAPI: true
+        walCompression: true
+        podMetadata:
+          annotations:
+            backup.velero.io/backup-volumes: prometheus-kube-prometheus-stack-prometheus-db
+        ## Persistence
+        storageSpec:
+          volumeClaimTemplate:
+            spec:
+              selector:
+                matchLabels:
+                  app: prometheus
+              resources:
+                requests:
+                  storage: 10Gi
 
     alertmanager:
       ingress:
@@ -124,21 +124,25 @@ spec:
           repeat_interval: 6h
           receiver: 'slack'
           routes:
+          # - receiver: 'null'
+          #   match:
+          #     alertname: Watchdog
           - receiver: 'slack'
             match_re:
+              # severity: critical|warning
               severity: critical
             continue: true
 
-      # alertmanagerSpec:
-      #   podMetadata:
-      #     annotations:
-      #       backup.velero.io/backup-volumes: alertmanager-kube-prometheus-stack-alertmanager-db
-      #   storage:
-      #     volumeClaimTemplate:
-      #       spec:
-      #         selector:
-      #           matchLabels:
-      #             app: alertmanager
-      #         resources:
-      #           requests:
-      #             storage: 1Gi
+      alertmanagerSpec:
+        podMetadata:
+          annotations:
+            backup.velero.io/backup-volumes: alertmanager-kube-prometheus-stack-alertmanager-db
+        storage:
+          volumeClaimTemplate:
+            spec:
+              selector:
+                matchLabels:
+                  app: alertmanager
+              resources:
+                requests:
+                  storage: 1Gi
