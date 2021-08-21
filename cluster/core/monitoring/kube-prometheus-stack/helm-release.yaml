@@ -30,6 +30,8 @@ spec:
       enabled: false
 
     defaultRules:
+      rules:
+        kubeStateMetrics: false
       labels:
         role: alert-rules
 
