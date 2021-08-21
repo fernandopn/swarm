@@ -100,6 +100,7 @@ spec:
           slack_api_url: "${SECRET_ALERT_MANAGER_WEBHOOK}"
           resolve_timeout: 5m
         receivers:
+        - name: 'null'
         - name: 'slack'
           slack_configs:
           - send_resolved: true
