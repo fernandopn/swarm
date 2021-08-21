@@ -1,0 +1,19 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  labels:
+    role: alert-rules
+  name: zigbee2mqtt-rules
+  namespace: monitoring
+spec:
+  groups:
+  - name: zigbee2mqtt.rules
+    rules:
+    - alert: zigbee2mqttDown
+      annotations:
+        message: zigbee2mqtt has disappeared from Prometheus target discovery.
+      expr: absent(up{job="zigbee2mqtt", namespace="monitoring"} == 1)
+      for: 15m
+      labels:
+        severity: critical
