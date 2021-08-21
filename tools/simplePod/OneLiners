@@ -1,0 +1,8 @@
+# Centos
+kubectl run my-shell --rm -i --tty --image centos:7 -- bash
+
+# golang:latest
+kubectl run my-shell --rm -i --tty --image golang:latest -- bash
+
+# kali
+kubectl run my-shell --rm -i --tty --image kalilinux/kali-rolling -- bash
