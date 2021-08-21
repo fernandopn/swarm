@@ -3,7 +3,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   labels:
-    prometheus: monitoring/kube-prometheus-stack-prometheus
+    prometheus: kube-prometheus-stack-prometheus
     role: alert-rules
   name: zigbee2mqtt-rules
   namespace: monitoring
