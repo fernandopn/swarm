@@ -45,9 +45,9 @@ spec:
       volumeSnapshotLocation:
         name: default
         bucket: ${SECRET_VELERO_BUCKET}
-    # metrics:
-    #   serviceMonitor:
-    #     enabled: true
+    metrics:
+      serviceMonitor:
+        enabled: true
     resources:
       requests:
         memory: 128m
