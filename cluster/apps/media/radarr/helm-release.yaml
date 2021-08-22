@@ -76,10 +76,10 @@ spec:
         enabled: true
         existingClaim: download
         mountPath: /downloads
-      tv:
+      movies:
         enabled: true
-        existingClaim: tv
-        mountPath: /tv
+        existingClaim: movie-claim
+        mountPath: /movies
 
     ingress:
       main:
