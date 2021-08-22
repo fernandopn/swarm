@@ -71,6 +71,7 @@ spec:
         cert-manager.io/cluster-issuer: letsencrypt-production
         kubernetes.io/ingress.class: nginx
 
+    configMap:
       # The Rules!!! 
       access_control:
         default_policy: deny
