@@ -8,3 +8,4 @@ resources:
   - metallb-system.yaml
   - monitoring.yaml
   - networking.yaml
+  - vault.yaml

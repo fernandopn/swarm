@@ -5,4 +5,5 @@ resources:
   # - iot # Disabled to setup core.
   # - media # Disabled to setup core.
   - networking
+  - vault
   - backups.yaml
