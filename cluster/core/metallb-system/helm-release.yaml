@@ -20,8 +20,12 @@ spec:
     prometheus:
       prometheusRule:
         enabled: true
+        additionalLabels:
+          role: alert-rules
       podMonitor:
         enabled: true
+        additionalLabels:
+          release: kube-prometheus-stack
 
     controller:
       image:
