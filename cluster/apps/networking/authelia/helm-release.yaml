@@ -23,6 +23,8 @@ spec:
     domain: "${SECRET_DOMAIN}"
 
     pod:
+      kind: Deployment
+      deploymentStrategy: Recreate # Persistent storage only allow 1 pod to exist
       annotations:
         backup.velero.io/backup-volumes: authelia
 
