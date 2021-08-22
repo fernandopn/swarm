@@ -78,7 +78,7 @@ spec:
         mountPath: /downloads
       movies:
         enabled: true
-        existingClaim: movie-claim
+        existingClaim: movie
         mountPath: /movies
 
     ingress:
