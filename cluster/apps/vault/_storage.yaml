@@ -23,7 +23,7 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   iscsi:
     targetPortal: ${SECRET_STORAGE_ADDRESS}
-    iqn: ${SECRET_IQN}:kube-vaultwarden
+    iqn: ${SECRET_STORAGE_IQN}:kube-vaultwarden
     lun: 1
     fsType: ext4
     readOnly: false
