@@ -21,3 +21,17 @@ spec:
     chapAuthSession: true
     secretRef:
       name: storage-secret
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: sonarr
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  selector: 
+    matchLabels:
+      app: sonarr
