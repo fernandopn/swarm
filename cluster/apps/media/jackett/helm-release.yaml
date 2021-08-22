@@ -60,7 +60,7 @@ spec:
       # and it is pre-populated
       config:
         enabled: true
-        existingClaim: jackett-config-claim
+        existingClaim: jackett
 
     ingress:
       main:
