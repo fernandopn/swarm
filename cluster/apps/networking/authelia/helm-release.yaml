@@ -84,12 +84,14 @@ spec:
         # At Home
         - domain:
           # kube-prometheus-stack
+          - "alertmanager.${SECRET_DOMAIN}"
           - "grafana.${SECRET_DOMAIN}"
           - "prometheus.${SECRET_DOMAIN}"
-          - "alertmanager.${SECRET_DOMAIN}"
           # Media
-          - "sonarr.${SECRET_DOMAIN}"
           - "jackett.${SECRET_DOMAIN}"
+          - "plex.${SECRET_DOMAIN}"
+          - "radarr.${SECRET_DOMAIN}"
+          - "sonarr.${SECRET_DOMAIN}"
           policy: one_factor
           subject:
           - "group:admins"
@@ -99,9 +101,9 @@ spec:
         # Away
         - domain:
           # kube-prometheus-stack
+          - "alertmanager.${SECRET_DOMAIN}"
           - "grafana.${SECRET_DOMAIN}"
           - "prometheus.${SECRET_DOMAIN}"
-          - "alertmanager.${SECRET_DOMAIN}"
           policy: two_factor
           subject:
           - "group:admins"
