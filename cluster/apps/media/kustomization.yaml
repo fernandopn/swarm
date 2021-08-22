@@ -6,6 +6,6 @@ resources:
 - sonarr
 
 patches:
-- path: ./patches/base-helm.yaml
+- path: ./patch/base-helm.yaml
   target:
     kind: HelmRelease
