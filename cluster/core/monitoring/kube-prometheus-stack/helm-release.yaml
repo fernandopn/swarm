@@ -140,8 +140,8 @@ spec:
               alertname: Watchdog
           - receiver: 'slack'
             match_re:
-              # severity: critical|warning
-              severity: critical
+              severity: critical|warning
+              # severity: critical
             continue: true
 
       alertmanagerSpec:
