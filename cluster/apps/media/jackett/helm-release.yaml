@@ -7,7 +7,6 @@ spec:
   interval: 5m
   chart:
     spec:
-      # renovate: registryUrl=https://k8s-at-home.com/charts/
       chart: jackett
       version: 11.0.0
       sourceRef:
@@ -36,14 +35,14 @@ spec:
       supplementalGroups:
       - 100 # users
     initContainers:
-    - name: update-volume-permission
-      image: busybox
-      command: ["sh", "-c", "chown -R 1000:1000 /config"]
-      volumeMounts:
-      - name: config
-        mountPath: /config
-      securityContext:
-        runAsUser: 0
+      update-volume-permission:
+        image: busybox
+        command: ["sh", "-c", "chown -R 1000:1000 /config"]
+        volumeMounts:
+        - name: config
+          mountPath: /config
+        securityContext:
+          runAsUser: 0
 
     # Pod
     resources:
