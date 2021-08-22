@@ -48,6 +48,8 @@ spec:
     metrics:
       serviceMonitor:
         enabled: true
+        additionalLabels:
+          role: alert-rules
     resources:
       requests:
         memory: 128m
