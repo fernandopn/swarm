@@ -5,7 +5,6 @@ metadata:
   labels:
     role: alert-rules
   name: zigbee2mqtt-rules
-  namespace: monitoring
 spec:
   groups:
   - name: zigbee2mqtt.rules
