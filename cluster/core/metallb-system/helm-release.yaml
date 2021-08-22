@@ -16,6 +16,29 @@ spec:
         name: metallb-charts
         namespace: flux-system
   values:
+    controller:
+      image:
+        repository: metallb/controller
+        tag: v0.10.2
+      prometheus:
+        serviceMonitor:
+          enabled: true
+          additionalLabels: 
+            release:  kube-prometheus-stack
+    speaker:
+      image:
+        repository: metallb/speaker
+        tag: v0.10.2
+      prometheus:
+        serviceMonitor:
+          enabled: true
+      tolerations:
+      - key: "dedicated"
+        operator: "Equal"
+        value: "iot"
+        effect: "NoSchedule"
+    prometheusRule:
+      enabled: true
     configInline:
       address-pools:
         - name: default
