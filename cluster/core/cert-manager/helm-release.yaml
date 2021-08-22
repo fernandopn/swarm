@@ -16,6 +16,12 @@ spec:
         name: jetstack-charts
         namespace: flux-system
   values:
+    prometheus:
+      servicemonitor:
+        enabled: true
+        labels:
+          release: kube-prometheus-stack
+      
     installCRDs: false
     webhook:
       enabled: true
