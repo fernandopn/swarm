@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
   # - home-assistant # Disabled to setup core.
   - alerts
-  - zigbee2mqtt
+  # - zigbee2mqtt # Disabled

@@ -42,10 +42,10 @@ spec:
         cpu: "250m"
 
     persistence:
-      data:
-        enabled: true
-        type: hostPath
-        hostPath: /data/zigbee2mqtt
+      # data:
+      #   enabled: true
+      #   type: hostPath
+      #   hostPath: /data/zigbee2mqtt
       usb:
         enabled: true
         type: hostPath
