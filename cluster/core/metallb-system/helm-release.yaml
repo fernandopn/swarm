@@ -16,6 +16,7 @@ spec:
         name: metallb-charts
         namespace: flux-system
   values:
+    # https://github.com/metallb/metallb/blob/main/charts/metallb/values.yaml
     controller:
       image:
         repository: metallb/controller
@@ -39,6 +40,10 @@ spec:
         effect: "NoSchedule"
     prometheusRule:
       enabled: true
+    podMonitor:
+      enabled: true
+      additionalLabels:
+        release:  kube-prometheus-stack
     configInline:
       address-pools:
         - name: default
