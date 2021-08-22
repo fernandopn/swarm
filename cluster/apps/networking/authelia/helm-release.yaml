@@ -24,7 +24,7 @@ spec:
 
     pod:
       kind: Deployment
-      deploymentStrategy: Recreate # Persistent storage only allow 1 pod to exist
+      # deploymentStrategy: Recreate # Not supported. Likely to fail during update
       annotations:
         backup.velero.io/backup-volumes: authelia
 

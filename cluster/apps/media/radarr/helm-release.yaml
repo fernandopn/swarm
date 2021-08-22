@@ -32,11 +32,11 @@ spec:
       PUID: '1000'
 
     podSecurityContext:
-      runAsUser: 1000
-      runAsGroup: 1000
+      # runAsUser: 1000
+      # runAsGroup: 1000
       supplementalGroups:
       - 100
-      - 568
+      # - 568
 
     initContainers:
       update-config-ownership:
@@ -81,6 +81,7 @@ spec:
         existingClaim: movie
         mountPath: /movies
 
+    # Network
     ingress:
       main:
         enabled: true
