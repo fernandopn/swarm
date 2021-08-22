@@ -22,8 +22,6 @@ spec:
     image:
       repository: ghcr.io/k8s-at-home/sonarr
       tag: v3.0.6.1265
-    env:
-      TZ: "${SECRET_TIMEZONE}"
 
     podSecurityContext:
       runAsUser: 1000
@@ -34,6 +32,24 @@ spec:
       - 100
       - 568
 
+    initContainers:
+      update-config-ownership:
+        image: busybox
+        command: ["sh", "-c", "chown -R 1000:1000 /config"]
+        volumeMounts:
+        - name: config
+          mountPath: /config
+        securityContext:
+          runAsUser: 0
+      update-config-permission:
+        image: busybox
+        command: ["sh", "-c", "chmod -R 774 /config"]
+        volumeMounts:
+        - name: config
+          mountPath: /config
+        securityContext:
+          runAsUser: 0
+
     # Pod
     resources:
       requests:
@@ -42,6 +58,22 @@ spec:
       limits:
         memory: "512Mi"
         cpu: "250m"
+
+    # Persistence
+    persistence:
+      # Make sure it has pid/gid 568
+      # and it is pre-populated
+      config:
+        enabled: true
+        existingClaim: sonarr
+      downloads:
+        enabled: true
+        existingClaim: download
+        mountPath: /downloads
+      tv:
+        enabled: true
+        existingClaim: tv
+        mountPath: /tv
 
     ingress:
       main:
@@ -56,7 +88,3 @@ spec:
         - hosts:
           - "sonarr.${SECRET_DOMAIN}"
           secretName: sonarr-tls
-        annotations:
-          cert-manager.io/cluster-issuer: letsencrypt-production
-          nginx.ingress.kubernetes.io/auth-signin: "https://auth.${SECRET_DOMAIN}"
-          nginx.ingress.kubernetes.io/auth-url: "https://auth.${SECRET_DOMAIN}/api/verify"
