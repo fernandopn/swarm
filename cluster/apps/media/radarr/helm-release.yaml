@@ -19,21 +19,24 @@ spec:
       retries: 3
 
   values:
-    image:
-      repository: linuxserver/radarr
-      tag: amd64-version-3.2.2.5080 
-
     # Backup
     podAnnotations:
       backup.velero.io/backup-volumes: config
 
+    image:
+      repository: linuxserver/radarr
+      tag: amd64-version-3.2.2.5080 
+
+    env:
+      PGID: '1000'
+      PUID: '1000'
+
     podSecurityContext:
       runAsUser: 1000
       runAsGroup: 1000
-#      fsGroup: 1000
-#      fsGroupChangePolicy: OnRootMismatch
       supplementalGroups:
       - 100
+      - 568
 
     initContainers:
       update-config-ownership:
