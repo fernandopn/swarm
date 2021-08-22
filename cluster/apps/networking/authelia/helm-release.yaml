@@ -87,6 +87,7 @@ spec:
           - "grafana.${SECRET_DOMAIN}"
           - "prometheus.${SECRET_DOMAIN}"
           - "alertmanager.${SECRET_DOMAIN}"
+          - "sonarr.${SECRET_DOMAIN}"
           policy: one_factor
           subject:
           - "group:admins"
