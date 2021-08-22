@@ -4,6 +4,7 @@ namespace: media
 resources:
 - shared
 - sonarr
+- jackett
 
 patches:
 - path: ./patch/base-helm.yaml

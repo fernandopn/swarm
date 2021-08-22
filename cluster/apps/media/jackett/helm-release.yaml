@@ -1,0 +1,77 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: jackett
+spec:
+  interval: 5m
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts/
+      chart: jackett
+      version: '9.1.0'
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home
+        namespace: flux-system
+  install:
+    remediation:
+      retries: 3
+
+  values:
+    # Images
+    image:
+      repository: linuxserver/jackett
+      tag: version-v0.18.263
+
+    # Backup
+    podAnnotations:
+      backup.velero.io/backup-volumes: config
+
+    podSecurityContext: # jackett container runAS abc:abc (1000:1000)
+    #   runAsUser: 1000
+    #   runAsGroup: 1000
+    #   fsGroup: 1000
+    #   fsGroupChangePolicy: "OnRootMismatch"
+      supplementalGroups:
+      - 100 # users
+    initContainers:
+    - name: update-volume-permission
+      image: busybox
+      command: ["sh", "-c", "chown -R 1000:1000 /config"]
+      volumeMounts:
+      - name: config
+        mountPath: /config
+      securityContext:
+        runAsUser: 0
+
+    # Pod
+    resources:
+      requests:
+        memory: "256Mi"
+        cpu: "100m"
+      limits:
+        memory: "512Mi"
+        cpu: "250m"
+
+    # Persistence
+    persistence:
+      # Make sure it has pid/gid 568
+      # and it is pre-populated
+      config:
+        enabled: true
+        existingClaim: jackett-config-claim
+
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx"
+        hosts:
+        - host: "jackett.${SECRET_DOMAIN}"
+          paths:
+          - path: /
+            pathType: Prefix
+        tls:
+        - hosts:
+          - "jackett.${SECRET_DOMAIN}"
+          secretName: jackett-tls

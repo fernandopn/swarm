@@ -23,6 +23,10 @@ spec:
       repository: ghcr.io/k8s-at-home/sonarr
       tag: v3.0.6.1265
 
+    # Backup
+    podAnnotations:
+      backup.velero.io/backup-volumes: config
+
     podSecurityContext:
       runAsUser: 1000
       runAsGroup: 1000

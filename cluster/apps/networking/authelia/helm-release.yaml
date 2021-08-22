@@ -82,12 +82,14 @@ spec:
 
         rules:
         # At Home
-        ## kube-prometheus-stack
         - domain:
+          # kube-prometheus-stack
           - "grafana.${SECRET_DOMAIN}"
           - "prometheus.${SECRET_DOMAIN}"
           - "alertmanager.${SECRET_DOMAIN}"
+          # Media
           - "sonarr.${SECRET_DOMAIN}"
+          - "jackett.${SECRET_DOMAIN}"
           policy: one_factor
           subject:
           - "group:admins"
@@ -95,8 +97,8 @@ spec:
           - home
 
         # Away
-        ## kube-prometheus-stack
         - domain:
+          # kube-prometheus-stack
           - "grafana.${SECRET_DOMAIN}"
           - "prometheus.${SECRET_DOMAIN}"
           - "alertmanager.${SECRET_DOMAIN}"
