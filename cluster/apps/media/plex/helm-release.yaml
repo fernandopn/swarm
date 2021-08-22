@@ -1,0 +1,103 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: plex
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: plex
+      version: '6.0.0'
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home-charts
+        namespace: flux-system
+  install:
+    remediation:
+      retries: 3
+
+  values:
+    # Images
+    image:
+      repository: plexinc/pms-docker
+      tag: 1.24.0.4930-ab6e1a058
+
+    # Backup
+    podAnnotations:
+      backup.velero.io/backup-volumes: config
+
+    podSecurityContext: # Plex container runAS plex:plex (1000:1000)
+    #   runAsUser: 1000
+    #   runAsGroup: 1000
+    #   fsGroup: 1000
+    #   fsGroupChangePolicy: "OnRootMismatch"
+      supplementalGroups:
+      - 44 # video
+      - 100 # users
+
+    initContainers:
+      update-volume-permission:
+        image: busybox
+        command: ["sh", "-c", "chown -R 1000:1000 /config"]
+        volumeMounts:
+        - name: config
+          mountPath: /config
+        securityContext:
+          runAsUser: 0
+
+    # Pod
+    resources:
+      requests:
+        gpu.intel.com/i915: 1
+        cpu: 1
+        memory: 1024Mi
+      limits:
+        gpu.intel.com/i915: 1
+        cpu: 8
+        memory: 8192Mi
+
+    # Persistence
+    persistence:
+      # Make sure it has pid/gid 568
+      # and it is pre-populated
+      config:
+        enabled: true
+        existingClaim: plex
+      movies:
+        enabled: true
+        existingClaim: movie
+        mountPath: /movies
+      tv:
+        enabled: true
+        existingClaim: tv
+        mountPath: /tv
+      transcode:
+        enabled: true
+        type: emptyDir
+
+    # Network
+    hostNetwork: true
+    service:
+      main:
+        enabled: true
+        type: LoadBalancer
+        loadBalancerIP: 10.0.6.228
+        externalTrafficPolicy: Local
+        annotations:
+          metallb.universe.tf/allow-shared-ip: plex
+        port:
+          port: 32400
+
+    ingress:
+      main:
+        enabled: true
+        hosts:
+        - host: "plex.${SECRET_DOMAIN}"
+          paths:
+          - path: /
+            pathType: Prefix
+        tls:
+        - hosts:
+          - "plex.${SECRET_DOMAIN}"
+          secretName: plex-tls

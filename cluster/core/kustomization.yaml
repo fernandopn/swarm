@@ -6,5 +6,6 @@ resources:
 # Other systems
   - backup
   - cert-manager
+  - intel-gpu-plugin.yaml
   - metallb-system
   - monitoring

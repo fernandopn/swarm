@@ -4,6 +4,7 @@ resources:
   - backup.yaml
   - cert-manager.yaml
   # - iot.yaml
+  - intel-gpu-plugin.yaml
   - media.yaml
   - metallb-system.yaml
   - monitoring.yaml
