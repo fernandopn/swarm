@@ -6,6 +6,7 @@ spec:
   releaseName: intel-gpu-plugin
   chart:
     spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts/
       chart: intel-gpu-plugin
       version: '4.0.0'
       sourceRef:
