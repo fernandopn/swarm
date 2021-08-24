@@ -25,7 +25,7 @@ spec:
 
     image:
       repository: linuxserver/radarr
-      tag: amd64-version-3.2.2.5080 
+      tag: 3.2.2.5080-ls113
 
     env:
       PGID: '1000'
