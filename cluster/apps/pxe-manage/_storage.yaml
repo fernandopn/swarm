@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: tftp 
+  labels:
+    role: tftp
+spec:
+  capacity:
+    storage: 1Ti
+  accessModes:
+  - ReadWriteMany 
+  nfs: 
+    path: ${SECRET_STORAGE_NFS_PATH}/downloads/
+    server: ${SECRET_STORAGE_NFS_SERVER}
+  persistentVolumeReclaimPolicy: Retain 
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: tftp
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Ti
+  selector: 
+    matchLabels: 
+      role: tftp

@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: updater-script
+data:
+  update.bash: |
+    #!/bin/bash
+    echo "update syslinux"
+    yum update -y
+    yum install -y syslinux
+    cp /usr/share/syslinux/menu.c32 /tftp-boot/
+    cp /usr/share/syslinux/pxelinux.0 /tftp-boot/
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: pxe-update
+spec:
+  schedule: "0 0 * * 0" ## every sunday midnight
+  jobTemplate:
+    spec:
+      ttlSecondsAfterFinished: 60
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+          - name: centos
+            image: centos:7
+            command: [sh, "/script/update.bash"]
+            volumeMounts:
+            - name: updater-script
+              mountPath: /script/
+              readOnly: true
+            - name: tftp-boot
+              mountPath: /tftp-boot/
+          volumes:
+          - name: updater-script
+            configMap:
+              name: updater-script
+          - name: tftp-boot
+            persistentVolumeClaim:
+              claimName: tftp
+# kubectl create job -n pxe-manage --from=cronjob/pxe-update manual-trigger
