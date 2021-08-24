@@ -21,8 +21,8 @@ spec:
   values:
     # Images
     image:
-      repository: ghcr.io/linuxserver/jackett
-      tag: version-v0.18.263
+      repository: linuxserver/jackett
+      tag: v0.18.263-ls33
 
     # Backup
     podAnnotations:
