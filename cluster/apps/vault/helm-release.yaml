@@ -8,6 +8,7 @@ spec:
   releaseName: vaultwarden
   chart:
     spec:
+      # renovate: registryUrl=https://gissilabs.github.io/charts/
       chart: vaultwarden
       version: 0.3.0
       sourceRef:
