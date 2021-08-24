@@ -137,7 +137,7 @@ spec:
           routes:
           - receiver: 'null'
             match_re:
-              alertname: Watchdog|KubeAPIErrorBudgetBurn
+              alertname: Watchdog
           - receiver: 'slack'
             match_re:
               severity: critical|warning
