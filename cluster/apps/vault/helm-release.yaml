@@ -10,7 +10,7 @@ spec:
     spec:
       # renovate: registryUrl=https://k8s-at-home.com/charts/
       chart: vaultwarden
-      version: 0.3.0
+      version: 3.0.1
       sourceRef:
         kind: HelmRepository
         name: gissilabs-charts
