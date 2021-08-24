@@ -20,7 +20,7 @@ spec:
       annotations:
         message: A certificate managed by cert-manager will expire in 25 days.
         runbook_url: https://github.com/ministryofjustice/cloud-platform-infrastructure/blob/master/terraform/cloud-platform-components/README.md
-    - alert: cert-manager
+    - alert: CertificateNotReady
       expr: sum (certmanager_certificate_ready_status) != count (count by (name) (certmanager_certificate_ready_status))
       for: 1d
       annotations:
