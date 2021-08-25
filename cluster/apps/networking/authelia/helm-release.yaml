@@ -81,6 +81,11 @@ spec:
           - 10.0.0.0/8
 
         rules:
+        - domain:
+          # iot
+          - "home-assistant.${SECRET_DOMAIN}"
+          policy: bypass
+
         # At Home
         - domain:
           # kube-prometheus-stack
