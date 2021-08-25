@@ -1,0 +1,93 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: calibre
+spec:
+  interval: 5m
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts/
+      chart: calibre
+      version: 10.0.0
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home-charts
+        namespace: flux-system
+  install:
+    remediation:
+      retries: 3
+
+  values:
+    # Backup
+    podAnnotations:
+      backup.velero.io/backup-volumes: config
+
+    image:
+      repository: linuxserver/calibre-web
+      tag: 0.6.12-ls129
+
+    env:
+      PGID: '1000'
+      PUID: '1000'
+
+    podSecurityContext:
+      # runAsUser: 1000
+      # runAsGroup: 1000
+      supplementalGroups:
+      - 100
+      # - 568
+
+    initContainers:
+      update-config-ownership:
+        image: busybox
+        command: ["sh", "-c", "chown -R 1000:1000 /config"]
+        volumeMounts:
+        - name: config
+          mountPath: /config
+        securityContext:
+          runAsUser: 0
+      update-config-permission:
+        image: busybox
+        command: ["sh", "-c", "chmod -R 774 /config"]
+        volumeMounts:
+        - name: config
+          mountPath: /config
+        securityContext:
+          runAsUser: 0
+
+    # Pod
+    resources:
+      requests:
+        memory: "256Mi"
+        cpu: "100m"
+      limits:
+        memory: "512Mi"
+        cpu: "250m"
+
+    # Persistence
+    persistence:
+      # Make sure it has pid/gid 568
+      # and it is pre-populated
+      config:
+        enabled: true
+        existingClaim: calibre
+      movies:
+        enabled: true
+        existingClaim: books
+        mountPath: /books
+
+    # Network
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx"
+        hosts:
+        - host: "calibre.${SECRET_DOMAIN}"
+          paths:
+          - path: /
+            pathType: Prefix
+        tls:
+        - hosts:
+          - "calibre.${SECRET_DOMAIN}"
+          secretName: calibre-tls
