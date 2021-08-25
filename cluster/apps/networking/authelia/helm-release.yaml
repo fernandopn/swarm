@@ -43,7 +43,7 @@ spec:
 
     configMap:
       theme: dark
-      default_redirection_url: "https://grafana.${SECRET_DOMAIN}"
+      default_redirection_url: "https://home-assistant.${SECRET_DOMAIN}"
 
       # authentication methods
       authentication_backend:
