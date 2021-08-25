@@ -100,4 +100,5 @@ spec:
           auth: ${SECRET_OVPN_1_PASSWORD}
         env:
           ROUTE_1: "10.0.0.0/8" 
-        configFile: ${SECRET_OVPN_1_CONFIG}
+        configFile: |-
+          ${SECRET_OVPN_1_CONFIG}
