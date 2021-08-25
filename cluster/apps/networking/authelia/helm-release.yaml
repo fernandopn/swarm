@@ -88,6 +88,8 @@ spec:
           - "grafana.${SECRET_DOMAIN}"
           - "prometheus.${SECRET_DOMAIN}"
           # Media
+          - "bazarr.${SECRET_DOMAIN}"
+          - "calibre.${SECRET_DOMAIN}"
           - "jackett.${SECRET_DOMAIN}"
           - "plex.${SECRET_DOMAIN}"
           - "radarr.${SECRET_DOMAIN}"
