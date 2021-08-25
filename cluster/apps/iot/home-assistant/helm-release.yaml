@@ -20,6 +20,7 @@ spec:
       tag: 2021.8.8
     env:
       TZ: "${SECRET_TIMEZONE}"
+
     ingress:
       main:
         enabled: true
