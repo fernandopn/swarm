@@ -93,6 +93,7 @@ spec:
           - "jackett.${SECRET_DOMAIN}"
           - "plex.${SECRET_DOMAIN}"
           - "radarr.${SECRET_DOMAIN}"
+          - "sabnzbd.${SECRET_DOMAIN}"
           - "sonarr.${SECRET_DOMAIN}"
           policy: one_factor
           subject:
