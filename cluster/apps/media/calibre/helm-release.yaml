@@ -77,6 +77,13 @@ spec:
         existingClaim: book
         mountPath: /books
 
+    # Linuxserver's calibre has their port at 8083
+    service:
+      main:
+        ports:
+          http:
+            port: 8083
+
     # Network
     ingress:
       main:
