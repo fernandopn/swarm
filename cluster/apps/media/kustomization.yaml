@@ -4,7 +4,7 @@ namespace: media
 resources:
 - bazarr
 - calibre
-- jackett
+# - jackett # Not used
 - plex
 - radarr
 - sabnbz
