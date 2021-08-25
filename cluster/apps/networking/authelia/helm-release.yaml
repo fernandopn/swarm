@@ -85,6 +85,8 @@ spec:
           # iot
           - "home-assistant.${SECRET_DOMAIN}"
           policy: bypass
+          networks:
+          - home
 
         # At Home
         - domain:
