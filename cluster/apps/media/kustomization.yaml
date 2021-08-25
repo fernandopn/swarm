@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: media
 resources:
 - bazarr
+- calibre
 - jackett
 - plex
 - radarr
