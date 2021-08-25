@@ -3,6 +3,8 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: sabnzbd
+  annotation:
+    feature: vpn-1
 spec:
   interval: 5m
   chart:
@@ -91,14 +93,3 @@ spec:
         - hosts:
           - "sabnzbd.${SECRET_DOMAIN}"
           secretName: sabnzbd-tls
-
-    addons:
-      vpn:
-        enabled: true
-        type: openvpn
-        openvpn:
-          auth: ${SECRET_OVPN_1_PASSWORD}
-        env:
-          ROUTE_1: "10.0.0.0/8" 
-        configFile: |-
-          ${SECRET_OVPN_1_CONFIG}
