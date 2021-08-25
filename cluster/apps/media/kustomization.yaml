@@ -16,6 +16,6 @@ patches:
   target:
     kind: HelmRelease
 
-- path: ./patches/vpn-1.sops.yaml
+- path: ./patch/vpn-1.sops.yaml
   target:
     annotationSelector: "feature=vpn-1"
