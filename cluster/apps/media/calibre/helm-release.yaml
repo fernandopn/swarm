@@ -74,7 +74,7 @@ spec:
         existingClaim: calibre
       movies:
         enabled: true
-        existingClaim: books
+        existingClaim: book
         mountPath: /books
 
     # Network

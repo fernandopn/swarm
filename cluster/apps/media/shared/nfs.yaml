@@ -53,7 +53,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: books 
+  name: book
   labels:
     role: book
 spec:
