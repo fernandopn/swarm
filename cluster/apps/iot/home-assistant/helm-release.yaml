@@ -15,11 +15,21 @@ spec:
         name: k8s-at-home-charts
         namespace: flux-system
   values:
+    # Backup
+    podAnnotations:
+      backup.velero.io/backup-volumes: config
+
     image:
       repository: homeassistant/home-assistant
       tag: 2021.8.8
     env:
       TZ: "${SECRET_TIMEZONE}"
+
+    # Persistence
+    persistence:
+      config:
+        enabled: true
+        existingClaim: home-assistant
 
     ingress:
       main:
@@ -38,3 +48,32 @@ spec:
         - hosts:
           - home-assistant.${SECRET_DOMAIN}
           secretName: home-assistant-tls
+
+    addons:
+      codeserver:
+        enabled: true
+        workingDir: "/config"
+        args:
+          - --user-data-dir
+          - "/config/.vscode"
+          - --auth
+          - "none"
+        volumeMounts:
+        - name: config
+          mountPath: /config
+        ingress:
+          enabled: true
+          annotations:
+            kubernetes.io/ingress.class: "nginx"
+            cert-manager.io/cluster-issuer: letsencrypt-production
+            nginx.ingress.kubernetes.io/auth-signin: "https://auth.${SECRET_DOMAIN}"
+            nginx.ingress.kubernetes.io/auth-url: "https://auth.${SECRET_DOMAIN}/api/verify"
+          hosts:
+          - host: home-assistant-vscode.${SECRET_DOMAIN}/api/verify
+            paths:
+            - path: /
+              pathType: Prefix
+          tls:
+          - hosts:
+            - home-assistant-vscode.${SECRET_DOMAIN}/api/verify
+            secretName: home-assistant-vscode-tls
