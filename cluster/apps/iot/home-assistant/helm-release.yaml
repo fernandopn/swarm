@@ -28,6 +28,8 @@ spec:
     prometheus:
       serviceMonitor:
         enabled: true
+        additionalLabels:
+          release: kube-prometheus-stack
 
     # Persistence
     persistence:
