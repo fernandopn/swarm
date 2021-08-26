@@ -104,7 +104,7 @@
         "linuxserver/radarr",
         "linuxserver/bazarr",
      ],
-    }
+    },
     // add labels according to package and update types
     {
       "matchDatasources": ["docker"],
