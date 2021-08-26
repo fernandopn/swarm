@@ -25,6 +25,10 @@ spec:
     env:
       TZ: "${SECRET_TIMEZONE}"
 
+    prometheus:
+      serviceMonitor:
+        enabled: true
+
     # Persistence
     persistence:
       config:
