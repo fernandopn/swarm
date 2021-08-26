@@ -80,7 +80,7 @@
       ],
       "commitMessageTopic": "container image {{depName}}",
       "commitMessageExtra": "to {{#if isSingleVersion}}{{{toVersion}}}{{else}}{{{newValue}}}{{/if}}"
-    }
+    },
     //<major>.<minor>.<patch>.any
     {
       "matchDatasources": ["docker"],
@@ -90,7 +90,7 @@
       ],
       "commitMessageTopic": "container image {{depName}}",
       "commitMessageExtra": "to {{#if isSingleVersion}}{{{toVersion}}}{{else}}{{{newValue}}}{{/if}}"
-    }
+    },
     // add labels according to package and update types
     {
       "matchDatasources": ["docker"],
