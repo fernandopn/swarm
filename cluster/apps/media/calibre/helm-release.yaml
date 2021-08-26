@@ -25,7 +25,7 @@ spec:
 
     image:
       repository: linuxserver/calibre-web
-      tag: 0.6.12-ls129
+      tag: version-0.6.12
 
     env:
       PGID: '1000'

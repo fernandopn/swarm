@@ -27,7 +27,7 @@ spec:
 
     image:
       repository: linuxserver/sabnzbd
-      tag: 3.3.1-ls38
+      tag: version-3.3.1
 
     env:
       PGID: '1000'
