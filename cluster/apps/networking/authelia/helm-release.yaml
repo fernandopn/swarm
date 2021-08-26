@@ -97,6 +97,7 @@ spec:
           # Media
           - "bazarr.${SECRET_DOMAIN}"
           - "calibre.${SECRET_DOMAIN}"
+          - "home-assistant-vscode.${SECRET_DOMAIN}"
           - "jackett.${SECRET_DOMAIN}"
           - "plex.${SECRET_DOMAIN}"
           - "radarr.${SECRET_DOMAIN}"
