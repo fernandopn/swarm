@@ -19,22 +19,24 @@ spec:
       retries: 3
 
   values:
-    image:
-      repository: linuxserver/sonarr
-      tag: version-3.0.6.1265
-
     # Backup
     podAnnotations:
       backup.velero.io/backup-volumes: config
 
+    image:
+      repository: linuxserver/sonarr
+      tag: version-3.0.6.1265
+
+    env:
+      PGID: '1000'
+      PUID: '1000'
+
     podSecurityContext:
-      runAsUser: 1000
-      runAsGroup: 1000
-#      fsGroup: 1000
-#      fsGroupChangePolicy: OnRootMismatch
+      # runAsUser: 1000
+      # runAsGroup: 1000
       supplementalGroups:
       - 100
-      - 568
+      # - 568
 
     initContainers:
       update-config-ownership:
