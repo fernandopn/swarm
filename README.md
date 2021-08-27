@@ -23,8 +23,6 @@ Feel free to read up on any of these technologies before you get started to be m
 - [metallb](https://metallb.universe.tf/)
 - [cert-manager](https://cert-manager.io/) with Cloudflare DNS challenge
 - [ingress-nginx](https://kubernetes.github.io/ingress-nginx/)
-- [homer](https://github.com/bastienwirtz/homer)
-- [system-upgrade-controller](https://github.com/rancher/system-upgrade-controller)
 
 ## :memo:&nbsp; Prerequisites
 
