@@ -5,3 +5,4 @@
 Thumbs.db
 # vscode-sops
 .decrypted~*.yaml
+.decrypted~*.json
