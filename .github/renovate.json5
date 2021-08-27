@@ -75,8 +75,10 @@
       "matchDatasources": ["docker"],
       "versioning": "regex:^version-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
       "matchPackageNames": [
-        "linuxserver/jackett",
-        "linuxserver/bazarr"
+        "cronuxs/elgato2mqtt",
+        "cronuxs/mqtt-automator",
+        "linuxserver/bazarr",
+        "linuxserver/jackett"
       ],
       "commitMessageTopic": "container image {{depName}}",
       "commitMessageExtra": "to {{#if isSingleVersion}}{{{toVersion}}}{{else}}{{{newValue}}}{{/if}}"
