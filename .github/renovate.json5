@@ -75,10 +75,19 @@
       "matchDatasources": ["docker"],
       "versioning": "regex:^version-v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
       "matchPackageNames": [
-        "cronuxs/elgato2mqtt",
-        "cronuxs/mqtt-automator",
         "linuxserver/bazarr",
         "linuxserver/jackett"
+      ],
+      "commitMessageTopic": "container image {{depName}}",
+      "commitMessageExtra": "to {{#if isSingleVersion}}{{{toVersion}}}{{else}}{{{newValue}}}{{/if}}"
+    },
+    //v<major>.<minor>.<patch>
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^v(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "matchPackageNames": [
+        "cronuxs/elgato2mqtt",
+        "cronuxs/mqtt-automator"
       ],
       "commitMessageTopic": "container image {{depName}}",
       "commitMessageExtra": "to {{#if isSingleVersion}}{{{toVersion}}}{{else}}{{{newValue}}}{{/if}}"
@@ -86,7 +95,7 @@
     //<major>.<minor>.<patch>.any
     {
       "matchDatasources": ["docker"],
-      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)$",
+      "versioning": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+).*$$",
       "matchPackageNames": [
         "plexinc/pms-docker"
       ],
