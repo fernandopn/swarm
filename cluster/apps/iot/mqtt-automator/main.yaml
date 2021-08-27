@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mqtt-automator
+  labels:
+    app: mqtt-automator
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate # Birth and Will messages make more sense
+  selector:
+    matchLabels:
+      app: mqtt-automator
+  template:
+    metadata:
+      labels:
+        app: mqtt-automator
+    spec:
+      # nodeSelector:
+      #   role: iot-controller
+      tolerations:
+      - key: "dedicated"
+        operator: "Equal"
+        value: "iot"
+        effect: "NoSchedule"
+      containers:
+      - name: mqtt-automator
+        image: cronuxs/mqtt-automator:v0.1.0
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "250m"
+        volumeMounts:
+        - mountPath: /config
+          name: config
+      volumes:
+      - name: config
+        configMap:
+          name: mqtt-automator-config
