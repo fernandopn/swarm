@@ -25,7 +25,7 @@ spec:
         effect: "NoSchedule"
       containers:
       - name: elgato2mqtt
-        image: cronuxs/elgato2mqtt:v0.1.1
+        image: cronuxs/elgato2mqtt:v0.1.2
         resources:
           requests:
             memory: "10Mi"
