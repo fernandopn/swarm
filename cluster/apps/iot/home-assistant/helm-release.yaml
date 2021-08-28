@@ -31,6 +31,15 @@ spec:
     #     additionalLabels:
     #       release: kube-prometheus-stack
 
+    # Pod
+    resources:
+      requests:
+        memory: "256Mi"
+        cpu: "250m"
+      limits:
+        memory: "512Mi"
+        cpu: "1"
+
     # Persistence
     persistence:
       config:
