@@ -28,7 +28,7 @@ Feel free to read up on any of these technologies before you get started to be m
 
 ### :computer:&nbsp; Nodes
 
-Already provisioned Bare metal or VMs with any modern operating system like Ubuntu, Debian or CentOS.
+Already provisioned Bare metal k3os cluster.
 
 ### :wrench:&nbsp; Tools
 
