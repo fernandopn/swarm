@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
 - config.sops.yaml
 - helm-release.yaml
+- _storage.yaml
