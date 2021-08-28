@@ -53,10 +53,9 @@ spec:
         volumeSpec:
           secret:
             secretName: mosquitto-tls
-      # data:
-      #   enabled: true
-      #   type: hostPath
-      #   hostPath: /data/mosquitto
+      data:
+        enabled: true
+        existingClaim: mosquitto
 
     initContainers:
       copy-config:
