@@ -16,8 +16,8 @@ spec:
       labels:
         app: mqtt-automator
     spec:
-      # nodeSelector:
-      #   role: iot-controller
+      nodeSelector:
+        role: iot-controller
       tolerations:
       - key: "dedicated"
         operator: "Equal"
