@@ -20,8 +20,8 @@ spec:
       backup.velero.io/backup-volumes: config
 
     image:
-      repository: homeassistant/mosquitto
-      tag: 2021.8.8
+      repository: eclipse-mosquitto
+      tag: 2.0.11
     env:
       TZ: "${SECRET_TIMEZONE}"
 
@@ -53,11 +53,11 @@ spec:
         volumeSpec:
           secret:
             secretName: mosquitto-tls
-
       # data:
       #   enabled: true
       #   type: hostPath
       #   hostPath: /data/mosquitto
+
     initContainers:
       copy-config:
         image: busybox
