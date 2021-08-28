@@ -5,7 +5,6 @@ metadata:
   name: game-deployment
   labels:
     app: game-pod
-    skipUpdate: "true"
 spec:
   replicas: 1
   selector:
@@ -17,7 +16,7 @@ spec:
         app: game-pod
     spec:
       containers:
-      - image: alexwhen/docker-2048:latest # 2048 image
+      - image: alexwhen/docker-2048:latest
         name: game
         ports:
         - name: web
