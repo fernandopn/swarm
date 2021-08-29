@@ -3,15 +3,15 @@ kind: ConfigMap
 metadata:
     name: network-monitoring-config
 data:
-    config.textproto: ENC[AES256_GCM,data:vNywyxjc3TL2ZZCLT87AvTLaHj8yyeZsImDMQvSL8Y+bj5ZfGZ0VCVoPEnBKTRYs4sfJipF4apogW2SIsURyrEQgdL1D+mTwKz6ns6VMf+nOgbJKpRUxhge5hFfG81kcqnAClvjZrN2IorJ5hC/dAXjH2VkWUWZWaYsqKtYjW+SRReZlBF92EgCR69OLULwE5NiMeOveXMIx9H8N2jHChk/eTxnQRigexnlYpeniHwjYobMxdgkgRd9FCh7XVrPcH6CD7mv7zkE5KrR+cVoyMdss+KKWD3c/tGwWJhrHPsnNMjo+6XwvfNX0BnFfmiR3mpLN+l0SO61twG3hXWtRq+81z6CAt41xXamjw8B+Y8L1GdO89NXah/DwcfYNFCTUP74WeEammCfbpjyvo22fMlcWHS+TlNDwt6rIQw0I+bJjRsRTqpKX+jI8AYGLRJ/sK44Jgh+AIacpelyWHZqqFwYZ/ZA=,iv:biuhHliyx+OBIWtPAiUNISqxTm5XxMzjReVNznRnEV0=,tag:xFkIekR6lPuC9ARv8Ubl7g==,type:str]
+    config.textproto: ENC[AES256_GCM,data:MVFhAFJBj9jcBhI2YCjMFfN5wONhGWKq/Bv6f/h/dg75XnuIVA+ngPbsSAf4x+Dmz6lTv1tWYpl7+E+n9EsgeZ982O1ZHKlAGGarXKGWn8E6TMUXSk1pSp2WBgwbm7RfbSfRP4wmd0hpxTaWGOCfvYfe4IPckaxhcYmGauvFiCPrmaKKl5JRs18Q2egdHMWoJNYxybQy+1moXUMrmhKcohT41N3rdjhMxVdWQ7LV7ouW05fzGUZLm4DpWbBDCI1+1HPwNac5FhZ9I1ttEPFLpcsyIKjd1bgzihM7m/UIDl2rs1zco7wjR4Zlz/Z4gAwhsKdz2GI476x4swwt/8D7gEinZpGb06RdrGjfBn9GUK52g9TGUd1eTe3dAg/PpeA61IR632s1w3NnXdGVFJkNUNl2In34cwyZ18EAYOMwtqbAzTB0TJFsVhYGBd4c/rjGAdkjC99HFRs1lf5tqTaOu42Xmi12dgzpYfVF5owbSYZ4JlujNQ==,iv:xWJdHNkm8HlUBYqkR/F1XoqdBdlNZwY943Sc5tNGKnM=,tag:vxC5Dq1IprgUBCSvr1ajVQ==,type:str]
 sops:
     kms: []
     gcp_kms: []
     azure_kv: []
     hc_vault: []
     age: []
-    lastmodified: "2021-08-29T10:55:26Z"
-    mac: ENC[AES256_GCM,data:R6q9CZgkDNWJYYmG36o9WpkT6TTiJqiko7Bkdinpyk6BHL+n4QBz9aP6wMHQ6Ta8U1WA3FPqe5tneUPGFDFAO4EwOvgjQS+pxDo3VQB+V9495/bPCpkV1fLbKP5KO1iDsP6sovjMxp3COa27lHEGzO9FhGAwvfZMm3nZxWd7RGY=,iv:hVa3gwYdn1jwnfnIxlh+DhJVh0D1ULNMSiARheluhwY=,tag:fnxQNp8fgAuZs4xGQ+L22g==,type:str]
+    lastmodified: "2021-08-29T11:29:56Z"
+    mac: ENC[AES256_GCM,data:jlAdWToPc8LCA77naDNLInWWTaes+poAHg2rFsfqvG1bsPXNUrY8GCXozxG8BIFYQzzSqYBa9f4CpAoTmb83//9ryzgQ1lEJDgHyWujYUhpjlse+XOarGVbU7M2mZlA/YKhS2DYCCtMtA13vobmjrKzWasU2JXHjofgNcwF+dJc=,iv:NMFn/pTsPsVEVmD7cNP/6AK0194uhugOqEdVJTk5moQ=,tag:NEa3IKhSt2UYctAg9buaMg==,type:str]
     pgp:
         - created_at: "2021-08-27T22:47:00Z"
           enc: |
