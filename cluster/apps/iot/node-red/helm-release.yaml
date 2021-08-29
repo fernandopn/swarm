@@ -35,7 +35,7 @@ spec:
         cpu: "1"
 
     persistence:
-      data:
+      newdata:
         enabled: true
         existingClaim: node-red
 
