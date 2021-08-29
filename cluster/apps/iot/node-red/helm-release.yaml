@@ -17,7 +17,7 @@ spec:
   values:
     # Backup
     podAnnotations:
-      backup.velero.io/backup-volumes: config
+      backup.velero.io/backup-volumes: data
 
     image:
       repository: nodered/node-red
@@ -35,7 +35,7 @@ spec:
         cpu: "1"
 
     persistence:
-      config:
+      data:
         enabled: true
         existingClaim: node-red
 
