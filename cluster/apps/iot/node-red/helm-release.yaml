@@ -17,8 +17,10 @@ spec:
   values:
     # Backup
     podAnnotations:
-      app: node-red
       backup.velero.io/backup-volumes: data
+
+    podLabels:
+      app: node-red
 
     image:
       repository: nodered/node-red
