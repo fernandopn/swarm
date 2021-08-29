@@ -39,6 +39,12 @@ spec:
         enabled: true
         existingClaim: node-red
 
+    prometheus:
+      serviceMonitor:
+        enabled: true
+        additionalLabels:
+          release: kube-prometheus-stack
+
     initContainers:
       update-config-ownership:
         image: busybox
