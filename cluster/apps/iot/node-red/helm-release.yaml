@@ -56,12 +56,6 @@ spec:
           mountPath: /newdata
         securityContext:
           runAsUser: 0
-      copy-config:
-        image: nodered/node-red:2.0.5
-        command: ['sh', '-c', 'cp /data/* /newdata/']
-        volumeMounts:
-          - name: newdata
-            mountPath: /newdata
 
     ingress:
       main:
