@@ -34,11 +34,10 @@ spec:
         memory: "512Mi"
         cpu: "1"
 
-    # Persistence
-    # persistence:
-    #   config:
-    #     enabled: true
-    #     existingClaim: node-red
+    persistence:
+      config:
+        enabled: true
+        existingClaim: node-red
 
     ingress:
       main:
