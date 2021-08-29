@@ -2,7 +2,7 @@
 apiVersion: monitoring.coreos.com/v1
 kind: PodMonitor
 metadata:
-  name: kustomize-controller
+  name: node-red
   labels:
     app.kubernetes.io/instance: flux-system
     app.kubernetes.io/version: latest
