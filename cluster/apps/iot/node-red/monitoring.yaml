@@ -15,4 +15,4 @@ spec:
     matchLabels:
       app: node-red
   podMetricsEndpoints:
-    - port: http-prom
+    - port: http
