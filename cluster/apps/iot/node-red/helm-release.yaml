@@ -17,6 +17,7 @@ spec:
   values:
     # Backup
     podAnnotations:
+      app: node-red
       backup.velero.io/backup-volumes: data
 
     image:
@@ -38,12 +39,6 @@ spec:
       data:
         enabled: true
         existingClaim: node-red
-
-    prometheus:
-      serviceMonitor:
-        enabled: true
-        additionalLabels:
-          release: kube-prometheus-stack
 
     initContainers:
       update-config-ownership:

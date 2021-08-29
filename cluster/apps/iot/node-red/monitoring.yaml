@@ -1,0 +1,18 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: kustomize-controller
+  labels:
+    app.kubernetes.io/instance: flux-system
+    app.kubernetes.io/version: latest
+    release:  kube-prometheus-stack
+spec:
+  namespaceSelector:
+    matchNames:
+      - iot
+  selector:
+    matchLabels:
+      app: node-red
+  podMetricsEndpoints:
+    - port: http-prom

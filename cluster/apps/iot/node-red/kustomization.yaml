@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
 - _storage.yaml
 - helm-release.yaml
+- monitoring.yaml
