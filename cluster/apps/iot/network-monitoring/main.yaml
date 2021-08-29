@@ -25,7 +25,7 @@ spec:
         effect: "NoSchedule"
       containers:
       - name: network-monitoring
-        image: cronuxs/network-monitoring:v0.1.2
+        image: cronuxs/network-monitoring:v0.1.0
         resources:
           requests:
             memory: "10Mi"
