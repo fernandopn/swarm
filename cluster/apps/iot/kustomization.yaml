@@ -8,4 +8,5 @@ resources:
 - mosquitto
 - mqtt-automator
 - network-monitoring
+- node-red
 - shared
