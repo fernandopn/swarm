@@ -35,25 +35,25 @@ spec:
         cpu: "1"
 
     persistence:
-      newdata:
+      data:
         enabled: true
         existingClaim: node-red
 
     initContainers:
       update-config-ownership:
         image: busybox
-        command: ["sh", "-c", "chown -R 1000:1000 /newdata"]
+        command: ["sh", "-c", "chown -R 1000:1000 /data"]
         volumeMounts:
-        - name: newdata
-          mountPath: /newdata
+        - name: data
+          mountPath: /data
         securityContext:
           runAsUser: 0
       update-config-permission:
         image: busybox
-        command: ["sh", "-c", "chmod -R 770 /newdata"]
+        command: ["sh", "-c", "chmod -R 770 /data"]
         volumeMounts:
-        - name: newdata
-          mountPath: /newdata
+        - name: data
+          mountPath: /data
         securityContext:
           runAsUser: 0
 
