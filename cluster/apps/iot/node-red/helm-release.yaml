@@ -40,14 +40,32 @@ spec:
         existingClaim: node-red
 
     initContainers:
-      copy-config:
-        image: nodered/node-red:2.0.5
-        command: ['sh', '-c', 'cp -R /data/* /newdata/']
+      update-config-ownership:
+        image: busybox
+        command: ["sh", "-c", "chown -R 1000:1000 /newdata"]
         volumeMounts:
         - name: newdata
           mountPath: /newdata
         securityContext:
           runAsUser: 0
+      update-config-permission:
+        image: busybox
+        command: ["sh", "-c", "chmod -R 770 /newdata"]
+        volumeMounts:
+        - name: newdata
+          mountPath: /newdata
+        securityContext:
+          runAsUser: 0
+      copy-config:
+        image: nodered/node-red:20
+        command: ['sh', '-c', 'cp /config/* /config-tls/* /mosquitto/configinc/']
+        volumeMounts:
+          - name: newdata
+            mountPath: /config
+          - name: config-tls
+            mountPath: /config-tls
+          - name: configinc
+            mountPath: /mosquitto/configinc
 
     ingress:
       main:
