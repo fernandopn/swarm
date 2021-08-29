@@ -18,6 +18,7 @@ spec:
     # Backup
     podAnnotations:
       backup.velero.io/backup-volumes: config
+      configmap.reloader.stakater.com/reload: "mosquitto"
 
     image:
       repository: eclipse-mosquitto
