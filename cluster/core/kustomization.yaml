@@ -9,3 +9,4 @@ resources:
   - intel-gpu-plugin
   - metallb-system
   - monitoring
+  - reloader

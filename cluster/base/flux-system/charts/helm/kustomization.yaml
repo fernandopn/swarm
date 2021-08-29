@@ -9,4 +9,5 @@ resources:
   - k8s-at-home-charts.yaml
   - metallb-charts.yaml
   - prometheus-community-charts.yaml
+  - stakater-charts.yaml
   - vmware-tanzu-charts.yaml

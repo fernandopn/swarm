@@ -11,3 +11,4 @@ resources:
   - networking.yaml
   - pxe-manage.yaml
   - vault.yaml
+  - reloader.yaml
