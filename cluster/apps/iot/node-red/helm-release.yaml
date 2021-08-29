@@ -39,6 +39,16 @@ spec:
         enabled: true
         existingClaim: node-red
 
+    initContainers:
+      copy-config:
+        image: nodered/node-red:2.0.5
+        command: ['sh', '-c', 'cp -R /data/* /newdata/']
+        volumeMounts:
+        - name: newdata
+          mountPath: /newdata
+        securityContext:
+          runAsUser: 0
+
     ingress:
       main:
         enabled: true
