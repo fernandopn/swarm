@@ -15,6 +15,7 @@ spec:
     metadata:
       labels:
         app: mqtt-automator
+        configmap.reloader.stakater.com/reload: mqtt-automator-config
     spec:
       nodeSelector:
         role: iot-controller

@@ -15,6 +15,7 @@ spec:
     metadata:
       labels:
         app: elgato2mqtt
+        configmap.reloader.stakater.com/reload: elgato2mqtt-config
     spec:
       nodeSelector:
         role: iot-controller

@@ -15,6 +15,7 @@ spec:
     metadata:
       labels:
         app: network-monitoring
+        configmap.reloader.stakater.com/reload: network-monitoring-config
     spec:
       nodeSelector:
         role: iot-controller
