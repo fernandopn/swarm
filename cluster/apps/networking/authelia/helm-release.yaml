@@ -9,7 +9,7 @@ spec:
     spec:
       # renovate: registryUrl=https://charts.authelia.com
       chart: authelia
-      version: '0.4.19'
+      version: 0.5.6
       sourceRef:
         kind: HelmRepository
         name: authelia-charts
@@ -43,7 +43,7 @@ spec:
 
     configMap:
       theme: dark
-      default_redirection_url: "https://grafana.${SECRET_DOMAIN}"
+      default_redirection_url: "https://home-assistant.${SECRET_DOMAIN}"
 
       # authentication methods
       authentication_backend:
@@ -83,6 +83,13 @@ spec:
           - 10.0.0.0/8
 
         rules:
+        - domain:
+          # iot
+          - "home-assistant.${SECRET_DOMAIN}"
+          policy: bypass
+          networks:
+          - home
+
         # At Home
         - domain:
           # kube-prometheus-stack
@@ -90,10 +97,16 @@ spec:
           - "grafana.${SECRET_DOMAIN}"
           - "prometheus.${SECRET_DOMAIN}"
           # Media
+          - "bazarr.${SECRET_DOMAIN}"
+          - "calibre.${SECRET_DOMAIN}"
           - "jackett.${SECRET_DOMAIN}"
           - "plex.${SECRET_DOMAIN}"
           - "radarr.${SECRET_DOMAIN}"
+          - "sabnzbd.${SECRET_DOMAIN}"
           - "sonarr.${SECRET_DOMAIN}"
+          # IOT
+          - "home-assistant-vscode.${SECRET_DOMAIN}"
+          - "node-red.${SECRET_DOMAIN}"
           policy: one_factor
           subject:
           - "group:admins"
