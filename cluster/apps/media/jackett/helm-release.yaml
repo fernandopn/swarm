@@ -22,7 +22,7 @@ spec:
     # Images
     image:
       repository: linuxserver/jackett
-      tag: version-v0.18.623
+      tag: version-v0.18.632
 
     # Backup
     podAnnotations:
