@@ -47,7 +47,8 @@ spec:
         existingClaim: home-assistant
 
     service:
-      main:
+      homekit:
+        enabled: true
         type: "LoadBalancer"
         loadBalancerIP: 10.0.6.226
         ports:
