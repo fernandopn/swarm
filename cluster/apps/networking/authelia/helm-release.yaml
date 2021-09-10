@@ -24,7 +24,8 @@ spec:
 
     pod:
       kind: Deployment
-      # deploymentStrategy: Recreate # Not supported. Likely to fail during update
+      strategy:
+        type: Recreate
       annotations:
         backup.velero.io/backup-volumes: authelia
 
