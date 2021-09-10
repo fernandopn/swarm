@@ -35,10 +35,10 @@ spec:
         cpu: "1"
 
     # Persistence
-    # persistence:
-    #   config:
-    #     enabled: true
-    #     existingClaim: esphome
+    persistence:
+      config:
+        enabled: true
+        existingClaim: esphome
 
     ingress:
       main:
