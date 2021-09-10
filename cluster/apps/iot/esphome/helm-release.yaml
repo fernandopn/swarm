@@ -16,8 +16,8 @@ spec:
         namespace: flux-system
   values:
     # Backup
-    # podAnnotations:
-    #   backup.velero.io/backup-volumes: config
+    podAnnotations:
+      backup.velero.io/backup-volumes: config
 
     image:
       repository: esphome/esphome
