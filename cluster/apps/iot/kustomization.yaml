@@ -4,6 +4,7 @@ kind: Kustomization
 namespace: iot
 resources:
 - elgato2mqtt
+- esphome
 - home-assistant
 - mosquitto
 - mqtt-automator

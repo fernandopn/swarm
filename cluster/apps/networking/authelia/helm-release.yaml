@@ -86,6 +86,7 @@ spec:
         - domain:
           # iot
           - "home-assistant.${SECRET_DOMAIN}"
+          - "esphome.${SECRET_DOMAIN}"
           policy: bypass
           networks:
           - home
