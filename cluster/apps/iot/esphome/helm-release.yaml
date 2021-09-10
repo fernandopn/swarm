@@ -21,7 +21,7 @@ spec:
 
     image:
       repository: esphome/esphome
-      tag: 1.20.4
+      tag: 2021.8.2
     env:
       TZ: "${SECRET_TIMEZONE}"
 
