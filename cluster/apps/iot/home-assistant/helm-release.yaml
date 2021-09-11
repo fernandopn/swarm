@@ -46,6 +46,8 @@ spec:
         enabled: true
         existingClaim: home-assistant
 
+    # Homekit integration
+    hostNetwork: true
     service:
       homekit:
         enabled: true
