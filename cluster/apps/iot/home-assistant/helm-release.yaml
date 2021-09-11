@@ -46,16 +46,16 @@ spec:
         enabled: true
         existingClaim: home-assistant
 
-    # service:
-    #   homekit:
-    #     enabled: true
-    #     type: "LoadBalancer"
-    #     loadBalancerIP: 10.0.6.226
-    #     ports:
-    #       homekit:
-    #         enabled: true
-    #         port: 21065
-    #         protocol: TCP
+    service:
+      homekit:
+        enabled: true
+        type: "LoadBalancer"
+        loadBalancerIP: 10.0.6.226
+        ports:
+          homekit:
+            enabled: true
+            port: 21065
+            protocol: TCP
 
     ingress:
       main:
