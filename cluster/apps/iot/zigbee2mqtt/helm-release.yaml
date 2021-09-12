@@ -41,7 +41,7 @@ spec:
     strategy: # Need to turn down then turn up (depend on one usb device)
       type: Recreate
     env:
-      TZ: "Europe/Zurich"
+      TZ: "${SECRET_TIMEZONE}"
 
     # Pod
     resources:
