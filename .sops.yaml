@@ -1,7 +1,7 @@
 ---
 creation_rules:
   - path_regex: \.sops\.yaml$
-    encrypted_regex: "^(data|stringData|vpn)$"
+    encrypted_regex: "^(data|stringData|vpn|config)$"
     pgp: >-
       CC26950EB0DB08F2B4D016B83F8C0A0F531AA043,
       4E5578A57ACF05E886B3E973851585A56C55E187

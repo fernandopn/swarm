@@ -1,0 +1,83 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+    name: ignored
+spec:
+    values:
+        config:
+            mqtt:
+                base_topic: ENC[AES256_GCM,data:Li+1uNjf,iv:8tRG6LmX/j9haD0/eW1BJlMwp6FS5z9CnnVt0mcqwJ8=,tag:u86F9TMXHD3J5O4IwRx4kQ==,type:str]
+                include_device_information: ENC[AES256_GCM,data:McXuVg==,iv:ZBPIFcjyanOXBOh5FKjDGVbZyHwN7KPA4GNckKRTCjU=,tag:iRoD3KquKDPd9I5A7kysgw==,type:bool]
+                password: ENC[AES256_GCM,data:qcasIwHjzD71j+0JosM=,iv:lN++phcPX2NgAuDm81h6aX3a1YuTj4R6iow//N+jK5c=,tag:G1HqZIOS4925Fx13MSmrww==,type:str]
+                server: ENC[AES256_GCM,data:rbu8vikmB3P9x0gzGdqpWU+1uVRub550fPCd2rZ7uO7VmQ==,iv:nxQHql3LlfFqADtorXLy73iw4EqFg/x0BXFaKoExIB8=,tag:lmkJqEKXyiC6NWV8KA3xJg==,type:str]
+                user: ENC[AES256_GCM,data:jM5AItP2,iv:TVk+5nDIjjzmpjF2W8RI18smosg3UnNQe6HncUuwZ1Y=,tag:h0ftwjw+ftMnxubqJN3mJg==,type:str]
+            #ENC[AES256_GCM,data:q+OKVIF2fYOyOs/dAw==,iv:JLXR8bxyqjINNqZEBlLqAzKEb7p5ZXMVBoO34E+/gDE=,tag:Ym2WSdjwwoadXHEceYhcjw==,type:comment]
+            advanced:
+                network_key:
+                    - ENC[AES256_GCM,data:qinc,iv:i7Q/qr3vW/IK7WzFFQuniRkhKcomkJ+TUo+zSpkB9f4=,tag:JIaEG0tVhZYJPMr8lvpgGQ==,type:int]
+                    - ENC[AES256_GCM,data:5XXG,iv:sFzx38Rg5okLt3cE8uXvuC1R6iAhLnPxe7YhQMKcXFI=,tag:BAy8SDnte9xwMIKd1YPnSA==,type:int]
+                    - ENC[AES256_GCM,data:mSQ=,iv:u1ryhnsaegfM1t62HPRuE2gxtQTNcKQk7W77grGL7Fw=,tag:E0Xa6wfE1XArLTojQvZjZQ==,type:int]
+                    - ENC[AES256_GCM,data:Lq4=,iv:5xANTr6H3k6u/scIyxI3oex3+nRkYz2COWxpAUgfcjA=,tag:tzEpMaHr7agvOvPW6tLMeg==,type:int]
+                    - ENC[AES256_GCM,data:foI=,iv:yjRC7/X36vBXhH5Yu18AmHmb6atRwQES3ZmsUXAu1I8=,tag:FFdpfeuBfJhAzmg/qpjCmA==,type:int]
+                    - ENC[AES256_GCM,data:quaR,iv:/zh7K5t+sM7BKnB4uqzwilEpLvFoqZfDnD2a6cUTucs=,tag:cR7jfLbFs3A0RwuX2or1YQ==,type:int]
+                    - ENC[AES256_GCM,data:i/bN,iv:ORTBc8jV60yJ2VUwWrAMz7aDqqFvEJfut4yWOGbz3Zw=,tag:mIHIRqjB5W3e5b4O0aj0Jg==,type:int]
+                    - ENC[AES256_GCM,data:wrk9,iv:DFwjdELNYoyJYzDOK3+p76ZfQ+qP79Z6CjN7d8ol8rY=,tag:80wEJOkaTUs/wr+7osINUQ==,type:int]
+                    - ENC[AES256_GCM,data:cAEd,iv:S4kZXVe3lbkFHgtX4MlrU/rgKQ3Z0vWLAM5d3IxFmWk=,tag:f95vU4RPomUmPocdRag9jA==,type:int]
+                    - ENC[AES256_GCM,data:ZC8=,iv:ynPTut5aVZ4tRK8qfszswPqGcTEvm2nBG425n31rGMQ=,tag:pIwtKGbL+7DpllVGIz2+fQ==,type:int]
+                    - ENC[AES256_GCM,data:CKbW,iv:/O01b9W6MsXPI68O5k2GYeCnlc45+7mCUNEckBih/SU=,tag:GiCiOXQorud2VFKxvZm5mw==,type:int]
+                    - ENC[AES256_GCM,data:ek4=,iv:gnP359VsyhqqRQgyr2SlXgEDInU3BOdCDqiCBsm3yZM=,tag:Mmlnk7RpeC5cNve3bAe/DA==,type:int]
+                    - ENC[AES256_GCM,data:W8U=,iv:Oahwp8Q31d3Cct0riv+6AnaGLXkdbSqbFGJ9MEZiiWM=,tag:UOSTLXjSuDLIpAbx3UdtcQ==,type:int]
+                    - ENC[AES256_GCM,data:5qw=,iv:+uHG8N9UdZFcFEUwxxWgQdqNyLRMfXyu4x0eCUTpdcc=,tag:5DxDtgq9yrD+XiNfiHsCaw==,type:int]
+                    - ENC[AES256_GCM,data:N5k=,iv:TWOc3wwJz0bTagJ5hSakZaqIMSZNNCHix85CMEPj4i8=,tag:uoIytt/4NXqepVP8STcOtg==,type:int]
+                    - ENC[AES256_GCM,data:g/Br,iv:7/HBAz4asFzVipBb8+mes9IhwX6oZMIJmueSUbo2Oxc=,tag:+EMK36wkM5mMgYwRJjk8lw==,type:int]
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2021-09-12T21:41:53Z"
+    mac: ENC[AES256_GCM,data:SyaKgExenef/TxxsTUv+kSGEko7TH9jcykkNoB7p/jaWAMV8+wI6qnE2QQY1g/5VBn6980ud75eGJNiGz6loJ86+rSpbPEeYXtQ9zzGvT4A1YlHLaRyehqwkBJed6nIgArTNBI37DhOS00U5hz6g5amyU3M5eBRTvRGlnrafPMM=,iv:btDCnsjeKcJvQQxjpm5jaiFD2RL9PW377lqvgq+nRSs=,tag:wqag5NIBZW85XrLP/X9Xsg==,type:str]
+    pgp:
+        - created_at: "2021-09-12T21:41:53Z"
+          enc: |
+            -----BEGIN PGP MESSAGE-----
+
+            hQIMA+xZIdjAexkpAQ//aYQiU1p0ck4HvBmP15ZfvL7vD2WgyOcI/VoFTPdQ7Gp/
+            D2FBbr4xHAkcabK29tBkVXSj71HzooMikIujEWtlp4INzf+dQoDzEHkbYXX7hVam
+            SbrJ1BCM7PjrBvqf1pd5ridaIFTH/RolRzzTrH1nOZcYeKskNS0V8gKddfkvITKt
+            QxN0daAVSi5DZ/n/kbRS3JgufgwxVIQUgufbZdVos5ItO4TDi4hIfmLqG41IPLLD
+            0t+a845eNg/3gooU7jz763K4FgGDFRlj6DDyNQ5iY8NaMJpFzMQ32RLIdHIECM+s
+            GyEnrcGQK0YIptYH5Xx6sERerVfZ2eWqlFGwOEm058y/kKoJuV1ZFQM7fd9zq+WV
+            XmKmyAm8NumbWvPXDuBRAyyQfMqxloFIJtsSYEnXRla/Sanhb85GKMEMr8RVDL63
+            Pk/sAt+XvaBHALOYjgYtjST7uWsYttI0zx6JBxNvPBrT1ZXYy9ZziNJKKak6jf48
+            yvE/CDoyhWRUL9ri/tZ6LmYx8sK1M2DeE5ih2xKBf8Jzs2P8Vlxb52CkNQX0NDxT
+            cSD+cXBf2loQ7XcG5LkdiIdDZPb4ICgB0oxrVM2XU+w94pYx7LlZKL6TAqqKlteN
+            oluqAGcIm/WR6xkg5UmdqViH8BRgPLmSyhH247TNZ+7ej+imxFdo5MIz+XKK6w3S
+            XgElMFfk7/rRdjrpu8M2jeHtDNac4XdC/ElmyBO9U6lHo6k2E8CDKdWRuH1OwG2L
+            /0Gojf1AE369TSzRI8/+YovbiIyvCK/Of/P6T814R/CzqplwZa+pfh1o/n2Eb80=
+            =S1IF
+            -----END PGP MESSAGE-----
+          fp: CC26950EB0DB08F2B4D016B83F8C0A0F531AA043
+        - created_at: "2021-09-12T21:41:53Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            wcFMA3AFOvyi6cBwARAANm6/LdWhaFYY0jFxx2GoFa0qRbt/fu2vPpA15/SJXBa6
+            E91ZRXf/3kkulgi2ZrkY7nyEj/Gf5NQ+y6N3x25R94WhDpF+0cscyl61UoDoq6W4
+            c0loBfOUNUKNk7kqoJ4mqjV40LMxXMSj+TGtA00z/gSxeHIyy58xgekCa56KXRyB
+            xRFjIf69OHWkX5j3w/6jo8CfeBrDzGTQNIuN9XGDdfNwO9/tYAo1rkPsYpAYOmhN
+            o/dillFPJ9h//BktfTI5X24b9v8qvx8QcuAz6H0ZGKEQbk2S8ADC6fqkbuE1IIQQ
+            7I4cLTYMFIWYGBEwHs6z3SIgiPAFKLIRIsF8TinNo97lFMUR7UCLR5k6wtYpNyoK
+            A9KgVd5GIZXC/jUPcm9dG7BZM2D61dnff+mdSI3gG1WbjZw0xyeBOpqaBkC4UkyW
+            OVfLvbK+I2D04TMUJjGshhiyOMiZ5GVlkVbGgvvprqBiCy9N9r7KP1gBXiWLtZC5
+            5K5e7XTyR2Uhv0b4NzYDl7T5Jb3yc6jD2umtIiW9vtouejObyKt/ORbdA/huennv
+            lkeG/De9JLNb+l9vls2QRPqIJlNX5gW+WQD6ni2UqzgKCeXOo3/oBj8nuGR5GTmQ
+            P19L7yyTC1og05p12iZqVa2LLZBUTIE71BMk0KioBykJ5nd8spZKRYMpFggc9xzS
+            5gE+0Lf05HgMxtBA26d5JjDojD8kMIeZ6ZCpw9FGr3PQfYNNXUK8Kz8TbO6LisRR
+            wB46xgTQ+Y9XiP4Wd8+iHd3keunj9+tZhf6U/jJakJfN2+L+nHP0AA==
+            =oQmC
+            -----END PGP MESSAGE-----
+          fp: 4E5578A57ACF05E886B3E973851585A56C55E187
+    encrypted_regex: ^(data|stringData|vpn|config)$
+    version: 3.7.1

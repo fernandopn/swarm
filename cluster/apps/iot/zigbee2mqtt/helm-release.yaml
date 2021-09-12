@@ -1,0 +1,106 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: zigbee2mqtt
+spec:
+  interval: 1h
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts/
+      chart: zigbee2mqtt
+      version: 9.0.0
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home-charts
+        namespace: flux-system
+  
+  values:
+    nodeSelector:
+      role: iot-controller
+    tolerations:
+    - key: "dedicated"
+      operator: "Equal"
+      value: "iot"
+      effect: "NoSchedule"
+
+    # Backup
+    # podAnnotations:
+    #   backup.velero.io/backup-volumes: config
+
+    image:
+      repository: koenkk/zigbee2mqtt
+      tag: 1.19.1
+
+    # Pod
+    securityContext:
+      privileged: true
+    podSecurityContext:
+      supplementalGroups:
+      - 20 # dialout
+    strategy: # Need to turn down then turn up (depend on one usb device)
+      type: Recreate
+    env:
+      TZ: "Europe/Zurich"
+
+    # Pod
+    resources:
+      requests:
+        memory: "128Mi"
+        cpu: "100m"
+      limits:
+        memory: "256Mi"
+        cpu: "250m"
+
+    # Persistence
+    persistence:
+      data:
+        enabled: true
+        existingClaim: zigbee2mqtt
+      usb:
+        enabled: true
+        type: hostPath
+        hostPath: /dev/ttyUSB0
+
+    initContainers:
+      copy-config:
+        image: busybox
+        command: ['sh', '-c', 'cp /app/* /data/']
+        volumeMounts:
+        - name: data
+          mountPath: /data
+        - name: zigbee2mqtt-settings
+          mountPath: /app
+
+    config:
+
+      # allow new devices to join
+      permit_join: false
+
+      # home-assistant discover
+      homeassistant: true
+
+      # Over the air update
+      ota:
+        update_check_interval: 2880
+
+      experimental:
+        new_api: true
+      frontend:
+        port: 8080
+
+      # Serial settings
+      serial:
+        port: /dev/ttyUSB0
+
+      # Security key
+      advanced:
+        homeassistant_discovery_topic: homeassistant
+        homeassistant_status_topic: homeassistant/status
+        last_seen: ISO_8601
+        log_level: info
+        log_output:
+          - console
+
+      device_options:
+        transition: 1
