@@ -11,4 +11,4 @@ resources:
 - network-monitoring
 - node-red
 - shared
-- zigbee2mqtt
+# - zigbee2mqtt
