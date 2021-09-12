@@ -4,8 +4,3 @@ kind: Kustomization
 resources:
 - _storage.yaml
 - helm-release.yaml
-
-patches:
-- path: devices.sops.yaml
-  target:
-    kind: HelmRelease
