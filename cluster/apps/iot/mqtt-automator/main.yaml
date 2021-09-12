@@ -17,13 +17,13 @@ spec:
         app: mqtt-automator
         configmap.reloader.stakater.com/reload: mqtt-automator-config
     spec:
-      nodeSelector:
-        role: iot-controller
-      tolerations:
-      - key: "dedicated"
-        operator: "Equal"
-        value: "iot"
-        effect: "NoSchedule"
+      # nodeSelector:
+      #   role: iot-controller
+      # tolerations:
+      # - key: "dedicated"
+      #   operator: "Equal"
+      #   value: "iot"
+      #   effect: "NoSchedule"
       containers:
       - name: mqtt-automator
         image: cronuxs/mqtt-automator:v0.1.2

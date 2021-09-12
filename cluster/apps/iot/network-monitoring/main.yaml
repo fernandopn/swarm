@@ -17,13 +17,13 @@ spec:
         app: network-monitoring
         configmap.reloader.stakater.com/reload: network-monitoring-config
     spec:
-      nodeSelector:
-        role: iot-controller
-      tolerations:
-      - key: "dedicated"
-        operator: "Equal"
-        value: "iot"
-        effect: "NoSchedule"
+      # nodeSelector:
+      #   role: iot-controller
+      # tolerations:
+      # - key: "dedicated"
+      #   operator: "Equal"
+      #   value: "iot"
+      #   effect: "NoSchedule"
       containers:
       - name: network-monitoring
         image: cronuxs/network-monitoring:v0.1.3

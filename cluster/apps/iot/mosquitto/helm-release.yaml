@@ -26,13 +26,13 @@ spec:
     env:
       TZ: "${SECRET_TIMEZONE}"
 
-    nodeSelector:
-      role: iot-controller
-    tolerations:
-    - key: "dedicated"
-      operator: "Equal"
-      value: "iot"
-      effect: "NoSchedule"
+    # nodeSelector:
+    #   role: iot-controller
+    # tolerations:
+    # - key: "dedicated"
+    #   operator: "Equal"
+    #   value: "iot"
+    #   effect: "NoSchedule"
 
     # Persistence
     # Storage
