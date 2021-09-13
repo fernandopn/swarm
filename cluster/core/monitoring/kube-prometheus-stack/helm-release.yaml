@@ -93,6 +93,12 @@ spec:
               resources:
                 requests:
                   storage: 10Gi
+        additionalScrapeConfigs:
+        - job_name: 'esphome'
+          honor_timestamps: true
+          static_configs:
+          - targets:
+            - 10.0.33.10
 
     alertmanager:
       ingress:
