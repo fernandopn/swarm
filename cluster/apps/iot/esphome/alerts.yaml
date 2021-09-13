@@ -1,0 +1,19 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: esphome
+  labels:
+    role: esphome-rules
+spec:
+  groups:
+  - name: esphome-down
+    rules:
+    - alert: EspHomeIsDown
+      annotations:
+        message: EspHome running at {{ $labels.instance }} is not responding for the last 15 minutes.
+      expr: |-
+        up{job="esphome"} == 0
+      for: 15m
+      labels:
+        severity: warning
