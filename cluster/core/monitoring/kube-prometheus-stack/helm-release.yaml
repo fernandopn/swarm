@@ -99,6 +99,8 @@ spec:
           static_configs:
           - targets:
             - 10.0.33.10
+            - 10.0.33.12
+            - 10.0.33.13
 
     alertmanager:
       ingress:
