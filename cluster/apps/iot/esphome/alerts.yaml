@@ -4,7 +4,7 @@ kind: PrometheusRule
 metadata:
   name: esphome
   labels:
-    role: esphome-rules
+    role: alert-rules
 spec:
   groups:
   - name: esphome-down
