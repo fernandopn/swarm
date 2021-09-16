@@ -1,0 +1,25 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: esphome
+  labels:
+    role: esphome-rules
+spec:
+  groups:
+  - name: esphome
+    rules:
+    - alert: esphomeOverheating
+      annotations:
+        message: ESPHome node {{ $labels.name }} has {{ $value }} °C of temperature.
+      expr: |-
+        esphome_sensor_value{unit="°C"} > 70.0
+      labels:
+        severity: warning
+    - alert: esphomeOvercurrent
+      annotations:
+        message: ESPHome node {{ $labels.name }} has {{ $value }} A of current.
+      expr: |-
+        esphome_sensor_value{unit="A"} > 2000
+      labels:
+        severity: warning
