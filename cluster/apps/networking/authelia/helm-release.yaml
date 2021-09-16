@@ -24,7 +24,8 @@ spec:
 
     pod:
       kind: Deployment
-      updateStrategy: Recreate # Not working =/
+      strategy:
+        type: Recreate
       annotations:
         backup.velero.io/backup-volumes: authelia
 
