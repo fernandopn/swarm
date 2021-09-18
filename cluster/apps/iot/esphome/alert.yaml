@@ -13,7 +13,8 @@ spec:
       annotations:
         message: ESPHome node {{ $labels.name }} has {{ $value }} °C of temperature.
       expr: |-
-        esphome_sensor_value{unit="°C"} > 70.0
+        esphome_sensor_value{unit="°C"} > 75.0
+      for: 15m
       labels:
         severity: warning
     - alert: esphomeOvercurrent
