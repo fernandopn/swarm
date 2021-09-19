@@ -7,7 +7,6 @@ resources:
 - esphome
 - home-assistant
 - mosquitto
-# - mqtt-automator # Not needed
 - network-monitoring
 - node-red
 - shared
