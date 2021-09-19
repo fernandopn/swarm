@@ -62,15 +62,15 @@ spec:
         type: hostPath
         hostPath: /dev/ttyUSB0
 
-    initContainers:
-      copy-config:
-        image: busybox
-        command: ['sh', '-c', 'cp /app/* /data/']
-        volumeMounts:
-        - name: data
-          mountPath: /data
-        - name: zigbee2mqtt-settings
-          mountPath: /app
+    # initContainers:
+    #   copy-config:
+    #     image: busybox
+    #     command: ['sh', '-c', 'cp /app/* /data/']
+    #     volumeMounts:
+    #     - name: data
+    #       mountPath: /data
+    #     - name: zigbee2mqtt-settings
+    #       mountPath: /app
 
     addons:
       codeserver:
