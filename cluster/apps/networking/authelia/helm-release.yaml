@@ -9,7 +9,7 @@ spec:
     spec:
       # renovate: registryUrl=https://charts.authelia.com
       chart: authelia
-      version: 0.5.7
+      version: 0.5.7-mine
       sourceRef:
         kind: HelmRepository
         name: authelia-charts
@@ -24,8 +24,8 @@ spec:
 
     pod:
       kind: Deployment
-      # strategy:
-      # type: Recreate # Not working
+      strategy:
+        type: Recreate
       annotations:
         backup.velero.io/backup-volumes: authelia
 
