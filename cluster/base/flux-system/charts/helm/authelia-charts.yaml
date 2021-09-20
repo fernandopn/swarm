@@ -6,6 +6,6 @@ metadata:
   namespace: flux-system
 spec:
   interval: 30m
-  url: https://fernandopn.github.io/authelia-chartrepo/
+  url: https://fernandopn.github.io/authelia-chartrepo/index.yaml
   #url: https://charts.authelia.com
   timeout: 2m
