@@ -40,6 +40,9 @@ spec:
       podAnnotations:
         backup.velero.io/backup-volumes: storage
 
+      deploymentStrategy:
+        type: Recreate
+
       ingress:
         enabled: true
         annotations: 
