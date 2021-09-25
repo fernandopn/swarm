@@ -24,3 +24,10 @@ spec:
         esphome_sensor_value{unit="A"} > 2000
       labels:
         severity: warning
+    - alert: esphomeRebooted
+      annotations:
+        message: ESPHome node {{ $labels.name }} had rebooted.
+      expr: |-
+        esphome_sensor_value{unit="s"} < 100
+      labels:
+        severity: warning
