@@ -28,6 +28,6 @@ spec:
       annotations:
         message: ESPHome node {{ $labels.name }} had rebooted.
       expr: |-
-        esphome_sensor_value{unit="s"} < 100
+        esphome_sensor_value{unit="s"} < 125
       labels:
         severity: warning
