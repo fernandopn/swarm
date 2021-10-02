@@ -30,7 +30,7 @@ spec:
 
     image:
       repository: koenkk/zigbee2mqtt
-      tag: 1.21.1
+      tag: 1.21.2
 
     # Pod
     securityContext:
