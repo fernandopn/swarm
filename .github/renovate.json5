@@ -112,6 +112,16 @@
       "commitMessageTopic": "container image {{depName}}",
       "commitMessageExtra": "to {{#if isSingleVersion}}{{{toVersion}}}{{else}}{{{newValue}}}{{/if}}"
     },
+    //v<major>.<minor>-debian-forward<patch>
+    {
+      "matchDatasources": ["docker"],
+      "versioning": "regex:^(?v<major>\\d+)\\.(?<minor>\\d+)-debian-forward-(?<patch>\\d+).*$$",
+      "matchPackageNames": [
+        "plexinc/pms-docker"
+      ],
+      "commitMessageTopic": "container image {{depName}}",
+      "commitMessageExtra": "to {{#if isSingleVersion}}{{{toVersion}}}{{else}}{{{newValue}}}{{/if}}"
+    },
     // enable auto-merge
     {
       "matchDatasources": ["docker"],
