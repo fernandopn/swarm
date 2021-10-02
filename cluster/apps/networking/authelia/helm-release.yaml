@@ -93,7 +93,6 @@ spec:
         - domain:
           # iot
           - "home-assistant.${SECRET_DOMAIN}"
-          - "esphome.${SECRET_DOMAIN}"
           policy: bypass
           networks:
           - home
@@ -112,9 +111,12 @@ spec:
           - "radarr.${SECRET_DOMAIN}"
           - "sabnzbd.${SECRET_DOMAIN}"
           - "sonarr.${SECRET_DOMAIN}"
-          # IOT
+          # iot
+          - "esphome.${SECRET_DOMAIN}"
           - "home-assistant-vscode.${SECRET_DOMAIN}"
           - "node-red.${SECRET_DOMAIN}"
+          - "zigbee2mqtt-vscode.${SECRET_DOMAIN}"
+          - "zigbee2mqtt.${SECRET_DOMAIN}"
           policy: one_factor
           subject:
           - "group:admins"
