@@ -54,7 +54,7 @@ spec:
 
     # Persistence
     persistence:
-      config:
+      data:
         enabled: true
         existingClaim: zigbee2mqtt
       usb:
