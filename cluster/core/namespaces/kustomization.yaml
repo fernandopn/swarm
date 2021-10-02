@@ -1,14 +1,15 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - backup.yaml
-  - cert-manager.yaml
-  - intel-gpu-plugin.yaml
-  - iot.yaml
-  - media.yaml
-  - metallb-system.yaml
-  - monitoring.yaml
-  - networking.yaml
-  - pxe-manage.yaml
-  - vault.yaml
-  - reloader.yaml
+- backup.yaml
+- cert-manager.yaml
+- intel-gpu-plugin.yaml
+- iot.yaml
+- logging.yaml
+- media.yaml
+- metallb-system.yaml
+- monitoring.yaml
+- networking.yaml
+- pxe-manage.yaml
+- reloader.yaml
+- vault.yaml
