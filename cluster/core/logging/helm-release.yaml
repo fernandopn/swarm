@@ -18,6 +18,9 @@ spec:
       retries: 3
   values:
     # https://github.com/fluent/helm-charts/blob/main/charts/fluentd/values.yaml
+    image:
+      repository: "fluent/fluentd-kubernetes-daemonset"
+      tag: "v1.14-debian-forward-1"
     tolerations:
     - key: "dedicated"
       operator: "Equal"
