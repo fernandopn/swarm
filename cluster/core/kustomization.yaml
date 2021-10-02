@@ -10,3 +10,4 @@ resources:
   - metallb-system
   - monitoring
   - reloader
+  - logging
