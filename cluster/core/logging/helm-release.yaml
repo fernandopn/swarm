@@ -17,7 +17,12 @@ spec:
     remediation:
       retries: 3
   values:
-    # https://github.com/fluent/helm-charts/blob/main/charts/fluent-bit/values.yaml
+    # https://github.com/fluent/helm-charts/blob/main/charts/fluentd/values.yaml
+    tolerations:
+    - key: "dedicated"
+      operator: "Equal"
+      value: "iot"
+      effect: "NoSchedule"
     metrics:
       serviceMonitor:
         enabled: true
