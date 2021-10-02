@@ -17,13 +17,13 @@ spec:
         app: elgato2mqtt
         configmap.reloader.stakater.com/reload: elgato2mqtt-config
     spec:
-      # nodeSelector:
-      #   role: iot-controller
-      # tolerations:
-      # - key: "dedicated"
-      #   operator: "Equal"
-      #   value: "iot"
-      #   effect: "NoSchedule"
+      nodeSelector:
+        role: iot-controller
+      tolerations:
+      - key: "dedicated"
+        operator: "Equal"
+        value: "iot"
+        effect: "NoSchedule"
       containers:
       - name: elgato2mqtt
         image: cronuxs/elgato2mqtt:v0.1.2
