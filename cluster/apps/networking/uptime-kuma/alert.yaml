@@ -23,3 +23,22 @@ spec:
     interval: 15s
     port: http
     scrapeTimeout: 10s
+--- 
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: uptime-kuma
+  labels:
+    role: alert-rules
+spec:
+  groups:
+  - name: uptimeKuma
+    rules:
+    - alert: uptimeKumaDown
+      annotations:
+        message: Uptime Kuma noticed that {{ $labels.monitor_name }} is currently down.
+      expr: |-
+        monitor_status == 0
+      for: 15m
+      labels:
+        severity: warning
