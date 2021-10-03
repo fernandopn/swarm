@@ -4,8 +4,6 @@ kind: PodMonitor
 metadata:
   name: node-red
   labels:
-    app.kubernetes.io/instance: flux-system
-    app.kubernetes.io/version: latest
     release:  kube-prometheus-stack
 spec:
   namespaceSelector:
