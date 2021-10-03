@@ -26,11 +26,14 @@ spec:
     env:
       TZ: "${SECRET_TIMEZONE}"
 
+    podAnnotations:
+      backup.velero.io/backup-volumes: data
+
     persistence:
       data:
         enabled: true
         existingClaim: uptime-kuma
-        mountPath: app/data
+        mountPath: /app/data
 
     service:
       main:
