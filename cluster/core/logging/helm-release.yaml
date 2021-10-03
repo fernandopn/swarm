@@ -57,6 +57,7 @@ spec:
         <source>
           @type syslog
           @label @SYSLOG
+          tag system
           port 5140
           <transport tcp>
           </transport>
@@ -65,6 +66,7 @@ spec:
         <source>
           @type syslog
           @label @SYSLOG
+          tag system
           port 5140
           <transport udp>
           </transport>
