@@ -99,6 +99,8 @@ spec:
 
         # At Home
         - domain:
+          # networking
+          - "uptime-kuma.${SECRET_DOMAIN}"
           # kube-prometheus-stack
           - "alertmanager.${SECRET_DOMAIN}"
           - "grafana.${SECRET_DOMAIN}"
