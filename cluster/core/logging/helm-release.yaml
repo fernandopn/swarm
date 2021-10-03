@@ -55,7 +55,7 @@ spec:
         # Syslog collector TCP
         <source>
           @type syslog
-          @label @DISPATCH
+          @label @SYSLOG
           port 5140
           tag system
           <transport tcp>
@@ -64,12 +64,23 @@ spec:
         # Syslog collector UDP
         <source>
           @type syslog
-          @label @DISPATCH
+          @label @SYSLOG
           port 5140
           tag system
           <transport udp>
           </transport>
         </source>
+
+    02_filters.conf: |-
+      <label @SYSLOG>
+        <parse>
+          message_format auto
+        </parse>
+        <match **>
+          @type relabel
+          @label @DISPATCH
+        </match>
+      </label>
 
       04_outputs.conf: |-
         <label @OUTPUT>
