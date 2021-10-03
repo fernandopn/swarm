@@ -39,6 +39,6 @@ spec:
         message: Uptime Kuma noticed that {{ $labels.monitor_name }} is currently down.
       expr: |-
         monitor_status == 0
-      for: 15m
+      for: 5m
       labels:
         severity: warning
