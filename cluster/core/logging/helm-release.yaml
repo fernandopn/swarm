@@ -51,7 +51,7 @@ spec:
             description: "{{ $labels.pod }} on {{ $labels.nodename }} is down"
 
     fileConfigs:
-      01_syslog.conf: |-         
+      01_sources_syslog.conf: |-         
         # Syslog collector TCP
         <source>
           @type syslog
@@ -71,7 +71,7 @@ spec:
           </transport>
         </source>
 
-      02_filters.conf: |-
+      02_filters_syslog.conf: |-
         <label @SYSLOG>
           <parse>
             message_format auto
