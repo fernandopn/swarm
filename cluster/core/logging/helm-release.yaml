@@ -57,7 +57,6 @@ spec:
           @type syslog
           @label @SYSLOG
           port 5140
-          tag system
           <transport tcp>
           </transport>
         </source>
@@ -66,7 +65,6 @@ spec:
           @type syslog
           @label @SYSLOG
           port 5140
-          tag system
           <transport udp>
           </transport>
         </source>
@@ -78,7 +76,7 @@ spec:
           </parse>
           <match **>
             @type relabel
-            @label @DISPATCH
+            @label @OUTPUT
           </match>
         </label>
 
