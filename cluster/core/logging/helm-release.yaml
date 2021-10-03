@@ -71,16 +71,16 @@ spec:
           </transport>
         </source>
 
-    02_syslog_filters.conf: |-
-      <label @SYSLOG>
-        <parse>
-          message_format auto
-        </parse>
-        <match **>
-          @type relabel
-          @label @DISPATCH
-        </match>
-      </label>
+      02_filters.conf: |-
+        <label @SYSLOG>
+          <parse>
+            message_format auto
+          </parse>
+          <match **>
+            @type relabel
+            @label @DISPATCH
+          </match>
+        </label>
 
       04_outputs.conf: |-
         <label @OUTPUT>
