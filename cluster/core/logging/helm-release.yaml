@@ -26,6 +26,10 @@ spec:
       operator: "Equal"
       value: "iot"
       effect: "NoSchedule"
+    - key: "dedicated"
+      operator: "Equal"
+      value: "node-role.kubernetes.io/master=true"
+      effect: "NoSchedule"
     metrics:
       serviceMonitor:
         enabled: true
