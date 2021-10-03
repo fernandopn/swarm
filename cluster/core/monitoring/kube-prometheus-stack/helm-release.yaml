@@ -108,7 +108,12 @@ spec:
             - 10.0.33.14
             - 10.0.33.15
             - 10.0.33.16
-
+        - job_name: 'uptime-kuma'
+          honor_timestamps: true
+          scrape_interval: 30s
+          static_configs:
+          - targets:
+            - uptime-kuma-heimdall
     alertmanager:
       ingress:
         enabled: true
