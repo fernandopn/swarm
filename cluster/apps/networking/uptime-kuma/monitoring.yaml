@@ -12,5 +12,7 @@ spec:
   selector:
     matchLabels:
       app.kubernetes.io/instance: uptime-kuma
-  podMetricsEndpoints:
-    - port: http
+  endpoints:
+  - interval: 15s
+    port: http
+    scrapeTimeout: 10s
