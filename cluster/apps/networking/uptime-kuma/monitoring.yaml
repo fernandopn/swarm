@@ -15,10 +15,10 @@ spec:
   endpoints:
   - basicAuth:
       password:
-        name: basic-auth
+        name: uptime-kuma-auth
         key: password
       username:
-        name: basic-auth
+        name: uptime-kuma-auth
         key: user
     interval: 15s
     port: http
