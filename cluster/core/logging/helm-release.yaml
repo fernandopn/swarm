@@ -51,6 +51,24 @@ spec:
             description: "{{ $labels.pod }} on {{ $labels.nodename }} is down"
 
     fileConfigs:
+      01_syslog.conf: |-         
+        # Syslog collector TCP
+        <source>
+          @type syslog
+          port 5140
+          tag system
+          <transport tcp>
+          </transport>
+        </source>
+        # Syslog collector UDP
+        <source>
+          @type syslog
+          port 5140
+          tag system
+          <transport udp>
+          </transport>
+        </source>
+
       04_outputs.conf: |-
         <label @OUTPUT>
           <match **>
