@@ -6,6 +6,7 @@ spec:
   releaseName: fluentd-deployment
   chart:
     spec:
+      # renovate: registryUrl=https://fluent.github.io/helm-charts
       chart: fluentd
       version: '0.2.11'
       sourceRef:
