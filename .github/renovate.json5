@@ -115,7 +115,7 @@
     //v<major>.<minor>-debian-forward<patch>
     {
       "matchDatasources": ["docker"],
-      "versioning": "regex:^(?v<major>\\d+)\\.(?<minor>\\d+)-debian-forward-(?<patch>\\d+).*$$",
+      "versioning": "regex:^v(?<major>\\d+)\\.(?<minor>\\d+)-debian-forward-(?<patch>\\d+).*$$",
       "matchPackageNames": [
         "plexinc/pms-docker"
       ],
