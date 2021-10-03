@@ -113,7 +113,7 @@ spec:
           scrape_interval: 30s
           static_configs:
           - targets:
-            - uptime-kuma-heimdall
+            - uptime-kuma-heimdall:3001
     alertmanager:
       ingress:
         enabled: true
