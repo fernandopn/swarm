@@ -85,6 +85,9 @@ spec:
 
       04_outputs.conf: |-
         <label @OUTPUT>
+          <match system.**>
+            @type stdout
+          </match>
           <match **>
             @type forward
             send_timeout 60s
