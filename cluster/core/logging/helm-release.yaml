@@ -55,6 +55,7 @@ spec:
         # Syslog collector TCP
         <source>
           @type syslog
+          @label @DISPATCH
           port 5140
           tag system
           <transport tcp>
@@ -63,6 +64,7 @@ spec:
         # Syslog collector UDP
         <source>
           @type syslog
+          @label @DISPATCH
           port 5140
           tag system
           <transport udp>
