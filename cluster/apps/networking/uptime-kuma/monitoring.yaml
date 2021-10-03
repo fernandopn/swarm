@@ -1,17 +1,16 @@
 ---
 apiVersion: monitoring.coreos.com/v1
-kind: PodMonitor
+kind: ServiceMonitor
 metadata:
   name: uptime-kuma
   labels:
-    release:  kube-prometheus-stack
+    release: kube-prometheus-stack
 spec:
   namespaceSelector:
     matchNames:
-      - networking
+    - networking
   selector:
     matchLabels:
       app.kubernetes.io/instance: uptime-kuma
-      app.kubernetes.io/name: heimdall
   podMetricsEndpoints:
-    - port: "3001"
+    - port: http
