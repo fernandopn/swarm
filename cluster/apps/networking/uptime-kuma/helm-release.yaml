@@ -26,6 +26,12 @@ spec:
     env:
       TZ: "${SECRET_TIMEZONE}"
 
+    persistence:
+      data:
+        enabled: true
+        existingClaim: uptime-kuma
+        mountPath: app/data
+
     service:
       main:
         ports:
