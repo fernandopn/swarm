@@ -5,9 +5,11 @@ kind: Service
 apiVersion: v1
 metadata:
   name: fluentd-deployment-udp
+  annotations:
+    metallb.universe.tf/allow-shared-ip: fluentd
 spec:
   type: LoadBalancer
-  loadBalancerIP: 10.0.6.226
+  loadBalancerIP: 10.0.6.225
   ports:
     - name: syslog-udp
       targetPort: 5140
@@ -21,6 +23,8 @@ kind: Service
 apiVersion: v1
 metadata:
   name: fluentd-deployment-tcp
+  annotations:
+    metallb.universe.tf/allow-shared-ip: fluentd
 spec:
   type: LoadBalancer
   loadBalancerIP: 10.0.6.225
