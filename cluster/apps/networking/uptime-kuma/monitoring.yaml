@@ -1,0 +1,19 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: uptime-kuma
+  labels:
+    app.kubernetes.io/instance: flux-system
+    app.kubernetes.io/version: latest
+    release:  kube-prometheus-stack
+spec:
+  namespaceSelector:
+    matchNames:
+      - networking
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: uptime-kuma
+      app.kubernetes.io/name: heimdall
+  podMetricsEndpoints:
+    - port: 3001
