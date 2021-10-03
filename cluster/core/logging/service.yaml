@@ -1,0 +1,34 @@
+# Unable to set this within the helm chart
+## https://github.com/fluent/helm-charts/issues/128
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: fluentd-deployment-udp
+spec:
+  type: LoadBalancer
+  loadBalancerIP: 10.0.6.226
+  ports:
+    - name: syslog-udp
+      targetPort: 5140
+      port: 5140
+      protocol: UDP
+  selector:
+    app.kubernetes.io/instance: fluentd-deployment
+    app.kubernetes.io/name: fluentd
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: fluentd-deployment-tcp
+spec:
+  type: LoadBalancer
+  loadBalancerIP: 10.0.6.225
+  ports:
+    - name: syslog-tcp
+      targetPort: 5140
+      port: 5140
+      protocol: TCP
+  selector:
+    app.kubernetes.io/instance: fluentd-deployment
+    app.kubernetes.io/name: fluentd
