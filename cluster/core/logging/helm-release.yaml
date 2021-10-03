@@ -71,7 +71,7 @@ spec:
           </transport>
         </source>
 
-    02_filters.conf: |-
+    02_syslog_filters.conf: |-
       <label @SYSLOG>
         <parse>
           message_format auto
