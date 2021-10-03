@@ -14,12 +14,12 @@ spec:
       app.kubernetes.io/instance: uptime-kuma
   endpoints:
   - basicAuth:
-    password:
-      name: basic-auth
-      key: password
-    username:
-      name: basic-auth
-      key: user
+      password:
+        name: basic-auth
+        key: password
+      username:
+        name: basic-auth
+        key: user
     interval: 15s
     port: http
     scrapeTimeout: 10s
