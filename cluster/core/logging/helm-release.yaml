@@ -22,14 +22,15 @@ spec:
       repository: "fluent/fluentd-kubernetes-daemonset"
       tag: "v1.14-debian-forward-1"
     tolerations:
-    - key: "dedicated"
-      operator: "Equal"
-      value: "iot"
-      effect: "NoSchedule"
-    - key: "node-role.kubernetes.io/master"
-      operator: "Equal"
-      value: "true"
-      effect: "NoSchedule"
+    # Debugging
+    # - key: "dedicated"
+    #   operator: "Equal"
+    #   value: "iot"
+    #   effect: "NoSchedule"
+    # - key: "node-role.kubernetes.io/master"
+    #   operator: "Equal"
+    #   value: "true"
+    #   effect: "NoSchedule"
     metrics:
       serviceMonitor:
         enabled: true
@@ -75,9 +76,12 @@ spec:
             message_format auto
           </parse>
           <match **>
-            @type relabel
-            @label @OUTPUT
+            @type stdout
           </match>
+          # <match **>
+          #   @type relabel
+          #   @label @OUTPUT
+          # </match>
         </label>
 
       04_outputs.conf: |-
