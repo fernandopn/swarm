@@ -78,12 +78,9 @@ spec:
             message_format auto
           </parse>
           <match **>
-            @type stdout
+            @type relabel
+            @label @DISPATCH
           </match>
-          # <match **>
-          #   @type relabel
-          #   @label @OUTPUT
-          # </match>
         </label>
 
       04_outputs.conf: |-
