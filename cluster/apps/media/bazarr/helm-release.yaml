@@ -19,13 +19,13 @@ spec:
       retries: 3
 
   values:
-    # Backup
-    podAnnotations:
-      backup.velero.io/backup-volumes: config
-
+    # https://github.com/k8s-at-home/charts/blob/master/charts/stable/bazarr/values.yaml
     image:
       repository: linuxserver/bazarr
       tag: version-v0.9.9
+
+    podAnnotations:
+      backup.velero.io/backup-volumes: config
 
     env:
       PGID: '1000'

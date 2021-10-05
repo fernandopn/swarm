@@ -21,13 +21,14 @@ spec:
       retries: 3
 
   values:
-    # Backup
-    podAnnotations:
-      backup.velero.io/backup-volumes: config
-
+    # https://github.com/k8s-at-home/charts/blob/master/charts/stable/sabnzbd/values.yaml
     image:
       repository: linuxserver/sabnzbd
       tag: version-3.4.1
+
+    # Backup
+    podAnnotations:
+      backup.velero.io/backup-volumes: config
 
     env:
       PGID: '1000'
