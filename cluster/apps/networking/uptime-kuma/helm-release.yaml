@@ -7,6 +7,7 @@ spec:
   releaseName: uptime-kuma
   chart:
     spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts/
       chart: heimdall # There is no k8s-at-home uptime-kuma chart
       version: 8.0.1
       sourceRef:
