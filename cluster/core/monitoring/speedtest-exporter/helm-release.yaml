@@ -25,18 +25,16 @@ spec:
     metrics:
       enabled: true
       serviceMonitor:
-        additionalLabels: 
+        labels: 
           release: kube-prometheus-stack
       prometheusRule:
         enabled: true
-        additionalLabels: 
+        labels: 
           role: alert-rules
         downloadLimit: 1000
         uploadLimit: 100
         pingLimit: 10
         jitterLimit: 30
-        labels:
-
         rules:
         - alert: SpeedtestSlowInternetDownload
           annotations:
