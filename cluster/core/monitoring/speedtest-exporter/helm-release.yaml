@@ -16,6 +16,7 @@ spec:
         namespace: flux-system
       interval: 5m
   values:
+    # https://github.com/k8s-at-home/charts/blob/master/charts/stable/speedtest-exporter/values.yaml
     image:
       repository: ghcr.io/miguelndecarvalho/speedtest-exporter
       tag: v3.3.2
@@ -24,3 +25,5 @@ spec:
         enabled: true
         interval: 1h
         scrapeTimeout: 1m
+        labels:
+          release:  kube-prometheus-stack
