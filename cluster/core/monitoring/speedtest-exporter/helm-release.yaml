@@ -25,6 +25,7 @@ spec:
     metrics:
       enabled: true
       serviceMonitor:
+        Interval: 1m
         labels: 
           release: kube-prometheus-stack
       prometheusRule:
@@ -35,3 +36,4 @@ spec:
         uploadLimit: 100
         pingLimit: 10
         jitterLimit: 30
+
