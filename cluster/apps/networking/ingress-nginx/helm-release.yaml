@@ -31,7 +31,7 @@ spec:
         serviceMonitor:
           enabled: true
           additionalLabels: 
-            release:  kube-prometheus-stack
+            release: kube-prometheus-stack
       resources:
         requests:
           memory: 100Mi

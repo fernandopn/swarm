@@ -21,7 +21,7 @@ spec:
       repository: ghcr.io/miguelndecarvalho/speedtest-exporter
       tag: v3.2.2
     metrics:
-      enabled: True
       serviceMonitor:
+        enabled: True
         labels:
           release: kube-prometheus-stack
