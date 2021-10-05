@@ -96,18 +96,18 @@ spec:
               resources:
                 requests:
                   storage: 10Gi
-        additionalScrapeConfigs:
-        - job_name: 'esphome'
-          honor_timestamps: true
-          scrape_interval: 60s
-          static_configs:
-          - targets:
-            - 10.0.33.10
-            - 10.0.33.12
-            - 10.0.33.13
-            - 10.0.33.14
-            - 10.0.33.15
-            - 10.0.33.16
+        # additionalScrapeConfigs:
+        # - job_name: 'esphome'
+        #   honor_timestamps: true
+        #   scrape_interval: 60s
+        #   static_configs:
+        #   - targets:
+        #     - 10.0.33.10
+        #     - 10.0.33.12
+        #     - 10.0.33.13
+        #     - 10.0.33.14
+        #     - 10.0.33.15
+        #     - 10.0.33.16
     alertmanager:
       ingress:
         enabled: true
