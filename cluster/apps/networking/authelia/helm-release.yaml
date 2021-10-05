@@ -114,6 +114,7 @@ spec:
           - "sabnzbd.${SECRET_DOMAIN}"
           - "sonarr.${SECRET_DOMAIN}"
           # iot
+          - "esphome-vscode.${SECRET_DOMAIN}"
           - "esphome.${SECRET_DOMAIN}"
           - "home-assistant-vscode.${SECRET_DOMAIN}"
           - "node-red.${SECRET_DOMAIN}"
