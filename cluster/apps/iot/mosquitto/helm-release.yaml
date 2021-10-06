@@ -28,11 +28,11 @@ spec:
 
     # nodeSelector:
     #   role: iot-controller
-    # tolerations:
-    # - key: "dedicated"
-    #   operator: "Equal"
-    #   value: "iot"
-    #   effect: "NoSchedule"
+    tolerations:
+    - key: "dedicated"
+      operator: "Equal"
+      value: "iot"
+      effect: "NoSchedule"
 
     # Persistence
     # Storage
