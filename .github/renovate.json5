@@ -69,17 +69,6 @@
       "commitMessageTopic": "container image {{depName}}",
       "commitMessageExtra": "to {{#if isSingleVersion}}{{{toVersion}}}{{else}}{{{newValue}}}{{/if}}"
     },
-    //version-<major>.<minor>.<patch>.<any>
-    {
-      "matchDatasources": ["docker"],
-      "versioning": "regex:^version-(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+).\\d+$",
-      "matchPackageNames": [
-        "linuxserver/radarr",
-        "linuxserver/sonarr"
-      ],
-      "commitMessageTopic": "container image {{depName}}",
-      "commitMessageExtra": "to {{#if isSingleVersion}}{{{toVersion}}}{{else}}{{{newValue}}}{{/if}}"
-    },
     //version-v<major>.<minor>.<patch>
     {
       "matchDatasources": ["docker"],
@@ -117,7 +106,7 @@
       "matchDatasources": ["docker"],
       "versioning": "regex:^v(?<major>\\d+)\\.(?<minor>\\d+)-debian-forward-(?<patch>\\d+).*$$",
       "matchPackageNames": [
-        "plexinc/pms-docker"
+        "fluent/fluentd-kubernetes-daemonset"
       ],
       "commitMessageTopic": "container image {{depName}}",
       "commitMessageExtra": "to {{#if isSingleVersion}}{{{toVersion}}}{{else}}{{{newValue}}}{{/if}}"

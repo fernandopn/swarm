@@ -22,7 +22,7 @@ spec:
     # https://github.com/k8s-at-home/charts/blob/master/charts/stable/sonarr/values.yaml
     image:
       repository: linuxserver/sonarr
-      tag: version-3.0.6.1265
+      tag: 0.6.1265
 
     # Backup
     podAnnotations:
