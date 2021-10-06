@@ -25,12 +25,6 @@ spec:
     env:
       TZ: "${SECRET_TIMEZONE}"
 
-    tolerations:
-    - key: "dedicated"
-      operator: "Equal"
-      value: "iot"
-      effect: "NoSchedule"
-
     # prometheus: Giving a access denied
     #   serviceMonitor:
     #     enabled: true
