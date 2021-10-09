@@ -24,7 +24,7 @@ spec:
       # registry: ghcr.io
       registry: docker.io
       repository: authelia/authelia
-      tag: 4.32.0
+      tag: 4.32.1
 
     domain: "${SECRET_DOMAIN}"
 
