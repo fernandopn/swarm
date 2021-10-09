@@ -132,9 +132,6 @@ spec:
           - "alertmanager.${SECRET_DOMAIN}"
           - "grafana.${SECRET_DOMAIN}"
           - "prometheus.${SECRET_DOMAIN}"
-          # iot
-          - "node-red.${SECRET_DOMAIN}"
-          - "zigbee2mqtt.${SECRET_DOMAIN}"
           policy: two_factor
           subject:
           - "group:admins"
