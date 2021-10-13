@@ -4,7 +4,6 @@ resources:
 # Namespace always comes first
   - namespaces
 # Other systems
-  - backup
   - cert-manager
   - intel-gpu-plugin
   - metallb-system
