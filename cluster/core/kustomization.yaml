@@ -2,11 +2,12 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
 # Namespace always comes first
-  - namespaces
+- namespaces
+# Priority
+- monitoring
 # Other systems
-  - cert-manager
-  - intel-gpu-plugin
-  - metallb-system
-  - monitoring
-  - reloader
-  - logging
+- cert-manager
+- intel-gpu-plugin
+- metallb-system
+- reloader
+- logging
