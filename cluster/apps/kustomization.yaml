@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
 # - default
 - backups.yaml
+- cert-manager
 - iot
 - media
 - networking
