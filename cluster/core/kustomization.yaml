@@ -6,7 +6,7 @@ resources:
 # Priority
 - monitoring
 # Other systems
-# - backup
+- backup
 - cert-manager
 - intel-gpu-plugin
 - logging

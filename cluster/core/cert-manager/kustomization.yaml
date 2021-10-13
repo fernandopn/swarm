@@ -4,7 +4,7 @@ namespace: cert-manager
 resources:
 # Priority
 - helm-release.yaml
-# Other entries
-# - alerts.yaml
-# - letsencrypt-production.yaml
-# - letsencrypt-staging.yaml
+# Others
+- alerts.yaml
+- letsencrypt-production.yaml
+- letsencrypt-staging.yaml
