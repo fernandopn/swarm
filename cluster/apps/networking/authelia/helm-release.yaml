@@ -91,8 +91,6 @@ spec:
 
         rules:
         - domain:
-          # networking (reverse-proxy)
-          - "nas.${SECRET_DOMAIN}"
           # iot
           - "home-assistant.${SECRET_DOMAIN}"
           policy: bypass
