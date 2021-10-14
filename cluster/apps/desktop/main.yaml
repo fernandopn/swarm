@@ -38,8 +38,8 @@ spec:
         - name: http
           containerPort: 3000
 ---
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
   name: webtop-svc
 spec:

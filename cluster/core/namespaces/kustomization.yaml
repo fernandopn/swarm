@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
 - backup.yaml
 - cert-manager.yaml
+- desktop.yaml
 - intel-gpu-plugin.yaml
 - iot.yaml
 - logging.yaml
