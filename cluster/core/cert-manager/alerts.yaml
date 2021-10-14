@@ -3,6 +3,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
   name: certificate.rules
+  namespace: cert-manager
   labels:
     role: alert-rules
 spec:
