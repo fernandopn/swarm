@@ -6,3 +6,4 @@ resources:
 # Other entries
 - flux-system
 - speedtest-exporter
+- unifi-poller
