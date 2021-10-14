@@ -91,6 +91,8 @@ spec:
 
         rules:
         - domain:
+          # networking
+          - "magrathea.${SECRET_DOMAIN}"
           # iot
           - "home-assistant.${SECRET_DOMAIN}"
           policy: bypass
@@ -100,7 +102,6 @@ spec:
         # At Home
         - domain:
           # networking
-          - "magrathea.${SECRET_DOMAIN}"
           - "uptime-kuma.${SECRET_DOMAIN}"
           # kube-prometheus-stack
           - "alertmanager.${SECRET_DOMAIN}"
