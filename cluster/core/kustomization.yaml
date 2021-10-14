@@ -6,8 +6,8 @@ resources:
 # Priority
 - monitoring
 # Other systems
-- backup
-- cert-manager
+# - backup
+# - cert-manager
 - intel-gpu-plugin
 - logging
 - metallb-system
