@@ -4,5 +4,5 @@ resources:
 # Priority
 - kube-prometheus-stack
 # Other entries
-- flux-system
-- speedtest-exporter
+# - flux-system
+# - speedtest-exporter
