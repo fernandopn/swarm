@@ -42,3 +42,22 @@ spec:
       for: 5m
       labels:
         severity: warning
+--- 
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: node-eth-bad-speed
+  labels:
+    role: alert-rules
+spec:
+  groups:
+  - name: nodeSpeed
+    rules:
+    - alert: badNodeSpeed
+      annotations:
+        message: Ethernet interface of {{ $labels.instance }} is currently bellow gigabit.
+      expr: |-
+        node_network_speed_bytes{device="eth0"} < 125000000
+      for: 5m
+      labels:
+        severity: page
