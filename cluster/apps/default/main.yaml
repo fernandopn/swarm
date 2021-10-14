@@ -1,0 +1,79 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webtop-deployment
+  labels:
+    app: webtop
+spec:
+  replicas: 1
+  strategy: # Need to turn down then turn up (depend on one persistent volume)
+    type: Recreate
+  selector:
+    matchLabels:
+      app: webtop
+  template:
+    metadata:
+      labels:
+        app: webtop
+    spec:
+      containers:
+      - name: webtop
+        # https://hub.docker.com/r/linuxserver/webtop
+        image: linuxserver/webtop:ubuntu-xfce
+        resources:
+          requests:
+            memory: "4Gi"
+            cpu: "2"
+          limits:
+            memory: "8Gi"
+            cpu: "4"
+        env:
+        - name: TZ
+          value: "${SECRET_TIMEZONE}"
+        - name: PUID
+          value: "1000"
+        - name: PGID
+          value: "1000"
+        ports:
+        - name: http
+          containerPort: 3000
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: webtop-svc
+spec:
+  type: LoadBalancer
+  loadBalancerIP: 10.0.6.224
+  ports:
+    - name: http
+      targetPort: 3000
+      port: 3000
+  selector:
+    app: webtop
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: webtop-ing
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/auth-signin: https://auth.${SECRET_DOMAIN}
+    nginx.ingress.kubernetes.io/auth-url: https://auth.${SECRET_DOMAIN}/api/verify
+spec:
+  rules:
+  - host: webtop.${SECRET_DOMAIN}
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: webtop-svc
+            port:
+              number: 3000
+  tls:
+  - hosts:
+    - webtop.${SECRET_DOMAIN}
+    secretName: webtop-tls

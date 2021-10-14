@@ -99,6 +99,8 @@ spec:
 
         # At Home
         - domain:
+          # default
+          - "webtop.${SECRET_DOMAIN}"
           # networking
           - "uptime-kuma.${SECRET_DOMAIN}"
           # kube-prometheus-stack

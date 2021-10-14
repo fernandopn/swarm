@@ -1,10 +1,5 @@
+---
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-- backups.yaml
-- default
-- iot
-- media
-- networking
-- pxe-manage
-- vault
+- main.yaml
