@@ -46,14 +46,14 @@ spec:
 apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
 metadata:
-  name: node-eth-bad-speed
+  name: eth-bad-speed
   labels:
     role: alert-rules
 spec:
   groups:
-  - name: nodeSpeed
+  - name: EthSpeedOnNode
     rules:
-    - alert: badNodeSpeed
+    - alert: BadEthSpeedOnNode
       annotations:
         message: Ethernet interface of {{ $labels.instance }} is currently bellow gigabit.
       expr: |-
