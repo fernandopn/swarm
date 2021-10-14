@@ -20,6 +20,8 @@ spec:
     - name: nas
       ip: 10.0.6.254
       port: 5001
+      generateTLS:
+        secretName: nas-tls
       ingress:
         annotations:
           kubernetes.io/ingress.class: nginx
@@ -27,4 +29,4 @@ spec:
           nginx.ingress.kubernetes.io/auth-signin: "https://auth.${SECRET_DOMAIN}"
           nginx.ingress.kubernetes.io/auth-url: "https://auth.${SECRET_DOMAIN}/api/verify"
         hosts:
-        - host: magrathea.${SECRET_DOMAIN}
+        - host: nas.${SECRET_DOMAIN}
