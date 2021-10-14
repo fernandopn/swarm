@@ -55,7 +55,7 @@ spec:
     rules:
     - alert: BadEthSpeedOnNode
       annotations:
-        message: Ethernet interface of {{ $labels.instance }} is currently bellow gigabit.
+        message: Ethernet interface speed of {{ $labels.instance }} is currently bellow gigabit.
       expr: |-
         node_network_speed_bytes{device="eth0"} < 125000000
       for: 5m
