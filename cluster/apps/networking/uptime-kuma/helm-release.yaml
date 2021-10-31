@@ -22,7 +22,7 @@ spec:
     # https://github.com/k8s-at-home/charts/blob/master/charts/stable/heimdall/values.yaml
     image:
       repository: louislam/uptime-kuma
-      tag: 1.9.2
+      tag: 1.10.0
 
     env:
       TZ: "${SECRET_TIMEZONE}"
