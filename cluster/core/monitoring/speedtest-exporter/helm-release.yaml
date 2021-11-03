@@ -19,7 +19,7 @@ spec:
     # https://github.com/k8s-at-home/charts/blob/master/charts/stable/speedtest-exporter/values.yaml
     image:
       repository: ghcr.io/miguelndecarvalho/speedtest-exporter
-      tag: v3.3.3
+      tag: v3.3.4
     env:
       TZ: "${SECRET_TIMEZONE}"
     metrics:
