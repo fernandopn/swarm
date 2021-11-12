@@ -150,9 +150,9 @@ spec:
           repeat_interval: 6h
           receiver: 'slack'
           routes:
-          - receiver: 'null'
-            match_re:
-              alertname: Watchdog|KubeAPIErrorBudgetBurn
+          # - receiver: 'null'
+          #   match_re:
+          #     alertname: Watchdog|KubeAPIErrorBudgetBurn
           - receiver: 'slack'
             match_re:
               severity: critical|warning
