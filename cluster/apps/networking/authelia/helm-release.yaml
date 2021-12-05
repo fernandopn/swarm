@@ -135,7 +135,7 @@ spec:
           - "grafana.${SECRET_DOMAIN}"
           - "prometheus.${SECRET_DOMAIN}"
           # iot
-          # - "node-red.${SECRET_DOMAIN}"
+          - "node-red.${SECRET_DOMAIN}"
           policy: two_factor
           subject:
           - "group:admins"
