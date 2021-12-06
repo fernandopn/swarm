@@ -137,7 +137,7 @@ spec:
           # iot
           #- "node-red.${SECRET_DOMAIN}"
           # media
-          - "plex.${SECRET_DOMAIN}"
+          - "sonarr.${SECRET_DOMAIN}"
           policy: two_factor
           subject:
           - "group:admins"
