@@ -136,6 +136,7 @@ spec:
           - "prometheus.${SECRET_DOMAIN}"
           # iot
           #- "node-red.${SECRET_DOMAIN}"
+          - "home-assistant.${SECRET_DOMAIN}"
           # media
           - "sonarr.${SECRET_DOMAIN}"
           policy: two_factor
