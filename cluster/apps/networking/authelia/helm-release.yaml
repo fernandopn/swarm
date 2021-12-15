@@ -131,7 +131,7 @@ spec:
         # Away
         - domain:
           # desktop
-          webtop.${SECRET_DOMAIN}
+          - "webtop.${SECRET_DOMAIN}"
           # kube-prometheus-stack
           - "alertmanager.${SECRET_DOMAIN}"
           - "grafana.${SECRET_DOMAIN}"
