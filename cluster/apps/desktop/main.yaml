@@ -5,7 +5,7 @@ metadata:
   labels:
     app: webtop
 spec:
-  replicas: 1
+  replicas: 0 # disabled
   strategy: # Need to turn down then turn up (depend on one persistent volume)
     type: Recreate
   selector:
