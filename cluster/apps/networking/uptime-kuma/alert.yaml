@@ -42,3 +42,22 @@ spec:
       for: 5m
       labels:
         severity: warning
+---
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: bad-uplink
+  labels:
+    role: alert-rules
+spec:
+  groups:
+  - name: uplink
+    rules:
+    - alert: badUplink
+      annotations:
+        message: The router uplink is not connected at 1G
+      expr: |-
+        unifipoller_device_wan_speed_bps != 1000000000
+      for: 5m
+      labels:
+        severity: warning
