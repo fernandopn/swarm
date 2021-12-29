@@ -21,7 +21,7 @@ spec:
 
     image:
       repository: esphome/esphome
-      tag: 2021.12.1
+      tag: 2021.12.2
     env:
       TZ: "${SECRET_TIMEZONE}"
       ESPHOME_DASHBOARD_USE_PING: true
