@@ -22,7 +22,7 @@ spec:
     # https://github.com/k8s-at-home/charts/blob/master/charts/stable/sonarr/values.yaml
     image:
       repository: linuxserver/sonarr
-      tag: arm64v8-develop-alpine-version-3.0.6.1432
+      tag: 0.6.1402
 
     # Backup
     podAnnotations:
