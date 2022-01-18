@@ -130,18 +130,10 @@ spec:
 
         # Away
         - domain:
-          # desktop
-          - "webtop.${SECRET_DOMAIN}"
           # kube-prometheus-stack
           - "alertmanager.${SECRET_DOMAIN}"
           - "grafana.${SECRET_DOMAIN}"
           - "prometheus.${SECRET_DOMAIN}"
-          # iot
-          - "home-assistant.${SECRET_DOMAIN}"
-          - "node-red.${SECRET_DOMAIN}"
-          # media
-          - "radarr.${SECRET_DOMAIN}"
-          - "sonarr.${SECRET_DOMAIN}"
           policy: two_factor
           subject:
           - "group:admins"
