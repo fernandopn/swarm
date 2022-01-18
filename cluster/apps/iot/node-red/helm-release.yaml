@@ -24,7 +24,7 @@ spec:
 
     image:
       repository: nodered/node-red
-      tag: 2.1.5
+      tag: 2.1.6
     env:
       TZ: "${SECRET_TIMEZONE}"
 
