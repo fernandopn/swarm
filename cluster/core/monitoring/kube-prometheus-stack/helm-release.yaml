@@ -33,6 +33,7 @@ spec:
     defaultRules:
       rules:
         kubeStateMetrics: false
+        kubeProxy: false
       labels:
         role: alert-rules
 
