@@ -76,9 +76,35 @@ spec:
       # Notify (password reset)
       notifier:
         filesystem:
-          enabled: true
-        smtp:
           enabled: false
+        smtp:
+          enabled: true
+          enabledSecret: false
+          host: ${SECRET_SMTP_HOST}
+          port: ${SECRET_SMTP_PORT}
+          timeout: 5s
+          username: ${SECRET_SMTP_USERNAME}
+          password: ${SECRET_SMTP_PASSWORD}
+          sender: ${SECRET_SMTP_SENDER}
+          ## HELO/EHLO Identifier. Some SMTP Servers may reject the default of localhost.
+          identifier: robot
+          ## Subject configuration of the emails sent.
+          ## {title} is replaced by the text from the notifier
+          subject: "[Authelia] {title}"
+          disable_require_tls: false
+          disable_html_emails: false
+
+          tls:
+            ## Server Name for certificate validation (in case you are using the IP or non-FQDN in the host option).
+            server_name: ""
+
+            ## Skip verifying the server certificate (to allow a self-signed certificate).
+            ## In preference to setting this we strongly recommend you add the public portion of the certificate to the
+            ## certificates directory which is defined by the `certificates_directory` option at the top of the config.
+            skip_verify: false
+
+            ## Minimum TLS version for either StartTLS or SMTPS.
+            minimum_version: TLS1.2
 
       # The Rules!!! 
       access_control:
