@@ -75,9 +75,15 @@ spec:
 
       notifier:
         filesystem:
-          enabled: true
-        smtp:
           enabled: false
+        smtp:
+          enabledSecret: false
+          host: ${SECRET_SMTP_SERVER}
+          port: ${SECRET_SMTP_PORT}
+          timeout: 5s
+          username: ${SECRET_SMTP_USERNAME}
+          password: ${SECRET_SMTP_PASSWORD}
+          sender: ${SECRET_SMTP_USERNAME}
 
       # The Rules!!! 
       access_control:
