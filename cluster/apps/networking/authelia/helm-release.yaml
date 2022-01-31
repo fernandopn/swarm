@@ -75,23 +75,9 @@ spec:
 
       notifier:
         filesystem:
-          enabled: false
-        smtp:
           enabled: true
-          enabledSecret: false
-          host: ${SECRET_SMTP_HOST}
-          port: ${SECRET_SMTP_PORT}
-          timeout: 5s
-          username: ${SECRET_SMTP_USERNAME}
-          password: ${SECRET_SMTP_PASSWORD}
-          sender: ${SECRET_SMTP_SENDER}
-          subject: "[Authelia] {title}"
-          disable_require_tls: false
-          disable_html_emails: false
-
-          tls:
-            skip_verify: false
-            minimum_version: TLS1.2
+        smtp:
+          enabled: false
 
       # The Rules!!! 
       access_control:
