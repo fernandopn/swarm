@@ -48,12 +48,13 @@ spec:
         cert-manager.io/cluster-issuer: letsencrypt-production
         kubernetes.io/ingress.class: nginx
 
-    # Not working
-    # secret:
-    #   jwt:
-    #     value: ${SECRET_AUTHELIA_JWT}
-    #   smtp:
-    #     value: ${SECRET_AUTHELIA_STORAGE_ENCRYPTION_KEY}
+    secret:
+      jwt:
+        value: ${SECRET_AUTHELIA_JWT}
+      smtp:
+        value: ${SECRET_AUTHELIA_SMTP_PASSWORD}
+      storageEncryptionKey:
+        value: ${SECRET_AUTHELIA_STORAGE_ENCRYPTION_KEY}
 
     configMap:
       theme: dark
@@ -82,16 +83,15 @@ spec:
 
       notifier:
         filesystem:
-          enabled: true
-        smtp:
           enabled: false
-        #   enabledSecret: true
-        #   host: ${SECRET_SMTP_SERVER}
-        #   port: ${SECRET_SMTP_PORT}
-        #   timeout: 5s
-        #   username: ${SECRET_SMTP_USERNAME}
-        #   sender: ${SECRET_SMTP_USERNAME}
-        #   identifier: ${SECRET_DOMAIN}
+        smtp:
+          enabledSecret: true
+          host: ${SECRET_SMTP_SERVER}
+          port: ${SECRET_SMTP_PORT}
+          timeout: 5s
+          username: ${SECRET_SMTP_USERNAME}
+          sender: ${SECRET_SMTP_USERNAME}
+          identifier: ${SECRET_DOMAIN}
 
       # The Rules!!! 
       access_control:
