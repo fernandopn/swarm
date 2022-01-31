@@ -49,14 +49,10 @@ spec:
         kubernetes.io/ingress.class: nginx
 
     secret:
+      jwt:
+        value: ${SECRET_AUTHELIA_JWT}
       smtp:
-        key: SMTP_PASSWORD
-        value: "${SECRET_SMTP_PASSWORD}"
-        filename: SMTP_PASSWORD
-      storageEncryptionKey:
-        key: STORAGE_ENCRYPTION_KEY
-        value: "${SECRET_AUTHELIA_STORAGE_ENCRYPTION_KEY}"
-        filename: STORAGE_ENCRYPTION_KEY
+        value: ${SECRET_AUTHELIA_STORAGE_ENCRYPTION_KEY}
 
     configMap:
       theme: dark
