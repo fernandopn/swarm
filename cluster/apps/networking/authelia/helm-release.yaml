@@ -52,7 +52,7 @@ spec:
       jwt:
         value: ${SECRET_AUTHELIA_JWT}
       smtp:
-        value: ${SECRET_AUTHELIA_SMTP_PASSWORD}
+        value: ${SECRET_SMTP_PASSWORD}
       storageEncryptionKey:
         value: ${SECRET_AUTHELIA_STORAGE_ENCRYPTION_KEY}
 
