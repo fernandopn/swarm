@@ -27,11 +27,17 @@ spec:
       type: Recreate
     env:
       TZ: "${SECRET_TIMEZONE}"
+      SMTP_HOST: ${SECRET_SMTP_SERVER}
+      SMTP_FROM: ${SECRET_SMTP_USERNAME}
+      SMTP_FROM_NAME: "Vaultwarden"
+      SMTP_SSL: true
+      SMTP_PORT: ${SECRET_SMTP_PORT}
+      SMTP_USERNAME: ${SECRET_SMTP_USERNAME}
+      SMTP_PASSWORD: ${SECRET_SMTP_PASSWORD}
 
     # Backup
     podAnnotations:
       backup.velero.io/backup-volumes: vaultwarden
-
 
     vaultwarden:
       domain: https://vault.${SECRET_DOMAIN}
@@ -42,6 +48,7 @@ spec:
         enabled: true
         clientId: ${SECRET_VAULTWARDEN_CLIENTID}
         secretKey: ${SECRET_VAULTWARDEN_SECRETKEY}
+
     ingress:
       enabled: true
       host: vault.${SECRET_DOMAIN}
@@ -52,6 +59,7 @@ spec:
       annotations:
         kubernetes.io/ingress.class: "nginx"
         cert-manager.io/cluster-issuer: letsencrypt-production
+
     persistence:
       enabled: true
       size: "1Gi"
