@@ -27,13 +27,6 @@ spec:
       type: Recreate
     env:
       TZ: "${SECRET_TIMEZONE}"
-      SMTP_HOST: ${SECRET_SMTP_SERVER}
-      SMTP_FROM: ${SECRET_SMTP_USERNAME}
-      SMTP_FROM_NAME: "Vaultwarden"
-      SMTP_SSL: true
-      SMTP_PORT: ${SECRET_SMTP_PORT}
-      SMTP_USERNAME: ${SECRET_SMTP_USERNAME}
-      SMTP_PASSWORD: ${SECRET_SMTP_PASSWORD}
 
     # Backup
     podAnnotations:
@@ -44,6 +37,15 @@ spec:
       allowSignups: false
       showPasswordHint: false
       enableWebsockets: true
+      smtp:
+        enabled: true
+        host: ${SECRET_SMTP_SERVER}
+        from: ${SECRET_SMTP_USERNAME}
+        ssl: true
+        port: ${SECRET_SMTP_PORT}
+        user: ${SECRET_SMTP_USERNAME}
+        password: ${SECRET_SMTP_PASSWORD}
+
       yubico:
         enabled: true
         clientId: ${SECRET_VAULTWARDEN_CLIENTID}
