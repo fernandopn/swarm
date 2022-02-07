@@ -82,6 +82,11 @@ spec:
         existingClaim: tv
         mountPath: /tv
 
+    metrics:
+      enabled: true
+      prometheusRule:
+        enabled: true
+
     ingress:
       main:
         enabled: true

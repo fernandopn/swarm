@@ -82,6 +82,11 @@ spec:
         existingClaim: movie
         mountPath: /movies
 
+    metrics:
+      enabled: true
+      prometheusRule:
+        enabled: true
+
     # Network
     ingress:
       main:
