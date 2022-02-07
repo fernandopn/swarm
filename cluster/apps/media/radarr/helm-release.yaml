@@ -84,6 +84,9 @@ spec:
 
     metrics:
       enabled: true
+      serviceMonitor:
+        labels:
+          release:  kube-prometheus-stack
       prometheusRule:
         enabled: true
 
