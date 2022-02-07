@@ -52,11 +52,11 @@ spec:
       requests:
         gpu.intel.com/i915: 1
         cpu: 1
-        memory: 6144Mi
+        memory: 6Gi
       limits:
         gpu.intel.com/i915: 1
         cpu: 4
-        memory: 1Gi
+        memory: 10Gi
 
     # Persistence
     persistence:
