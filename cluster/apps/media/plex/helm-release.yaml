@@ -22,7 +22,7 @@ spec:
     # https://github.com/k8s-at-home/charts/blob/master/charts/stable/plex/values.yaml
     image:
       repository: plexinc/pms-docker
-      tag: 1.25.4.5468-989df2310
+      tag: 1.25.5.5492-12f6b8c83
 
     # Backup
     podAnnotations:
