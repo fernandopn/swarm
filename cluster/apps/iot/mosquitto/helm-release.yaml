@@ -15,6 +15,8 @@ spec:
         name: k8s-at-home-charts
         namespace: flux-system
   values:
+    # https://github.com/k8s-at-home/charts/blob/master/charts/stable/mosquitto/values.yaml
+
     # Backup
     podAnnotations:
       backup.velero.io/backup-volumes: data
@@ -57,14 +59,20 @@ spec:
       data:
         enabled: true
         existingClaim: mosquitto
-
+    
     initContainers:
       copy-config:
         image: busybox
-        command: ['sh', '-c', 'cp /config/* /config-tls/* /mosquitto/configinc/']
+        command: ['sh', '-c', 'cp /config/* /mosquitto/configinc/']
         volumeMounts:
           - name: config-import
             mountPath: /config
+          - name: configinc
+            mountPath: /mosquitto/configinc
+      copy-tls:
+        image: busybox
+        command: ['sh', '-c', 'cp /config-tls/* /mosquitto/configinc/']
+        volumeMounts:
           - name: config-tls
             mountPath: /config-tls
           - name: configinc
