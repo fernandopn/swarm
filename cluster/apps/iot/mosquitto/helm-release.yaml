@@ -63,16 +63,10 @@ spec:
     initContainers:
       copy-config:
         image: busybox
-        command: ['sh', '-c', 'cp /config/* /mosquitto/configinc/']
+        command: ['sh', '-c', 'cp /config/* /config-tls/* /mosquitto/configinc/']
         volumeMounts:
           - name: config-import
             mountPath: /config
-          - name: configinc
-            mountPath: /mosquitto/configinc
-      copy-tls:
-        image: busybox
-        command: ['sh', '-c', 'cp /config-tls/* /mosquitto/configinc/']
-        volumeMounts:
           - name: config-tls
             mountPath: /config-tls
           - name: configinc
