@@ -22,7 +22,7 @@ spec:
     # https://github.com/k8s-at-home/charts/blob/master/charts/stable/jackett/values.yaml
     image:
       repository: linuxserver/jackett
-      tag: version-v0.20.654
+      tag: version-v0.20.660
 
     # Backup
     podAnnotations:
