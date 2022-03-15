@@ -28,7 +28,7 @@ spec:
 
     initContainers:
     - name: velero-plugin-for-gcp
-      image: velero/velero-plugin-for-gcp:v1.4.0
+      image: velero/velero-plugin-for-gcp:v1.4.1
       volumeMounts:
       - mountPath: /target
         name: plugins
