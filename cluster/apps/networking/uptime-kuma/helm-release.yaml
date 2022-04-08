@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
       # renovate: registryUrl=https://k8s-at-home.com/charts/
-      chart: heimdall # There is no k8s-at-home uptime-kuma chart
+      chart: uptime-kuma
       version: 8.0.1
       sourceRef:
         kind: HelmRepository
@@ -19,7 +19,7 @@ spec:
     remediation:
       retries: 3
   values:
-    # https://github.com/k8s-at-home/charts/blob/master/charts/stable/heimdall/values.yaml
+    # https://github.com/k8s-at-home/charts/blob/master/charts/stable/uptime-kuma/values.yaml
     image:
       repository: louislam/uptime-kuma
       tag: 1.13.2
@@ -34,7 +34,6 @@ spec:
       data:
         enabled: true
         existingClaim: uptime-kuma
-        mountPath: /app/data
 
     service:
       main:
