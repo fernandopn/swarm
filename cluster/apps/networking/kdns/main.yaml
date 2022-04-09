@@ -13,11 +13,11 @@ spec:
     matchLabels:
       app: kdns
   template:
-    serviceAccountName: kdns
     metadata:
       labels:
         app: kdns
     spec:
+      serviceAccount: kdns
       containers:
       - name: kdns
         image: cronuxs/kdns:v0.0.2
