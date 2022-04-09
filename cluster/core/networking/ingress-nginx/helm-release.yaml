@@ -14,9 +14,6 @@ spec:
         kind: HelmRepository
         name: ingress-nginx-charts
         namespace: flux-system
-
-        # annotations:
-        #   metallb.universe.tf/allow-shared-ip: "ingress-address"
   values:
     # https://github.com/kubernetes/ingress-nginx/blob/main/charts/ingress-nginx/values.yaml
     controller:
