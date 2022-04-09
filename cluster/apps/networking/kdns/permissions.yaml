@@ -3,8 +3,8 @@ kind: ClusterRole
 metadata:
   name: ingress-reader
 rules:
-- apiGroups: ["networking.k8s.io"]
-  resources: ["ingresses"]
+- apiGroups: ["networking.k8s.io", ""]
+  resources: ["ingresses", "services"]
   verbs: ["list", "get"]
 ---
 apiVersion: v1
