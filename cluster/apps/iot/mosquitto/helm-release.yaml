@@ -77,7 +77,7 @@ spec:
         type: "LoadBalancer"
         externalTrafficPolicy: Local
         loadBalancerIP: 10.0.6.227
-        annotation:
+        annotations:
           github.com/fernandopn/kdns: mosquitto.${SECRET_DOMAIN}
         ports:
           mqtttls:
