@@ -1,0 +1,29 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: ingress-reader
+rules:
+- apiGroups: [""]
+  resources: ["service", "ingresses.networking.k8s.io"]
+  verbs: ["list", "get"]
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: kdns
+  namespace: networking
+--- 
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: kdns-ingress-reader
+  namespace: networking
+subjects:
+- kind: ServiceAccount
+  name: kdns
+  apiGroup: ""
+roleRef:
+  kind: Role
+  name: ingress-reader
+  apiGroup: ""
+---
