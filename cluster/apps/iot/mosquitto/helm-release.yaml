@@ -76,9 +76,7 @@ spec:
       main:
         type: "LoadBalancer"
         externalTrafficPolicy: Local
-        loadBalancerIP: 10.0.6.221
-        annotations:
-          metallb.universe.tf/allow-shared-ip: "ingress-address"
+        loadBalancerIP: 10.0.6.227
         ports:
           mqtttls:
             enabled: true
