@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kdns
+  labels:
+    app: kdns
+spec:
+  replicas: 2
+  strategy:
+    type: Recreate # Birth and Will messages make more sense
+  selector:
+    matchLabels:
+      app: kdns
+  template:
+    metadata:
+      labels:
+        app: kdns
+    spec:
+      containers:
+      - name: kdns
+        image: cronuxs/kdns:v0.0.1a
+        args: ["--externalDNS", "1.1.1.1,8.8.8.8", "--baseDomain", "${SECRET_DOMAIN}."]
+        resources:
+          requests:
+            memory: "10Mi"
+            cpu: "50m"
+          limits:
+            memory: "20Mi"
+            cpu: "100m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kdns-svc
+spec:
+  type: LoadBalancer
+  loadBalancerIP: 10.0.6.222
+  ports:
+    - name: dns
+      targetPort: 5353
+      port: 53
+  selector:
+    app: kdns
