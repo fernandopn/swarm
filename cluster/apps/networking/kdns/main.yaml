@@ -1,3 +1,9 @@
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: kdns
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -16,10 +22,11 @@ spec:
       labels:
         app: kdns
     spec:
+      serviceAccountName: kdns
       containers:
       - name: kdns
-        image: cronuxs/kdns:v0.0.1a
-        args: ["--externalDNS", "1.1.1.1,8.8.8.8", "--baseDomain", "${SECRET_DOMAIN}."]
+        image: cronuxs/kdns:v0.0.2
+        args: ["/go/bin/kdns", "--externalDNS", "1.1.1.1,8.8.8.8", "--baseDomain", "${SECRET_DOMAIN}."]
         resources:
           requests:
             memory: "10Mi"
