@@ -14,7 +14,11 @@ spec:
         kind: HelmRepository
         name: ingress-nginx-charts
         namespace: flux-system
+
+        # annotations:
+        #   metallb.universe.tf/allow-shared-ip: "ingress-address"
   values:
+    # https://github.com/kubernetes/ingress-nginx/blob/main/charts/ingress-nginx/values.yaml
     controller:
       ingressClass: nginx
       replicaCount: 1
@@ -22,6 +26,8 @@ spec:
         type: LoadBalancer
         loadBalancerIP: "${INGRESS_NGINX_LB}"
         externalTrafficPolicy: Local
+        annotations:
+          metallb.universe.tf/allow-shared-ip: "ingress-address"
       config:
         ssl-protocols: "TLSv1.3 TLSv1.2"
         proxy-body-size: "100m"
