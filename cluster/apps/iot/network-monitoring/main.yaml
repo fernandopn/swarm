@@ -24,6 +24,11 @@ spec:
       #   operator: "Equal"
       #   value: "iot"
       #   effect: "NoSchedule"
+      # Internal DNS server
+      dnsPolicy: "None"
+      dnsConfig:
+        nameservers:
+          - 10.0.6.222
       containers:
       - name: network-monitoring
         image: cronuxs/network-monitoring:v0.1.3
