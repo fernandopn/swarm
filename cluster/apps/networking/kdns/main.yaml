@@ -41,5 +41,6 @@ spec:
     - name: dns
       targetPort: 5353
       port: 53
+      protocol: UDP
   selector:
     app: kdns
