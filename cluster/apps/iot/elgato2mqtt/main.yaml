@@ -12,6 +12,7 @@ spec:
     matchLabels:
       app: elgato2mqtt
   template:
+  
     metadata:
       labels:
         app: elgato2mqtt
@@ -24,6 +25,11 @@ spec:
         operator: "Equal"
         value: "iot"
         effect: "NoSchedule"
+      # Internal DNS server
+      dnsPolicy: "None"
+      dnsConfig:
+        nameservers:
+          - 10.0.6.222
       containers:
       - name: elgato2mqtt
         image: cronuxs/elgato2mqtt:v0.1.2
