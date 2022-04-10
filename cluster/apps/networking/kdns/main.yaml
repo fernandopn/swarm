@@ -37,6 +37,7 @@ metadata:
 spec:
   type: LoadBalancer
   loadBalancerIP: 10.0.6.222
+  externalTrafficPolicy: Local
   ports:
     - name: dns
       targetPort: 5353
@@ -44,3 +45,4 @@ spec:
       protocol: UDP
   selector:
     app: kdns
+    
