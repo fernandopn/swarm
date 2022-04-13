@@ -1,3 +1,5 @@
+#!/bin/bash
+
 pushd "$(dirname "$0")" || exit
 
 #Decrypt Credentials
