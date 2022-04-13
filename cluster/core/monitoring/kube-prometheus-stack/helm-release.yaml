@@ -18,7 +18,7 @@ spec:
   interval: 1m
   install:
     remediation:
-     retries: 3
+      retries: 3
   values:
     # https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-prometheus-stack/values.yaml
 
@@ -47,17 +47,17 @@ spec:
 
       ingress:
         enabled: true
-        annotations: 
-          kubernetes.io/ingress.class: "nginx"  
+        annotations:
+          kubernetes.io/ingress.class: "nginx"
           cert-manager.io/cluster-issuer: letsencrypt-production
           nginx.ingress.kubernetes.io/auth-signin: "https://auth.${SECRET_DOMAIN}"
           nginx.ingress.kubernetes.io/auth-url: "https://auth.${SECRET_DOMAIN}/api/verify"
         hosts:
-        - grafana.${SECRET_DOMAIN}
-        tls:
-        - secretName: grafana-tls
-          hosts:
           - grafana.${SECRET_DOMAIN}
+        tls:
+          - secretName: grafana-tls
+            hosts:
+              - grafana.${SECRET_DOMAIN}
 
       persistence:
         enabled: true
@@ -66,17 +66,17 @@ spec:
     prometheus:
       ingress:
         enabled: true
-        annotations: 
-          kubernetes.io/ingress.class: "nginx"  
+        annotations:
+          kubernetes.io/ingress.class: "nginx"
           cert-manager.io/cluster-issuer: letsencrypt-production
           nginx.ingress.kubernetes.io/auth-signin: "https://auth.${SECRET_DOMAIN}"
           nginx.ingress.kubernetes.io/auth-url: "https://auth.${SECRET_DOMAIN}/api/verify"
         hosts:
-        - prometheus.${SECRET_DOMAIN}
-        tls:
-        - secretName: prometheus-tls
-          hosts:
           - prometheus.${SECRET_DOMAIN}
+        tls:
+          - secretName: prometheus-tls
+            hosts:
+              - prometheus.${SECRET_DOMAIN}
       prometheusSpec:
         retention: 14d
         enableAdminAPI: true
@@ -98,52 +98,52 @@ spec:
               resources:
                 requests:
                   storage: 10Gi
-        # additionalScrapeConfigs:
-        # - job_name: 'esphome'
-        #   honor_timestamps: true
-        #   scrape_interval: 60s
-        #   static_configs:
-        #   - targets:
-        #     - 10.0.33.10
-        #     - 10.0.33.12
-        #     - 10.0.33.13
-        #     - 10.0.33.14
-        #     - 10.0.33.15
-        #     - 10.0.33.16
+#        additionalScrapeConfigs:
+#        - job_name: 'esphome'
+#          honor_timestamps: true
+#          scrape_interval: 60s
+#          static_configs:
+#          - targets:
+#            - 10.0.33.10
+#            - 10.0.33.12
+#            - 10.0.33.13
+#            - 10.0.33.14
+#            - 10.0.33.15
+#            - 10.0.33.16
     alertmanager:
       ingress:
         enabled: true
-        annotations: 
-          kubernetes.io/ingress.class: "nginx"  
+        annotations:
+          kubernetes.io/ingress.class: "nginx"
           cert-manager.io/cluster-issuer: letsencrypt-production
           nginx.ingress.kubernetes.io/auth-signin: "https://auth.${SECRET_DOMAIN}"
           nginx.ingress.kubernetes.io/auth-url: "https://auth.${SECRET_DOMAIN}/api/verify"
         hosts:
-        - alertmanager.${SECRET_DOMAIN}
-        tls:
-        - secretName: alertmanager-tls
-          hosts:
           - alertmanager.${SECRET_DOMAIN}
+        tls:
+          - secretName: alertmanager-tls
+            hosts:
+              - alertmanager.${SECRET_DOMAIN}
 
       config:
         global:
           slack_api_url: ${SECRET_ALERT_MANAGER_WEBHOOK}
           resolve_timeout: 5m
         receivers:
-        - name: 'null'
-        - name: 'slack'
-          slack_configs:
-          - send_resolved: true
-            title: |-
-              [{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] {{ if ne .CommonAnnotations.summary ""}}{{ .CommonAnnotations.summary }} {{ else if ne .CommonAnnotations.message ""}}{{ .CommonAnnotations.message }} {{ else if ne .CommonAnnotations.description ""}}{{ .CommonAnnotations.description }} {{ else }}{{ .CommonLabels.alertname }}{{ end }}
-            text: >-
-              {{ range .Alerts -}}
-                *Alert:* {{ .Annotations.title }}{{ if .Labels.severity }} - `{{ .Labels.severity }}`{{ end }}
-              {{ if ne .Annotations.summary ""}}*Summary:* {{ .Annotations.summary }} {{ else if ne .Annotations.message ""}}*Message:* {{ .Annotations.message }} {{ else if ne .Annotations.description ""}}*Description:* {{ .Annotations.description }}{{ end }}
-              *Details:*
-                {{ range .Labels.SortedPairs }} • *{{ .Name }}:* `{{ .Value }}`
-                {{ end }}
-              {{ end }}
+          - name: 'null'
+          - name: 'slack'
+            slack_configs:
+              - send_resolved: true
+                title: |-
+                  [{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] {{ if ne .CommonAnnotations.summary ""}}{{ .CommonAnnotations.summary }} {{ else if ne .CommonAnnotations.message ""}}{{ .CommonAnnotations.message }} {{ else if ne .CommonAnnotations.description ""}}{{ .CommonAnnotations.description }} {{ else }}{{ .CommonLabels.alertname }}{{ end }}
+                text: >-
+                  {{ range .Alerts -}}
+                    *Alert:* {{ .Annotations.title }}{{ if .Labels.severity }} - `{{ .Labels.severity }}`{{ end }}
+                  {{ if ne .Annotations.summary ""}}*Summary:* {{ .Annotations.summary }} {{ else if ne .Annotations.message ""}}*Message:* {{ .Annotations.message }} {{ else if ne .Annotations.description ""}}*Description:* {{ .Annotations.description }}{{ end }}
+                  *Details:*
+                    {{ range .Labels.SortedPairs }} • *{{ .Name }}:* `{{ .Value }}`
+                    {{ end }}
+                  {{ end }}
         route:
           group_by: ['alertname', 'job']
           group_wait: 30s
@@ -151,14 +151,14 @@ spec:
           repeat_interval: 6h
           receiver: 'slack'
           routes:
-          - receiver: 'null'
-            match_re:
-              alertname: Watchdog|KubeAPIErrorBudgetBurn
-          - receiver: 'slack'
-            match_re:
-              severity: critical|warning
-              # severity: critical
-            continue: true
+            - receiver: 'null'
+              match_re:
+                alertname: Watchdog|KubeAPIErrorBudgetBurn
+            - receiver: 'slack'
+              match_re:
+                severity: critical|warning
+                # severity: critical
+              continue: true
 
       alertmanagerSpec:
         podMetadata:
