@@ -2,31 +2,32 @@
 name: Lint
 
 on: # yamllint disable-line rule:truthy
+  workflow_dispatch:
   pull_request:
+    branches:
+      - main
+
+env:
+  # Currently no way to detect automatically
+  DEFAULT_BRANCH: main
 
 jobs:
-  yamllint:
-    runs-on: ubuntu-20.04
+  build:
+    name: Lint
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: yamllint
-        uses: reviewdog/action-yamllint@v1
+      - name: Checkout
+        uses: actions/checkout@v3
         with:
-          yamllint_flags: "-c .github/lint/.yamllint.yaml ./cluster"
-  # shellcheck:
-  #   runs-on: ubuntu-20.04
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - name: shellcheck
-  #       uses: reviewdog/action-shellcheck@v1
-  #       with:
-  #         path: "./hack"
-  #         level: "error"
-  markdownlint:
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v3
-      - name: markdownlint
-        uses: reviewdog/action-markdownlint@v0.5
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+      - name: Lint
+        uses: github/super-linter/slim@v4
+        env:
+          VALIDATE_ALL_CODEBASE: ${{ github.event_name == 'workflow_dispatch' }}
+          DEFAULT_BRANCH: "${{ env.DEFAULT_BRANCH }}"
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          ANSIBLE_CONFIG_FILE: .ansible-lint
+          MARKDOWN_CONFIG_FILE: .markdownlint.yaml
+          TERRAFORM_TFLINT_CONFIG_FILE: .tflint.hcl
+          YAML_CONFIG_FILE: .yamllint.yaml
+          KUBERNETES_KUBEVAL_OPTIONS: --ignore-missing-schemas
