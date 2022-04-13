@@ -6,7 +6,7 @@ metadata:
   labels:
     app: kdns
 spec:
-  replicas: 1
+  replicas: 2
   strategy:
     type: Recreate # Birth and Will messages make more sense
   selector:
