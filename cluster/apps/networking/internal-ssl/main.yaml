@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -17,18 +18,18 @@ spec:
         app: magrathea
     spec:
       containers:
-      - name: magrathea
-        image: nginx:1.14.2
-        ports:
-          - name: http
-            containerPort: 80
-        resources:
-          requests:
-            memory: "512Mi"
-            cpu: "0.5"
-          limits:
-            memory: "2Gi"
-            cpu: "2"
+        - name: magrathea
+          image: nginx:1.14.2
+          ports:
+            - name: http
+              containerPort: 80
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "0.5"
+            limits:
+              memory: "2Gi"
+              cpu: "2"
 ---
 apiVersion: v1
 kind: Service
@@ -53,17 +54,17 @@ metadata:
     nginx.ingress.kubernetes.io/auth-url: https://auth.${SECRET_DOMAIN}/api/verify
 spec:
   rules:
-  - host: magrathea.${SECRET_DOMAIN}
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: magrathea
-            port:
-              number: 80
+    - host: magrathea.${SECRET_DOMAIN}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: magrathea
+                port:
+                  number: 80
   tls:
-  - hosts:
-    - magrathea.${SECRET_DOMAIN}
-    secretName: magrathea-tls
+    - hosts:
+        - magrathea.${SECRET_DOMAIN}
+      secretName: magrathea-tls
