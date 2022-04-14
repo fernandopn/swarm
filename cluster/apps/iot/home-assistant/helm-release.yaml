@@ -75,14 +75,14 @@ spec:
           nginx.ingress.kubernetes.io/auth-signin: "https://auth.${SECRET_DOMAIN}"
           nginx.ingress.kubernetes.io/auth-url: "https://auth.${SECRET_DOMAIN}/api/verify"
         hosts:
-        - host: home-assistant.${SECRET_DOMAIN}
-          paths:
-          - path: /
-            pathType: Prefix
+          - host: home-assistant.${SECRET_DOMAIN}
+            paths:
+              - path: /
+                pathType: Prefix
         tls:
-        - hosts:
-          - home-assistant.${SECRET_DOMAIN}
-          secretName: home-assistant-tls
+          - hosts:
+              - home-assistant.${SECRET_DOMAIN}
+            secretName: home-assistant-tls
 
     addons:
       codeserver:
@@ -94,8 +94,8 @@ spec:
           - --auth
           - "none"
         volumeMounts:
-        - name: config
-          mountPath: /config
+          - name: config
+            mountPath: /config
         ingress:
           enabled: true
           annotations:
@@ -104,11 +104,11 @@ spec:
             nginx.ingress.kubernetes.io/auth-signin: "https://auth.${SECRET_DOMAIN}"
             nginx.ingress.kubernetes.io/auth-url: "https://auth.${SECRET_DOMAIN}/api/verify"
           hosts:
-          - host: home-assistant-vscode.${SECRET_DOMAIN}
-            paths:
-            - path: /
-              pathType: Prefix
+            - host: home-assistant-vscode.${SECRET_DOMAIN}
+              paths:
+                - path: /
+                  pathType: Prefix
           tls:
-          - hosts:
-            - home-assistant-vscode.${SECRET_DOMAIN}
-            secretName: home-assistant-vscode-tls
+            - hosts:
+                - home-assistant-vscode.${SECRET_DOMAIN}
+              secretName: home-assistant-vscode-tls
