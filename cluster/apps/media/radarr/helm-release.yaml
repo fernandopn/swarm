@@ -22,7 +22,7 @@ spec:
     # https://github.com/k8s-at-home/charts/blob/master/charts/stable/radarr/values.yaml
     image:
       repository: linuxserver/radarr
-      tag: 4.0.5
+      tag: 4.1.0
 
     # Backup
     podAnnotations:
