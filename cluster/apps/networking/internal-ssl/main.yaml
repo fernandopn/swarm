@@ -46,6 +46,8 @@ spec:
     metadata:
       labels:
         app: nginx-mirror
+      annotations:
+        configmap.reloader.stakater.com/reload: nginx-internal-config
     spec:
       containers:
         - name: nginx-mirror
