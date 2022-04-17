@@ -4,6 +4,6 @@ namespace: networking
 resources:
   - authelia
   - kdns
-  - nginx-mirror
+  # - nginx-mirror - not working yet
   - shared
   - uptime-kuma
