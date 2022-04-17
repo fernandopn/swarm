@@ -11,7 +11,7 @@ data:
       server_name magrathea.${SECRET_DOMAIN};
 
       location / {
-        proxy_set_header Host $host;
+        proxy_set_header Host magrathea.${SECRET_DOMAIN};
         proxy_set_header X-Real-IP $remote_addr;
         proxy_pass https://10.0.6.254:5001/;
         proxy_ssl_verify on;
@@ -26,7 +26,7 @@ data:
       server_name pikvm.${SECRET_DOMAIN};
 
       location / {
-        proxy_set_header Host $host;
+        proxy_set_header Host pikvm.${SECRET_DOMAIN};;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_pass https://10.0.6.100/;
         proxy_ssl_verify on;
