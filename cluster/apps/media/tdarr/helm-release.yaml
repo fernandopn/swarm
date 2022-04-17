@@ -1,0 +1,96 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: tdarr
+spec:
+  interval: 5m
+  chart:
+    spec:
+      # renovate: registryUrl=https://k8s-at-home.com/charts/
+      chart: tdarr
+      version: 4.3.1
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home-charts
+        namespace: flux-system
+  install:
+    remediation:
+      retries: 3
+
+  values:
+    # https://github.com/k8s-at-home/charts/blob/master/charts/stable/tdarr/values.yaml
+    image:
+      repository: haveagitgat/tdarr
+      tag: 2.00.10
+
+    # Backup
+    # podAnnotations:
+    #   backup.velero.io/backup-volumes: config
+
+    env:
+      PGID: '1000'
+      PUID: '1000'
+
+    podSecurityContext:
+      # runAsUser: 1000
+      # runAsGroup: 1000
+      supplementalGroups:
+        - 100
+        # - 568
+
+    # initContainers:
+    #   update-config-ownership:
+    #     image: busybox
+    #     command: ["sh", "-c", "chown -R 1000:1000 /config"]
+    #     volumeMounts:
+    #       - name: config
+    #         mountPath: /config
+    #     securityContext:
+    #       runAsUser: 0
+    #   update-config-permission:
+    #     image: busybox
+    #     command: ["sh", "-c", "chmod -R 774 /config"]
+    #     volumeMounts:
+    #       - name: config
+    #         mountPath: /config
+    #     securityContext:
+    #       runAsUser: 0
+
+    # Pod
+    resources:
+      requests:
+        memory: "256Mi"
+        cpu: "100m"
+      limits:
+        memory: "2Gi"
+        cpu: "2"
+
+    # Persistence
+    persistence:
+      # config:
+      #   enabled: true
+      #   existingClaim: tdarr
+      # downloads:
+      #   enabled: true
+      #   existingClaim: download
+      #   mountPath: /downloads
+      movies:
+        enabled: true
+        existingClaim: movie
+        mountPath: /movies
+
+    # Network
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "nginx"
+        hosts:
+          - host: "tdarr.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - "tdarr.${SECRET_DOMAIN}"
+            secretName: tdarr-tls
