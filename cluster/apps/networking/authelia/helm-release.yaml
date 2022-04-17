@@ -117,6 +117,7 @@ spec:
           # networking
           - "uptime-kuma.${SECRET_DOMAIN}"
           - "magrathea.${SECRET_DOMAIN}"
+          - "pikvm.${SECRET_DOMAIN}"
           # kube-prometheus-stack
           - "alertmanager.${SECRET_DOMAIN}"
           - "grafana.${SECRET_DOMAIN}"
