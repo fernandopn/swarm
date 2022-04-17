@@ -129,7 +129,7 @@ spec:
           - "radarr.${SECRET_DOMAIN}"
           - "sabnzbd.${SECRET_DOMAIN}"
           - "sonarr.${SECRET_DOMAIN}"
-          - "tdarr.${SECRET_DOMAIN}"
+          # - "tdarr.${SECRET_DOMAIN}" not ready
           # iot
           - "esphome-vscode.${SECRET_DOMAIN}"
           - "esphome.${SECRET_DOMAIN}"
