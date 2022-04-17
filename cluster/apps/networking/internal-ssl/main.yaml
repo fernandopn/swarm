@@ -100,7 +100,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: magrathea
+                name: nginx-mirror
                 port:
                   number: 80
   tls:
