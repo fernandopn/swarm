@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: networking
 resources:
   - authelia
-  - nginx-mirror
   - kdns
+  - nginx-mirror
   - shared
   - uptime-kuma
