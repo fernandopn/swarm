@@ -29,21 +29,21 @@ spec:
       backup.velero.io/backup-volumes: config
 
     podSecurityContext: # Plex container runAS plex:plex (1000:1000)
-    #   runAsUser: 1000
-    #   runAsGroup: 1000
-    #   fsGroup: 1000
-    #   fsGroupChangePolicy: "OnRootMismatch"
+      # runAsUser: 1000
+      # runAsGroup: 1000
+      # fsGroup: 1000
+      # fsGroupChangePolicy: "OnRootMismatch"
       supplementalGroups:
-      - 44 # video
-      - 100 # users
+        - 44 # video
+        - 100 # users
 
     initContainers:
       update-volume-permission:
         image: busybox
         command: ["sh", "-c", "chown -R 1000:1000 /config"]
         volumeMounts:
-        - name: config
-          mountPath: /config
+          - name: config
+            mountPath: /config
         securityContext:
           runAsUser: 0
 
@@ -94,11 +94,11 @@ spec:
       main:
         enabled: true
         hosts:
-        - host: "plex.${SECRET_DOMAIN}"
-          paths:
-          - path: /
-            pathType: Prefix
+          - host: "plex.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
         tls:
-        - hosts:
-          - "plex.${SECRET_DOMAIN}"
-          secretName: plex-tls
+          - hosts:
+              - "plex.${SECRET_DOMAIN}"
+            secretName: plex-tls
