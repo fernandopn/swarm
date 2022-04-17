@@ -29,19 +29,19 @@ spec:
       backup.velero.io/backup-volumes: config
 
     podSecurityContext: # jackett container runAS abc:abc (1000:1000)
-    #   runAsUser: 1000
-    #   runAsGroup: 1000
-    #   fsGroup: 1000
-    #   fsGroupChangePolicy: "OnRootMismatch"
+      # runAsUser: 1000
+      # runAsGroup: 1000
+      # fsGroup: 1000
+      # fsGroupChangePolicy: "OnRootMismatch"
       supplementalGroups:
-      - 100 # users
+        - 100 # users
     initContainers:
       update-volume-permission:
         image: busybox
         command: ["sh", "-c", "chown -R 1000:1000 /config"]
         volumeMounts:
-        - name: config
-          mountPath: /config
+          - name: config
+            mountPath: /config
         securityContext:
           runAsUser: 0
 
@@ -66,11 +66,11 @@ spec:
       main:
         enabled: true
         hosts:
-        - host: "jackett.${SECRET_DOMAIN}"
-          paths:
-          - path: /
-            pathType: Prefix
+          - host: "jackett.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
         tls:
-        - hosts:
-          - "jackett.${SECRET_DOMAIN}"
-          secretName: jackett-tls
+          - hosts:
+              - "jackett.${SECRET_DOMAIN}"
+            secretName: jackett-tls
