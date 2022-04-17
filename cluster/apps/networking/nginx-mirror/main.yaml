@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: nginx-internal-config
+  name: nginx-mirror-config
 data:
   magrathea.conf: |2
     server {
@@ -99,7 +99,7 @@ spec:
       labels:
         app: nginx-mirror
       annotations:
-        configmap.reloader.stakater.com/reload: nginx-internal-config
+        configmap.reloader.stakater.com/reload: nginx-mirror-config
     spec:
       containers:
         - name: nginx-mirror
@@ -120,7 +120,7 @@ spec:
       volumes:
         - name: config-volume
           configMap:
-            name: nginx-internal-config
+            name: nginx-mirror-config
 ---
 apiVersion: v1
 kind: Service
