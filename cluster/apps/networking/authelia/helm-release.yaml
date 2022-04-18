@@ -93,63 +93,63 @@ spec:
           sender: ${SECRET_SMTP_USERNAME}
           identifier: ${SECRET_DOMAIN}
 
-      # The Rules!!! 
+      # The Rules!!!
       access_control:
         default_policy: deny
 
         networks:
-        - name: home
-          networks:
-          - 10.0.0.0/8
+          - name: home
+            networks:
+              - 10.0.0.0/8
 
         rules:
-        - domain:
-          # iot
-          - "home-assistant.${SECRET_DOMAIN}"
-          policy: bypass
-          networks:
-          - home
+          - domain:
+              # iot
+              - "home-assistant.${SECRET_DOMAIN}"
+            policy: bypass
+            networks:
+              - home
 
-        # At Home
-        - domain:
-          # default
-          - "webtop.${SECRET_DOMAIN}"
-          # networking
-          - "uptime-kuma.${SECRET_DOMAIN}"
-          - "magrathea.${SECRET_DOMAIN}"
-          - "pikvm.${SECRET_DOMAIN}"
-          # kube-prometheus-stack
-          - "alertmanager.${SECRET_DOMAIN}"
-          - "grafana.${SECRET_DOMAIN}"
-          - "prometheus.${SECRET_DOMAIN}"
-          # Media
-          - "bazarr.${SECRET_DOMAIN}"
-          - "calibre.${SECRET_DOMAIN}"
-          - "jackett.${SECRET_DOMAIN}"
-          - "plex.${SECRET_DOMAIN}"
-          - "radarr.${SECRET_DOMAIN}"
-          - "sabnzbd.${SECRET_DOMAIN}"
-          - "sonarr.${SECRET_DOMAIN}"
-          # - "tdarr.${SECRET_DOMAIN}" not ready
-          # iot
-          - "esphome-vscode.${SECRET_DOMAIN}"
-          - "esphome.${SECRET_DOMAIN}"
-          - "home-assistant-vscode.${SECRET_DOMAIN}"
-          - "node-red.${SECRET_DOMAIN}"
-          - "zigbee2mqtt-vscode.${SECRET_DOMAIN}"
-          - "zigbee2mqtt.${SECRET_DOMAIN}"
-          policy: one_factor
-          subject:
-          - "group:admins"
-          networks:
-          - home
+          # At Home
+          - domain:
+              # default
+              - "webtop.${SECRET_DOMAIN}"
+              # networking
+              - "uptime-kuma.${SECRET_DOMAIN}"
+              - "magrathea.${SECRET_DOMAIN}"
+              - "pikvm.${SECRET_DOMAIN}"
+              # kube-prometheus-stack
+              - "alertmanager.${SECRET_DOMAIN}"
+              - "grafana.${SECRET_DOMAIN}"
+              - "prometheus.${SECRET_DOMAIN}"
+              # Media
+              - "bazarr.${SECRET_DOMAIN}"
+              - "calibre.${SECRET_DOMAIN}"
+              - "jackett.${SECRET_DOMAIN}"
+              - "plex.${SECRET_DOMAIN}"
+              - "radarr.${SECRET_DOMAIN}"
+              - "sabnzbd.${SECRET_DOMAIN}"
+              - "sonarr.${SECRET_DOMAIN}"
+              # - "tdarr.${SECRET_DOMAIN}" not ready
+              # iot
+              - "esphome-vscode.${SECRET_DOMAIN}"
+              - "esphome.${SECRET_DOMAIN}"
+              - "home-assistant-vscode.${SECRET_DOMAIN}"
+              - "node-red.${SECRET_DOMAIN}"
+              - "zigbee2mqtt-vscode.${SECRET_DOMAIN}"
+              - "zigbee2mqtt.${SECRET_DOMAIN}"
+            policy: one_factor
+            subject:
+              - "group:admins"
+            networks:
+              - home
 
-        # Away
-        - domain:
-          # kube-prometheus-stack
-          - "alertmanager.${SECRET_DOMAIN}"
-          - "grafana.${SECRET_DOMAIN}"
-          - "prometheus.${SECRET_DOMAIN}"
-          policy: two_factor
-          subject:
-          - "group:admins"
+          # Away
+          - domain:
+              # kube-prometheus-stack
+              - "alertmanager.${SECRET_DOMAIN}"
+              - "grafana.${SECRET_DOMAIN}"
+              - "prometheus.${SECRET_DOMAIN}"
+            policy: two_factor
+            subject:
+              - "group:admins"
