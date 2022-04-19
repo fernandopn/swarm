@@ -22,7 +22,7 @@ spec:
     # https://github.com/k8s-at-home/charts/blob/master/charts/stable/tdarr/values.yaml
     image:
       repository: haveagitgat/tdarr
-      tag: 2.00.17
+      tag: 2.00.18
 
     # Backup
     # podAnnotations:
