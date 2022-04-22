@@ -30,7 +30,7 @@ spec:
         enabled: true
         serviceMonitor:
           enabled: true
-          additionalLabels: 
+          additionalLabels:
             release: kube-prometheus-stack
       resources:
         requests:
