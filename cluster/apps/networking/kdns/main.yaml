@@ -6,9 +6,9 @@ metadata:
   labels:
     app: kdns
 spec:
-  replicas: 2
+  replicas: 3
   strategy:
-    type: Recreate # Birth and Will messages make more sense
+    type: RollingUpdate
   selector:
     matchLabels:
       app: kdns
@@ -20,7 +20,7 @@ spec:
       serviceAccount: kdns
       containers:
         - name: kdns
-          image: cronuxs/kdns:v0.0.5
+          image: cronuxs/kdns:v0.0.6
           args: ["/go/bin/kdns", "--externalDNS", "1.1.1.1,8.8.8.8", "--baseDomain", "${SECRET_DOMAIN}."]
           resources:
             requests:
