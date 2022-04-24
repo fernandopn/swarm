@@ -5,7 +5,7 @@ metadata:
 rules:
 - apiGroups: ["networking.k8s.io", ""]
   resources: ["ingresses", "services"]
-  verbs: ["list", "get"]
+  verbs: ["list", "get", "watch"]
 ---
 apiVersion: v1
 kind: ServiceAccount
