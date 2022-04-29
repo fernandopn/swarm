@@ -24,14 +24,16 @@ spec:
 
     # we are not running
     kubeApiServer:
-      enabled: true
+      enabled: false
     kubeControllerManager:
       enabled: false
-    kubeScheduler:
+    kubeEtcd:
       enabled: false
+    kubelet:
+      enabled: true
     kubeProxy:
       enabled: false
-    kubeEtcd:
+    kubeScheduler:
       enabled: false
 
     defaultRules:
