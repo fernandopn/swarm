@@ -27,30 +27,10 @@ spec:
       enabled: true
     kubeControllerManager:
       enabled: false
-      # service:
-      #   enabled: true
-      #   port: 10257
-      #   targetPort: 10257
-      # serviceMonitor:
-      #   enabled: true
-      #   https: true
-      #   insecureSkipVerify: true
     kubeScheduler:
       enabled: false
-      # endpoints:
-      #   - ${SECRET_K3S_MASTER1}
-      # service:
-      #   enabled: true
-      #   port: 10259
-      #   targetPort: 10259
-      # serviceMonitor:
-      #   enabled: true
-      #   https: true
-      #   insecureSkipVerify: true
     kubeProxy:
-      enabled: true
-      endpoints:
-        - ${SECRET_K3S_MASTER1}
+      enabled: false
     kubeEtcd:
       enabled: false
 
