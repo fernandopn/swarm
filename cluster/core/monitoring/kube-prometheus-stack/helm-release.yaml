@@ -23,11 +23,35 @@ spec:
     # https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-prometheus-stack/values.yaml
 
     # we are not running
-    kubeEtcd:
-      enabled: false
-    kubeScheduler:
-      enabled: false
+    kubeApiServer:
+      enabled: true
     kubeControllerManager:
+      enabled: true
+      service:
+        enabled: true
+        port: 10257
+        targetPort: 10257
+      serviceMonitor:
+        enabled: true
+        https: true
+        insecureSkipVerify: true
+    kubeScheduler:
+      enabled: true
+      endpoints:
+        - ${SECRET_K3S_MASTER1}
+      service:
+        enabled: true
+        port: 10259
+        targetPort: 10259
+      serviceMonitor:
+        enabled: true
+        https: true
+        insecureSkipVerify: true
+    kubeProxy:
+      enabled: true
+      endpoints:
+        - ${SECRET_K3S_MASTER1}
+    kubeEtcd:
       enabled: false
 
     defaultRules:
