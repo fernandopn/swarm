@@ -22,7 +22,7 @@ spec:
     # https://github.com/k8s-at-home/charts/blob/master/charts/stable/bazarr/values.yaml
     image:
       repository: linuxserver/bazarr
-      tag: version-v1.0.3
+      tag: version-v1.0.4
 
     podAnnotations:
       backup.velero.io/backup-volumes: config
