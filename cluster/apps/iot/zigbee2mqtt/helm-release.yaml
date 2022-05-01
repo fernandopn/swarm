@@ -26,7 +26,7 @@ spec:
 
     # Backup
     podAnnotations:
-       backup.velero.io/backup-volumes: data
+      backup.velero.io/backup-volumes: data
 
     # Internal DNS server
     dnsPolicy: "None"
@@ -86,31 +86,31 @@ spec:
               - "zigbee2mqtt.${SECRET_DOMAIN}"
             secretName: zigbee2mqtt-tls
 
-    # addons:
-    #   codeserver:
-    #     enabled: true
-    #     workingDir: "/data"
-    #     args:
-    #       - --user-data-dir
-    #       - "/data/.vscode"
-    #       - --auth
-    #       - "none"
-    #     volumeMounts:
-    #       - name: data
-    #         mountPath: /data
-    #     ingress:
-    #       enabled: true
-    #       annotations:
-    #         kubernetes.io/ingress.class: "nginx"
-    #         cert-manager.io/cluster-issuer: letsencrypt-production
-    #         nginx.ingress.kubernetes.io/auth-signin: "https://auth.${SECRET_DOMAIN}"
-    #         nginx.ingress.kubernetes.io/auth-url: "https://auth.${SECRET_DOMAIN}/api/verify"
-    #       hosts:
-    #         - host: zigbee2mqtt-vscode.${SECRET_DOMAIN}
-    #           paths:
-    #             - path: /
-    #               pathType: Prefix
-    #       tls:
-    #         - hosts:
-    #             - zigbee2mqtt-vscode.${SECRET_DOMAIN}
-    #           secretName: zigbee2mqtt-vscode-tls
+#     addons:
+#       codeserver:
+#         enabled: true
+#         workingDir: "/data"
+#         args:
+#           - --user-data-dir
+#           - "/data/.vscode"
+#           - --auth
+#           - "none"
+#         volumeMounts:
+#           - name: data
+#             mountPath: /data
+#         ingress:
+#           enabled: true
+#           annotations:
+#             kubernetes.io/ingress.class: "nginx"
+#             cert-manager.io/cluster-issuer: letsencrypt-production
+#             nginx.ingress.kubernetes.io/auth-signin: "https://auth.${SECRET_DOMAIN}"
+#             nginx.ingress.kubernetes.io/auth-url: "https://auth.${SECRET_DOMAIN}/api/verify"
+#           hosts:
+#             - host: zigbee2mqtt-vscode.${SECRET_DOMAIN}
+#               paths:
+#                 - path: /
+#                   pathType: Prefix
+#           tls:
+#             - hosts:
+#                 - zigbee2mqtt-vscode.${SECRET_DOMAIN}
+#               secretName: zigbee2mqtt-vscode-tls
