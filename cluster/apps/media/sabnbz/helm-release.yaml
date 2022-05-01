@@ -38,24 +38,24 @@ spec:
       # runAsUser: 1000
       # runAsGroup: 1000
       supplementalGroups:
-      - 100
-      # - 568
+        - 100
+        # - 568
 
     initContainers:
       update-config-ownership:
         image: busybox
         command: ["sh", "-c", "chown -R 1000:1000 /config"]
         volumeMounts:
-        - name: config
-          mountPath: /config
+          - name: config
+            mountPath: /config
         securityContext:
           runAsUser: 0
       update-config-permission:
         image: busybox
         command: ["sh", "-c", "chmod -R 774 /config"]
         volumeMounts:
-        - name: config
-          mountPath: /config
+          - name: config
+            mountPath: /config
         securityContext:
           runAsUser: 0
 
@@ -86,11 +86,11 @@ spec:
         enabled: true
         ingressClassName: "nginx"
         hosts:
-        - host: "sabnzbd.${SECRET_DOMAIN}"
-          paths:
-          - path: /
-            pathType: Prefix
+          - host: "sabnzbd.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
         tls:
-        - hosts:
-          - "sabnzbd.${SECRET_DOMAIN}"
-          secretName: sabnzbd-tls
+          - hosts:
+              - "sabnzbd.${SECRET_DOMAIN}"
+            secretName: sabnzbd-tls

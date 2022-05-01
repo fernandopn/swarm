@@ -53,16 +53,16 @@ spec:
         image: busybox
         command: ["sh", "-c", "chown -R 1000:1000 /data"]
         volumeMounts:
-        - name: data
-          mountPath: /data
+          - name: data
+            mountPath: /data
         securityContext:
           runAsUser: 0
       update-config-permission:
         image: busybox
         command: ["sh", "-c", "chmod -R 770 /data"]
         volumeMounts:
-        - name: data
-          mountPath: /data
+          - name: data
+            mountPath: /data
         securityContext:
           runAsUser: 0
 
@@ -75,11 +75,11 @@ spec:
           nginx.ingress.kubernetes.io/auth-signin: "https://auth.${SECRET_DOMAIN}"
           nginx.ingress.kubernetes.io/auth-url: "https://auth.${SECRET_DOMAIN}/api/verify"
         hosts:
-        - host: node-red.${SECRET_DOMAIN}
-          paths:
-          - path: /
-            pathType: Prefix
+          - host: node-red.${SECRET_DOMAIN}
+            paths:
+              - path: /
+                pathType: Prefix
         tls:
-        - hosts:
-          - node-red.${SECRET_DOMAIN}
-          secretName: node-red-tls
+          - hosts:
+              - node-red.${SECRET_DOMAIN}
+            secretName: node-red-tls
