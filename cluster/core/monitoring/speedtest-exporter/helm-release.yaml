@@ -26,11 +26,11 @@ spec:
       enabled: true
       serviceMonitor:
         interval: 5m
-        labels: 
+        labels:
           release: kube-prometheus-stack
       prometheusRule:
         enabled: true
-        labels: 
+        labels:
           role: alert-rules
         downloadLimit: 1000
         uploadLimit: 100
