@@ -103,7 +103,7 @@ spec:
     spec:
       containers:
         - name: nginx-mirror
-          image: nginx:1.21.6
+          image: nginx:1.22.0
           ports:
             - name: http
               containerPort: 80
