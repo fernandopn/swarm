@@ -22,7 +22,7 @@ spec:
     # https://github.com/k8s-at-home/charts/blob/master/charts/stable/uptime-kuma/values.yaml
     image:
       repository: louislam/uptime-kuma
-      tag: 1.16.0
+      tag: 1.16.1
 
     env:
       TZ: "${SECRET_TIMEZONE}"
