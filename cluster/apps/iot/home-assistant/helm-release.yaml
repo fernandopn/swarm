@@ -32,6 +32,12 @@ spec:
       nameservers:
         - 10.0.6.222
 
+    metrics:
+      enabled: true
+      serviceMonitor:
+        labels:
+          release: kube-prometheus-stack
+
     prometheus:
       serviceMonitor:
         enabled: true
