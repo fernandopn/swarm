@@ -37,6 +37,12 @@ spec:
       serviceMonitor:
         labels:
           release: kube-prometheus-stack
+        bearerTokenSecret:
+          name: "prometheus-secrets"
+          key: "prom-token"
+      prometheusRule:
+        enabled: true
+        rules: []
 
     prometheus:
       serviceMonitor:
