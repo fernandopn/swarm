@@ -32,11 +32,11 @@ spec:
       nameservers:
         - 10.0.6.222
 
-    # prometheus: Giving a access denied
-    #   serviceMonitor:
-    #     enabled: true
-    #     additionalLabels:
-    #       release: kube-prometheus-stack
+    prometheus:
+      serviceMonitor:
+        enabled: true
+        additionalLabels:
+          release: kube-prometheus-stack
 
     # Pod
     resources:
