@@ -42,7 +42,9 @@ spec:
           key: "prom-token"
       prometheusRule:
         enabled: true
-        rules: 
+        additionalLabels: 
+          role: alert-rules
+        rules:
           - alert: EsphomeRebooted
             annotations:
               description: ESPHome {{ $labels.friendly_name }} rebooted.
