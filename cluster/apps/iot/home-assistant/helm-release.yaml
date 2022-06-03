@@ -43,7 +43,7 @@ spec:
       prometheusRule:
         enabled: true
         rules: 
-          - alert: esphome-rebooted
+          - alert: EsphomeRebooted
             annotations:
               description: ESPHome {{ $labels.friendly_name }} rebooted.
               summary: A esphome device had rebooted.
