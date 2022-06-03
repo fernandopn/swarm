@@ -42,13 +42,16 @@ spec:
           key: "prom-token"
       prometheusRule:
         enabled: true
-        rules: []
-
-    prometheus:
-      serviceMonitor:
-        enabled: true
-        additionalLabels:
-          release: kube-prometheus-stack
+        rules: 
+          - alert: esphome-rebooted
+            annotations:
+              description: ESPHome {{ $labels.friendly_name }} rebooted.
+              summary: A esphome device had rebooted.
+            expr: |
+              hass_esphome_uptime < 600
+            for: 0m
+            labels:
+              severity: warning
 
     # Pod
     resources:
