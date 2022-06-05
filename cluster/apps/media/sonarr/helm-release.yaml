@@ -89,7 +89,7 @@ spec:
           release: kube-prometheus-stack
       prometheusRule:
         enabled: true
-        additionalLabels: 
+        labels: 
           role: alert-rules
 
     ingress:
