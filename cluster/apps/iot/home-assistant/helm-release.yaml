@@ -42,7 +42,7 @@ spec:
           key: "prom-token"
       prometheusRule:
         enabled: true
-        labels: 
+        labels:
           role: alert-rules
         rules:
           - alert: EsphomeRebooted

@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -12,7 +13,6 @@ spec:
     matchLabels:
       app: elgato2mqtt
   template:
-  
     metadata:
       labels:
         app: elgato2mqtt
@@ -21,29 +21,29 @@ spec:
       nodeSelector:
         role: iot-controller
       tolerations:
-      - key: "dedicated"
-        operator: "Equal"
-        value: "iot"
-        effect: "NoSchedule"
+        - key: "dedicated"
+          operator: "Equal"
+          value: "iot"
+          effect: "NoSchedule"
       # Internal DNS server
       dnsPolicy: "None"
       dnsConfig:
         nameservers:
           - 10.0.6.222
       containers:
-      - name: elgato2mqtt
-        image: cronuxs/elgato2mqtt:v0.1.2
-        resources:
-          requests:
-            memory: "10Mi"
-            cpu: "50m"
-          limits:
-            memory: "20Mi"
-            cpu: "100m"
-        volumeMounts:
-        - mountPath: /config
-          name: config
+        - name: elgato2mqtt
+          image: cronuxs/elgato2mqtt:v0.1.2
+          resources:
+            requests:
+              memory: "10Mi"
+              cpu: "50m"
+            limits:
+              memory: "20Mi"
+              cpu: "100m"
+          volumeMounts:
+            - mountPath: /config
+              name: config
       volumes:
-      - name: config
-        configMap:
-          name: elgato2mqtt-config
+        - name: config
+          configMap:
+            name: elgato2mqtt-config
