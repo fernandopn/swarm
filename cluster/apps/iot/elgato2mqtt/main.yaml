@@ -32,7 +32,7 @@ spec:
           - 10.0.6.222
       containers:
         - name: elgato2mqtt
-          image: cronuxs/elgato2mqtt:v0.1.2
+          image: cronuxs/elgato2mqtt:v0.1.3
           resources:
             requests:
               memory: "10Mi"
