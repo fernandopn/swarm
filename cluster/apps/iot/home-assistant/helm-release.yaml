@@ -50,7 +50,7 @@ spec:
               description: ESPHome {{ $labels.friendly_name }} rebooted.
               summary: A esphome device had rebooted.
             expr: |
-              hass_esphome_uptime < 600
+              delta(hass_esphome_uptime[10m]) <= 0
             for: 0m
             labels:
               severity: warning
