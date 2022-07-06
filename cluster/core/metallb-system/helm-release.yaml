@@ -18,16 +18,6 @@ spec:
   values:
     # https://github.com/metallb/metallb/blob/main/charts/metallb/values.yaml
 
-    prometheus:
-      prometheusRule:
-        enabled: true
-        additionalLabels:
-          role: alert-rules
-      podMonitor:
-        enabled: true
-        additionalLabels:
-          release: kube-prometheus-stack
-
     controller:
       image:
         repository: metallb/controller
