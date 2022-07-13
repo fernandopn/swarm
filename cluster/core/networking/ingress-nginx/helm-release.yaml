@@ -41,4 +41,4 @@ spec:
       ## When internet is down auth.domain needs to be resolved.
       dnsConfig:
         nameservers:
-        - 10.0.6.222
+          - 10.0.6.222

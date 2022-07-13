@@ -28,10 +28,10 @@ spec:
         repository: metallb/speaker
         tag: v0.12.1
       tolerations:
-      - key: "dedicated"
-        operator: "Equal"
-        value: "iot"
-        effect: "NoSchedule"
+        - key: "dedicated"
+          operator: "Equal"
+          value: "iot"
+          effect: "NoSchedule"
 
     configInline:
       address-pools:
