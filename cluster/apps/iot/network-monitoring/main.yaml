@@ -32,7 +32,7 @@ spec:
           - 10.0.6.222
       containers:
         - name: network-monitoring
-          image: cronuxs/network-monitoring:v0.1.4
+          image: cronuxs/network-monitoring:v0.1.5
           resources:
             requests:
               memory: "10Mi"
