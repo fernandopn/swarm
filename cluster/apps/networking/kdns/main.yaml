@@ -20,7 +20,7 @@ spec:
       serviceAccount: kdns
       containers:
         - name: kdns
-          image: cronuxs/kdns:v0.0.9
+          image: cronuxs/kdns:v0.0.10
           args: ["/go/bin/kdns", "--externalDNS", "1.1.1.1,8.8.8.8", "--baseDomain", "${SECRET_DOMAIN}."]
           resources:
             requests:
